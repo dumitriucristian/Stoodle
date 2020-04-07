@@ -2,65 +2,61 @@
 require("PHPMailer/src/PHPMailer.php");
 require("PHPMailer/src/SMTP.php");
 require("PHPMailer/src/Exception.php");
+require_once '../folderlogin/datacon.php';
 
 
 
 if(isset($_POST['submit-reset'])){
-
+  $email=$_POST['mailreset'];
   $select=bin2hex(random_bytes(12));
-  $token=random_bytes(32);
+  $token=bin2hex(random_bytes(32));
 
-  $link="http://localhost/stoodledarnu%20definitiv/pages/newparola.php?select=".$select."&valid=".bin2hex($token);
+  $link="http://localhost/Stoodle/pages/newparola.php?select=".$select."&valid=".$token;
   $end=date("U")+60*60;
 
-  if (empty($_POST['mailreset'])) {
+  if (empty($email)) {
     header("Location: ../reset.php?error=emptymail");
     exit();
   }
-  elseif (!filter_var($_POST['mailreset'], FILTER_VALIDATE_EMAIL)) {
-    header("Location: ../reset.php?error=numail");
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    header("Location: ../reset.php?error=numail&email=".$email);
     exit();
   }
-  require_once '../folderlogin/datacon.php';
-  $email=$_POST['mailreset'];
   $mysql="SELECT mailUser FROM users WHERE mailUser=?";
   $stmt=mysqli_stmt_init($connection);
   if (!mysqli_stmt_prepare($stmt,$mysql)) {
-    header("Location: ../reset.php?error=mysqlerror");
+    header("Location: ../reset.php?error=mysqlerror&email=".$email);
     exit();
   }
-  else{
     mysqli_stmt_bind_param($stmt,"s",$email);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_store_result($stmt);
     $useri=mysqli_stmt_num_rows($stmt);
     if($useri==0){
-      header("Location: ../reset.php?error=nucont");
+      header("Location: ../reset.php?error=nucont&email=".$email);
       exit();
     }
   $mysql="DELETE FROM resetare WHERE mailReset=?;";
   $stmt=mysqli_stmt_init($connection);
   if (!mysqli_stmt_prepare($stmt,$mysql)) {
-    header("Location: ../reset.php?error=mysqlerror");
+    header("Location: ../reset.php?error=mysqlerror&email=".$email);
     exit();
   }
-  else {
     mysqli_stmt_bind_param($stmt,"s",$email);
     mysqli_stmt_execute($stmt);
-    }
 
 
   $mysql="INSERT INTO resetare(mailReset,selectReset,tokenReset,expireReset) VALUES(?,?,?,?);";
   $stmt=mysqli_stmt_init($connection);
   if (!mysqli_stmt_prepare($stmt,$mysql)) {
-    header("Location: ../reset.php?error=mysqlerror");
+    header("Location: ../reset.php?error=mysqlerror&email=".$email);
     exit();
   }
-  else {
     $hash=password_hash($token, PASSWORD_DEFAULT);
     mysqli_stmt_bind_param($stmt,"ssss",$email,$select,$hash,$end);
     mysqli_stmt_execute($stmt);
-    }
+
+
     mysqli_stmt_close($stmt);
     mysqli_close($connection);
 
@@ -103,7 +99,7 @@ if(isset($_POST['submit-reset'])){
     $mail->SetFrom('phprobertplaiasu03@gmail.com');
     $mail->Subject='Resetarea parolei a contului Stoodle';
     $mail->Body='
-    <a href="http://localhost/stoodledarnu%20definitiv/"><p style="font-size: 2rem; font-weight: 700; font-family: "Raleway", sans-serif;">Stoodle</p></a>
+    <a href="http://localhost/Stoodle/"><p style="font-size: 2rem; font-weight: 700; font-family: "Raleway", sans-serif;">Stoodle</p></a>
     </br>
     <p>Am primit o cerere de resetare a parolei.Link-ul pentru a va reseta parola este mai jos.
     Daca nu dumneavoastra ati facut aceasta cerere puteti ignora acest mail.</p>
@@ -112,7 +108,6 @@ if(isset($_POST['submit-reset'])){
     $mail->Send();
 
     header("Location: ../reset.php?resetmail=succes");
-}
 }
 else {
   header("Location: ../login.php");

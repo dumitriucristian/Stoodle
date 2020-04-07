@@ -99,6 +99,6 @@ function filterPassword($var){
 }
 else
 {
-    header("Location: http://localhost:4200/landing-page");
+    header("Location: ../login.php");
     exit();
 }

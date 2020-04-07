@@ -5,6 +5,15 @@ if(isset($_POST['submit-parola-reset'])){
   $token=$_POST['token'];
   $parola=$_POST['resetparola'];
   $confparola=$_POST['resetconfirmareparola'];
+
+
+  /*empty fields*/
+  function emptyVar($var){
+    if(empty($var)){
+      header("Location: ../newparola.php?error=emptyfield&select=".$select."&valid=".$token);
+      exit();
+    }
+  }
   if(empty($parola) || empty($confparola)){
     header("Location: ../newparola.php?error=emptyfields&select=".$select."&valid=".$token);
     exit();
