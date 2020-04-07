@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,700;1,400&display=swap');
+@import url('./variabiles.css');
+#sidebar {
+    font-family: 'Barlow', sans-serif;
+}
+
+#sidebar a,
+#sidebar a:hover,
+#sidebar a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    width: 450px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: -1;
+    background: var(--white);
+    color: var(--black);
+    font-weight: 300;
+    font-size: 1.5em;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#sidebar.active {
+    margin-left: -450px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sidebar .sidebar-header p {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.6em;
+}
+
+#sidebar ul {
+    padding: 0 1rem;
+    width: 90%;
+}
+
+#sidebar ul li {
+    margin: .5em 0;
+}
+
+#sidebar ul li a {
+    display: flex!important;
+    justify-content: space-between!important;
+    align-items: center;
+    padding: 10px 2em;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: var(--black);
+    border-radius: 8px;
+    background: var(--yellow);
+    font-weight: 700;
+}
+
+#sidebar ul li a.active,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #1B2631;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+#decconect {
+    background-color: var(--black);
+    color: var(--yellow)!important;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 1rem 4rem;
+    margin: 2em;
+}
+
+#decconect:hover {
+    background-color: var(--yellow);
+    color: var(--black)!important;
+}
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: calc(100% - 450px);
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#content.active {
+    width: 100%;
+}
+
+#content img#open {
+    display: none;
+}
+
+#content img#close {
+    display: block;
+}
+
+#content img#open {
+    display: none;
+}
+
+#content img#close {
+    display: block;
+}
+
+#basic-text1 {
+    background-color: var(--black);
+    color: var(--yellow);
+    font-weight: 700;
+}
+
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 784px) {
+    .form-control:focus {
+        width: 38vw;
+        transition: .3s ease;
+    }
+}
+
+@media (max-width: 942px) {
+    .form-control:focus {
+        width: 40vw;
+        transition: .3s ease-in;
+    }
+}
+
+@media (min-width: 1024px) {
+    .form-control:focus {
+        width: 50vw;
+        transition: 1s ease-in-out;
+    }
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #content {
+        width: 100%;
+    }
+    #content.active {
+        width: calc(100% - 250px);
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+    .form-control:focus {
+        width: 60vw;
+        transition: .3s ease;
+    }
+}
+
+@media (min-width: 414px) {
+    .form-control:focus {
+        width: 50vw;
+        transition: .3s ease-in;
+    }
+}
+
+@media (max-width: 414px) {
+    .form-control {
+        width: 36vw;
+        transition: .3s ease-in;
+    }
+}
