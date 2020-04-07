@@ -96,7 +96,6 @@
                               echo '<input type="email" name="confirmail" class="form-control" aria-describedby="emailHelp">';
                             }
                              ?>
-                            <input type="email" name="confirmail" class="form-control" aria-describedby="emailHelp">
                             <small class="form-text text-muted alert-note">
                                 <?php
 

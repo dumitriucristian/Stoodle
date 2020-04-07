@@ -1,6 +1,6 @@
 <?php
 
-public function erore1($value,$msg)
+function erore1($value,$msg)
 {
   if(isset($_GET['error'])){
     if($_GET['error']==$value){
@@ -9,8 +9,7 @@ public function erore1($value,$msg)
   }
 }
 
-
-public function erore2($value,$msg)
+function erore2($value,$msg)
 {
   if(isset($_GET['error'])){
     if($_GET['error']==$value){
@@ -20,7 +19,7 @@ public function erore2($value,$msg)
     }
   }
 }
-public function succes($value,$msg)
+function succes($value,$msg)
 {
   if(isset($_GET['succes'])){
     if($_GET['succes']==$value){
@@ -29,23 +28,5 @@ public function succes($value,$msg)
             </div>';
     }
   }
-}
-public function UserJson()
-{
-  $user=array
-  (
-    "nume"=>$_SESSION['nume'];
-    "prenume"=>$_SESSION['prenume'];
-    "materie1"=>$_SESSION['materie1'];
-    "materie2"=>$_SESSION['materie2'];
-    "Profil"=>$_SESSION['Profil'];
-    "Domeniu"=>$_SESSION['Domeniu'];
-    "Concurs"=>$_SESSION['Concurs'];
-    "Judet"=>$_SESSION['Judet'];
-    "PozaUser"=>$_SESSION['PozaUser'];
-  );
-
-  print json_encode($user);
-
 }
 ?>

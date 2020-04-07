@@ -7,44 +7,42 @@ $token=$_GET['valid'];
 $date=date("U");
 
 if(empty($select)||empty($token)){
-    header("Location: ../create.php?error=invalidlink");
+    header("Location: ../register.php?error=invalidlink");
     exit();
 }
-
-else{
   if(ctype_xdigit($select)===true && ctype_xdigit($token)===true){
 
     $mysql="SELECT * FROM users_verificare WHERE expireVerificare>=? AND selectVerificare =?";
     $stmt=mysqli_stmt_init($connection);
-    if (!mysqli_stmt_prepare($stmt,$mysql)) {
-      header("Location: ../paginaintebari.php?error=mysqlerror&select=".$select."&valid=".$token);
+    if (!mysqli_stmt_prepare($stmt,$mysql))
+   {
+      header("Location: ../paginaintebari.php?error=mysqlerror");
       exit();
     }
-    else {
       mysqli_stmt_bind_param($stmt,"ss",$date,$select);
       mysqli_stmt_execute($stmt);
       $rezultat=mysqli_stmt_get_result($stmt);
-      if(!$rand=mysqli_fetch_assoc($rezultat)){
+      if(!$rand=mysqli_fetch_assoc($rezultat))
+      {
         $mysql="DELETE FROM users_verificare WHERE selectVerificare=?;";
         $stmt=mysqli_stmt_init($connection);
-        if (!mysqli_stmt_prepare($stmt,$mysql)) {
-          header("Location: ../paginaintebari.php?error=mysqlerror&select=".$select."&valid=".$token);
+        if (!mysqli_stmt_prepare($stmt,$mysql))
+        {
+          header("Location: ../paginaintebari.php?error=mysqlerror");
           exit();
         }
-        else {
           mysqli_stmt_bind_param($stmt,"s",$select);
           mysqli_stmt_execute($stmt);
-          header("Location: ../create.php?error=expire");
+          header("Location: ../register.php?error=expire");
           exit();
-      }
     }
-    else {
-      $ok=password_verify(hex2bin($token),$rand['tokenVerificare']);
+      $ok=password_verify($token,$rand['tokenVerificare']);
       if($ok===false){
-        header("Location: ../create.php?error=alttoken");
+        header("Location: ../register.php?error=alttoken");
         exit();
       }
-      elseif($ok===true){
+      elseif($ok===true)
+      {
 
         $mysql="INSERT INTO users(Nume,Prenume,mailUser,pwdUsers) VAlUES(?,?,?,?) ";
         $stmt=mysqli_stmt_init($connection);
@@ -52,7 +50,6 @@ else{
           header("Location: ../paginaintebari.php?error=mysqlerror&select=".$select."&valid=".$token);
           exit();
         }
-        else {
           mysqli_stmt_bind_param($stmt,"ssss",$rand['numeVerificare'],$rand['prenumeVerificare'],$rand['mailVerificare'],$rand['parolaVerificare']);
           mysqli_stmt_execute($stmt);
 
@@ -60,11 +57,12 @@ else{
           mysqli_query($connection,$mysql);
 
     }
-    }
     else {
-        header("Location: ../create.php?error=eroaregenerala");
+        header("Location: ../register.php?error=eroaregenerala");
+        exit();
     }
-  }
-  }
 }
+else {
+  header("Location: ../register.php?error=eroaregenerala");
+  exit();
 }

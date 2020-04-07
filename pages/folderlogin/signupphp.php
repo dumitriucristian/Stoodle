@@ -10,95 +10,116 @@
    $password_repeat=$_POST['passw-repeat'];
    $checkbox=$_POST['checkbox'];
 
-  if(empty($nume)){
-     header("Location: ../create.php?error=emptyfieldnume&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
-     exit();
-   }
-  elseif(empty($prenume)){
-    header("Location: ../create.php?error=emptyfieldprenume&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
-    exit();
-      }
-  elseif(empty($email)){
-      header("Location: ../create.php?error=emptyfieldemail&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
-      exit();
-         }
-  elseif(empty($email_repeat)){
-      header("Location: ../create.php?error=emptyfieldemailrepeat&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
-      exit();
-            }
-  elseif(empty($password)){
-    header("Location: ../create.php?error=emptyfieldpass&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
-    exit();
-               }
-  elseif(empty($password_repeat)){
-          header("Location: ../create.php?error=emptyfieldpassrepeat&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
-          exit();
-                  }
-   elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-     header("Location: ../create.php?error=invalidmail&nume=".$nume."&prenume=".$prenume."&confirmail=".$email_repeat);
-     exit();
-   }
-   elseif (!filter_var($email_repeat, FILTER_VALIDATE_EMAIL)) {
-     header("Location: ../create.php?error=invalidmailrepeat&nume=".$nume."&prenume=".$prenume."&email=".$email);
-     exit();
-   }
-   elseif (!preg_match("/^[a-zA-Z]*$/", $nume)) {
-     header("Location: ../create.php?error=invalidnume&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
-     exit();
-   }
-   elseif (!preg_match("/^[a-zA-Z]*$/", $prenume)) {
-     header("Location: ../create.php?error=invalidprenume&nume=".$nume."&email=".$email."&confirmail=".$email_repeat);
-     exit();
-   }
-   elseif (!preg_match("/^[a-zA-Z0-9]*$/", $password)) {
-     header("Location: ../create.php?error=invalidpassw&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
-     exit();
-   }
-   elseif (!preg_match("/^[a-zA-Z0-9]*$/", $password_repeat)) {
-     header("Location: ../create.php?error=invalidpasswrepeat&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
-     exit();
-   }
-   elseif (strlen($nume)>24) {
-     header("Location: ../create.php?error=marenume&email=".$email."&prenume=".$prenume."&confirmail=".$email_repeat);
-     exit();
-   }
-   elseif (strlen($prenume)>24) {
-     header("Location: ../create.php?error=mareprenume&email=".$email."&nume=".$nume."&confirmail=".$email_repeat);
-     exit();
-   }
-   elseif (strlen($password)<8) {
-     header("Location: ../create.php?error=micpassw&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
-     exit();
-   }
-   elseif (strlen($password)>32) {
-     header("Location: ../create.php?error=marepassw&email=".$email."&nume=".$nume."&confirmail=".$email_repeat);
-     exit();
-   }
-   elseif (strpos(strtolower($nume),strtolower($password))!==false) {
-     header("Location: ../create.php?error=identicpasswnume&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
-     exit();
-   }
-   elseif (strpos(strtolower($password),strtolower($nume))!==false) {
-     header("Location: ../create.php?error=identicpasswnume&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
-     exit();
-   }
-   elseif (strpos(strtolower($prenume),strtolower($password))!==false) {
-     header("Location: ../create.php?error=identicpasswprenume&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
-     exit();
-   }
-   elseif (strpos(strtolower($password),strtolower($prenume))!==false) {
-     header("Location: ../create.php?error=identicpasswprenume&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
-     exit();
-   }
-   elseif ($email!==$email_repeat) {
-     header("Location: ../create.php?error=mailother&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
-     exit();
+/*empty field*/
+  function emptyField($var,$nume,$prenume,$email,$email_repeat,$msg){
+    if(empty($var)){
+      $msg="Location: ../register.php?error=emptyfield".$msg."&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat;
+       header($msg);
+       exit();
+     }
   }
-   elseif ($password!==$password_repeat) {
-     header("Location: ../create.php?error=passwdother&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
-     exit();
- }
- elseif ($checkbox!=1) {
+
+/*validate nume, prenume*/
+  function validateVarNume($var,$nume,$prenume,$email,$email_repeat,$msg){
+    if(!preg_match("/^[a-zA-Z]*$/", $var)) {
+      $msg="Location: ../register.php?error=invalid".$msg."&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat;
+       header($msg);
+       exit();
+    }
+    if (strlen($var)>24) {
+      $msg="Location: ../register.php?error=mare".$msg."&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat;
+       header($msg);
+       exit();
+    }
+  }
+
+
+/*filter validate mail*/
+
+
+  function validateEmail($var,$nume,$prenume,$email,$email_repeat,$msg)
+  {
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $msg="Location: ../register.php?error=invalid".$msg."&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat;
+       header($msg);
+       exit();
+    }
+  }
+
+  /*validate parola*/
+  function validateVarParola($var,$nume,$prenume,$email,$email_repeat,$password,$password_repeat,$msg){
+    if(!preg_match("/^[a-zA-Z]*$/", $var)) {
+      $msg="Location: ../register.php?error=invalid".$msg."&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat;
+       header($msg);
+       exit();
+    }
+    if (strlen($var)<8) {
+      $msg="Location: ../register.php?error=mic".$msg."&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat;
+       header($msg);
+       exit();
+    }
+    if(strlen($var)>48) {
+      $msg="Location: ../register.php?error=mare".$msg."&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat;
+       header($msg);
+       exit();
+    }
+  }
+
+  /*parola vulnerabila*/
+  function vulnerabilaParola($nume,$prenume,$email,$email_repeat,$password,$password_repeat){
+    if (strpos(strtolower($nume),strtolower($password))!==false) {
+      header("Location: ../register.php?error=identicpasswnume&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
+      exit();
+    }
+    if (strpos(strtolower($password),strtolower($nume))!==false) {
+      header("Location: ../register.php?error=identicpasswnume&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
+      exit();
+    }
+    if (strpos(strtolower($prenume),strtolower($password))!==false) {
+      header("Location: ../register.php?error=identicpasswprenume&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
+      exit();
+    }
+    if (strpos(strtolower($password),strtolower($prenume))!==false) {
+      header("Location: ../register.php?error=identicpasswprenume&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
+      exit();
+    }
+  }
+
+  /*verifica diferentele*/
+  function difVar($var1,$var2,$nume,$prenume,$email,$email_repeat,$msg){
+    if ($var1!==$var2) {
+      $msg="Location: ../create.php?error=".$msg."&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat;
+       header($msg);
+       exit();
+
+   }
+  }
+
+  /* empty field */
+   emptyField($nume,$nume,$prenume,$email,$email_repeat,"nume");
+   emptyField($prenume,$nume,$prenume,$email,$email_repeat,"prenume");
+   emptyField($email,$nume,$prenume,$email,$email_repeat,"email");
+   emptyField($email_repeat,$nume,$prenume,$email,$email_repeat,"emailrepeat");
+   emptyField($password,$nume,$prenume,$email,$email_repeat,"pass");
+   emptyField($password_repeat,$nume,$prenume,$email,$email_repeat,"passrepeat");
+   /*filtere*/
+
+   validateEmail($email,$nume,$prenume,$email,$email_repeat,"email");
+   validateEmail($email,$nume,$prenume,$email,$email_repeat,"emailrepeat");
+
+
+   validateVarNume($nume,$nume,$prenume,$email,$email_repeat,"nume");
+   validateVarNume($prenume,$nume,$prenume,$email,$email_repeat,"prenume");
+
+   validateVarParola($password,$nume,$prenume,$email,$email_repeat,$password,$password_repeat,"pass");
+   validateVarParola($password_repeat,$nume,$prenume,$email,$email_repeat,$password,$password_repeat,"passrepeat");
+
+   vulnerabilaParola($nume,$prenume,$email,$email_repeat,$password,$password_repeat);
+
+   difVar($email,$email_repeat,$nume,$prenume,$email,$email_repeat,"mailother");
+   difVar($password,$password_repeat,$nume,$prenume,$email,$email_repeat,"passwdother");
+
+ if ($checkbox!=1) {
    header("Location: ../create.php?error=check&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
    exit();
 }
@@ -110,8 +131,6 @@
           header("Location: ../create.php?error=mysqlerror");
           exit();
         }
-
-        else{
           mysqli_stmt_bind_param($stmt,"s",$email);
           mysqli_stmt_execute($stmt);
           mysqli_stmt_store_result($stmt);
@@ -121,16 +140,14 @@
             header("Location: ../create.php?error=mailluat&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
             exit();
           }
-
-          else {
               require("../foldereset/PHPMailer/src/PHPMailer.php");
               require("../foldereset/PHPMailer/src/SMTP.php");
               require("../foldereset/PHPMailer/src/Exception.php");
 
               $select=bin2hex(random_bytes(12));
-              $token=random_bytes(32);
+              $token=bin2hex(random_bytes(32));
 
-              $link="http://localhost/Stoodle/Back-End/pages/paginaintrebari.php?select=".$select."&valid=".bin2hex($token);
+              $link="http://localhost/Stoodle/Back-End/pages/paginaintrebari.php?select=".$select."&valid=".$token;
               $end=date("U")+24*60*60;
 
               $mysql="DELETE FROM users_verificare WHERE mailVerificare=?;";
@@ -139,27 +156,21 @@
                 header("Location: ../reset.php?error=mysqlerror2");
                 exit();
               }
-              else {
                 mysqli_stmt_bind_param($stmt,"s",$email);
                 mysqli_stmt_execute($stmt);
-                }
-
 
 
                 $mysql="INSERT INTO users_verificare(numeVerificare,prenumeVerificare,mailVerificare,parolaVerificare,selectVerificare,tokenVerificare,expireVerificare) VALUES(?,?,?,?,?,?,?);";
                 $stmt=mysqli_stmt_init($connection);
                 if (!mysqli_stmt_prepare($stmt,$mysql)) {
-                  header("Location: ../reset.php?error=mysqlerror1");
+                  header("Location: ../register.php?error=mysqlerror1");
                   exit();
                 }
-                else {
                   $parola=password_hash($password,PASSWORD_DEFAULT);
                   $hash=password_hash($token, PASSWORD_DEFAULT);
                   mysqli_stmt_bind_param($stmt,"sssssss",$nume,$prenume,$email,$parola,$select,$hash,$end);
                   mysqli_stmt_execute($stmt);
-                  }
-                  mysqli_stmt_close($stmt);
-                  mysqli_close($connection);
+
 
 
 
@@ -218,8 +229,6 @@
 
               header("Location: ../login.php?succes=register");
               exit();
-          }
-      }
     }
     mysqli_stmt_close($stmt1);
     mysqli_stmt_close($stmt2);
@@ -227,6 +236,6 @@
     mysqli_close($connection);
 }
   else {
-    header("Location: ../create.php");
+    header("Location: ../register.php");
     exit();
   }
