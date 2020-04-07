@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Pacifico&display=swap');
+body,
+html {
+    overflow: hidden;
+    background: rgb(25, 74, 196);
+    background: linear-gradient(360deg, rgba(25, 74, 196, 1) 0%, rgba(134, 32, 254, 1) 100%);
+    font-family: 'Open Sans', sans-serif;
+    height: 100vh;
+    font-weight: 400;
+}
+
+#text {
+    margin-top: 2em;
+    margin-left: 3em;
+    color: #fff;
+}
+
+#text h1 {
+    margin: 0;
+    font-weight: 700;
+}
+
+.row .content {
+    font-family: 'Open Sans', sans-serif;
+    height: 100vh;
+    font-weight: 400;
+    background-color: white;
+    border-radius: 50px 0px 0px 50px;
+}
+
+.row .content .conatiner h1 {
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+.row .content .conatiner form .form-group label {
+    font-weight: 700;
+    color: #95A5A6;
+    margin: 0;
+    margin-left: 1em;
+}
+
+.row .content .conatiner form .form-group label:last-child {
+    font-weight: 400;
+    color: #0a0a0a;
+    margin: 0;
+}
+
+.row .content .conatiner form .form-group .alert-note {
+    font-weight: 700;
+    color: #CB4335!important;
+}
+
+.row .content .conatiner form button {
+    width: -webkit-fill-available;
+    max-width: 50em;
+    background: rgb(25, 74, 196);
+    background: linear-gradient(360deg, rgba(25, 74, 196, 1) 0%, rgba(134, 32, 254, 1) 100%);
+    color: white;
+    border: 0;
+    font-weight: 700;
+    padding: 1em 0em;
+    font-size: medium;
+}
+
+.row .content .conatiner a,
+.row .content .conatiner a:hover {
+    color: #0a0a0a;
+    text-decoration: none;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.row .content .conatiner span {
+    color: rgba(25, 74, 196, 1);
+}
+
+.row .content .conatiner span:hover {
+    text-decoration: underline;
+}
