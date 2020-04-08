@@ -147,7 +147,7 @@
               $select=bin2hex(random_bytes(12));
               $token=bin2hex(random_bytes(32));
 
-              $link="http://localhost/Stoodle/Back-End/pages/paginaintrebari.php?select=".$select."&valid=".$token;
+              $link="http://localhost/Stoodle/Back-End/pages/formularTemplate.php?select=".$select."&valid=".$token;
               $end=date("U")+24*60*60;
 
               $mysql="DELETE FROM users_verificare WHERE mailVerificare=?;";

@@ -1,3 +1,7 @@
+<?php
+  include 'functii/functii.php';
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <title>Stoodle | Creare cont</title>
@@ -15,6 +19,7 @@
             <div class="form-group d-flex flex-column">
                 <a class="navbar-brand" href="../index.php" style="font-size: 2rem; font-weight: 700;">Stoodle</a>
                 <?php
+
                 if(isset($_GET['error'])){
                   if ($_GET['error']=="emptyfields") {
                     echo '<div class="alert alert-danger" role="alert">
