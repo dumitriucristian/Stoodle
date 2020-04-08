@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./CSS/navbar.css">
-    <link rel="stylesheet" href="./CSS/homePage.css">
+    <link rel="stylesheet" href="./CSS/contact.css">
     <link rel="stylesheet" href="./CSS/base.css">
     <script src="https://kit.fontawesome.com/0dfb644902.js" crossorigin="anonymous"></script>
     <title>Stoodle</title>
   </head>
-
   <body>
+
     <!-- SIDE NAVBAR -->
     <nav id="sidebar">
 
@@ -24,13 +24,13 @@
             <p>@Username</p>
         </div>
 
-        <!-- SIDEBAR BODY -->
+        <!-- BODY -->
         <ul class="list-unstyled components">
             <li>
                 <a href="./homePage.php">Acasa <img src="./Images/Icons/home.png" alt="icon"></a>
             </li>
             <li>
-                <a href="./formularTemplate.php">Formular <img src="./Images/Icons/profile.png" alt="icon"></a>
+                <a href="./profile.php">Profil <img src="./Images/Icons/profile.png" alt="icon"></a>
             </li>
             <li>
                 <a href="./contact.php">Contact <img src="./Images/Icons/home.png" alt="icon"></a>
@@ -42,11 +42,11 @@
                 <a href="./faq.php">Intrebari <img src="./Images/Icons/question.png" alt="icon"></a>
             </li>
         </ul>
-        <a href="./folderlogin/deconectphp.php" class="button"> Deconectare</a>
 
+        <a href="./folderlogin/deconectphp.php" class="button"> Deconectare</a>
     </nav>
 
-    <!-- PAGE CONTENT -->
+    <!-- PAGE CONTENT-->
     <div id="content">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -72,44 +72,41 @@
 
         </nav>
 
-        <!-- CARD SHOWCASE -->
+        <!-- CONTACT INFO -->
         <div id="showcase">
+            <div id="content d-flex align-items-center">
+                <div class="row justify-content-around">
 
-            <div class="row">
-
-                <?php
-                    $array = array("FIZICA", "MATE", "ROMANA", "MNIU", "FIZICA", "MATE", "ROMANA", "MNIU");
-                    foreach ($array as $card) { 
-                ?>
-                        <div class="col">
-                            <div class="card">
-                                <img src="./Images/Cartoons/cardBackground.png" alt="Background">
-                                <button class="nume">
-                                <?php
-                                    echo $card
-                                ?>
-                                </button>
-                                <button onclick="getCard('<?php
-                                        echo $card;
-                                    ?>')">
-                                    Afla mai multe
-                                </button>
-                            </div>    
+                    <div class="card col-lg-4 justify-content-around align-items-center">
+                        <img src="./Images/Grigo.jpg" alt="poza" style="width: 10em; margin-bottom: 1em;">
+                        <h3 class="m-0">Grigorescu</h3>
+                        <h4>Alexandru</h4>
+                        <p>Phasellus quis eleifend quam, sed tincidunt felis. Nulla aliquet, tellus.</p>
+                        <div class="socialMedia d-flex justify-content-around w-100">
+                            <a href="https://www.facebook.com/grigorescu.alexandru.94" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/aleex_grigo/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="mailto:grigorescu.aleex@gmail.com?subject=Stoodle| Problema ta" target="_blank"><i class="fas fa-envelope"></i></a>
                         </div>
-                <?php } ?>
-                
+                    </div>
+
+                    <div class="card col-lg-4 justify-content-around align-items-center">
+                        <img src="./Images/Robert.jpg" alt="poza" style="width: 10em; margin-bottom: 1em;">
+                        <h3 class="m-0">Plaiasu</h3>
+                        <h4>Robert</h4>
+                        <p>Phasellus quis eleifend quam, sed tincidunt felis. Nulla aliquet, tellus.</p>
+                        <div class="socialMedia d-flex justify-content-around w-100">
+                            <a href="https://www.facebook.com/robert.plaiasu" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/tridev_robert/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="mailto:robertplaiasu03@gmail.com?subject=Stoodle| Problema ta" target="_blank"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-
         </div>
-
     </div>
 
-    <div id="displayCard" class="hidden"></div>
-                        
-        <!-- SCRIPTING -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="./JS/navbar.js"></script>
-    <script src="./JS/homepage.js"></script>
-
     </body>
 </html>

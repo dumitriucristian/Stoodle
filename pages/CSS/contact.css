@@ -1,0 +1,22 @@
+.card {
+    max-width: 30%;
+    background-color: var(--black);
+    padding: 2em 4em;
+    margin: 2em 0;
+    color: var(--yellow)!important;
+    font-weight: 700;
+}
+
+.card a {
+    color: var(--yellow)!important;
+    font-size: 1.7em;
+}
+
+.card a:hover {
+    color: var(--white)!important;
+    transition: .3s;
+}
+
+.card img {
+    border-radius: 50%;
+}

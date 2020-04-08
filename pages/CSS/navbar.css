@@ -115,20 +115,6 @@ a[data-toggle="collapse"] {
     position: relative;
 }
 
-#decconect {
-    background-color: var(--black);
-    color: var(--yellow)!important;
-    font-weight: 700;
-    border-radius: 8px;
-    padding: 1rem 4rem;
-    margin: 2em;
-}
-
-#decconect:hover {
-    background-color: var(--yellow);
-    color: var(--black)!important;
-}
-
 
 /* ---------------------------------------------------
     CONTENT STYLE
