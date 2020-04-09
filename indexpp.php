@@ -94,6 +94,6 @@
 <body>
   <a href="./pages/login.php"> Login </a> 
   <br>
-  <a href="./pages/login.php"> Register </a>
+  <a href="./pages/register.php"> Register </a>
 </body>
 </html>

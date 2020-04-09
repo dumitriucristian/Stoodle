@@ -29,3 +29,8 @@ body {
 .button:hover {
     background-color: var(--yellow)!important;
 }
+
+small {
+    color: var(--red)!important;
+    font-weight: 700;
+}
