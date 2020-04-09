@@ -2,7 +2,6 @@
 <?php
   include 'functii/functii.php';
   require_once './folderlogin/google-config.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stoodle | Log-in System</title>
+    <title>Stoodle | Conectare</title>
     <link rel="stylesheet" href="./CSS/login.css">
     <link rel="stylesheet" href="./CSS/base.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -19,15 +18,18 @@
 
 <body>
     <div class="row">
+
         <div class="col-lg-7">
             <div id="text">
                 <h1>Stoodle</h1>
                 <p>Fii liber. Fii independent.</p>
             </div>
         </div>
+
         <div class="col-lg-5 d-flex align-items-center justify-content-center content" id="content">
             <div class="conatiner">
                 <h1>Continuă aventura</h1>
+
                 <form action="folderlogin/loginphp.php" method="post">
                     <div class="form-group">
 
@@ -73,6 +75,7 @@
                         </small>
 
                     </div>
+
                     <div class="form-group form-check">
 
                         <input type="checkbox" class="form-check-input" name="checkbox" value="1" id="exampleCheck1">
@@ -81,7 +84,6 @@
                     </div>
 
                     <button type="submit" name="loginsubmit" class="button">Loghaeză-te</button>
-
                 </form>
 
                 <a href="register.php">
