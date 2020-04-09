@@ -212,7 +212,7 @@ else {
                 </select>
                 <br />
 
-                <input type="submit" value="Trimite Formular" class="button">
+                <input type="submit" value="Trimite Formular" name="formularsubmit" class="button">
             </div>
         </div>
 

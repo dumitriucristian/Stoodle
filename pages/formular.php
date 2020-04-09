@@ -1,4 +1,5 @@
 <?php
+  if (isset())
     $pasiune=$_POST['pasiune'];
     $intensitate_pasiune=$_POST['intesitate_pasiune'];
     $job=$_POST['job'];
