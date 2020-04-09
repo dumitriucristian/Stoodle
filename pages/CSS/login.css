@@ -1,0 +1,31 @@
+body {
+    background-color: var(--blue)!important;
+}
+
+#text {
+    color: var(--white);
+    margin: 3rem 4rem;
+    font-family: 'Barlow', sans-serif;
+}
+
+#text h1 {
+    text-transform: uppercase;
+    margin: 0;
+}
+
+#content {
+    background-color: var(--white);
+    height: 100vh;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.button {
+    background-color: #283054!important;
+    width: 100%;
+    margin: 0!important;
+}
+
+.button:hover {
+    background-color: var(--yellow)!important;
+}

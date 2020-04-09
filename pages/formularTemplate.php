@@ -22,6 +22,7 @@
         }
     </style>
     <form action="./formular.php" method="post" id="formular">
+        
         <div class="row" style="height:100vh">
             <div class="col flex-column d-flex justify-content-center align-items-center" style="height:100vh">
                 <label>De ce esti pasionat?</label>
@@ -35,10 +36,12 @@
                 <input type="button" value="Urmatoare intrebare" onclick="nextQuestion()" class="button"></input>
             </div>
         </div>
+        
         <div class="row" style="height:100vh">
             <div class="col flex-column d-flex justify-content-center align-items-center" style="height:100vh">
                 <label>Cat de mult esti pasionat?</label>
                 <select name="intesitate_pasiune">
+                    <option value="null">Pe o scara de la 1 la 5</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -49,7 +52,7 @@
                 <input type="button" onclick="nextQuestion()" class="button" value="Urmatoare intrebare"></input>
             </div>
         </div>
-
+        
         <div class="row" style="height:100vh">
             <div class="col flex-column d-flex justify-content-center align-items-center" style="height:100vh">
                 <label>Vrei un part-time job?</label>
@@ -59,8 +62,9 @@
                 </select>
                 <input type="button" onclick="nextQuestion()" class="button" value="Urmatoare intrebare"></input>
             </div>
+        
         </div>
-
+        
         <div class="row" style="height:100vh">
             <div class="col flex-column d-flex justify-content-center align-items-center" style="height:100vh">
                 <label>Care sunt materiile tale preferate</label>

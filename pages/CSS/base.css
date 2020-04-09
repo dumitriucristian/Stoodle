@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,700;1,400&display=swap');
+@import url('./variabiles.css');
 body,
 html {
     margin: 0;
@@ -11,7 +12,7 @@ html {
 
 .button {
     background-color: var(--black);
-    color: var(--yellow)!important;
+    color: var(--yellow);
     font-weight: 700;
     border-radius: 8px;
     padding: 1rem 4rem;
@@ -21,7 +22,7 @@ html {
 
 .button:hover {
     background-color: var(--yellow);
-    color: var(--black)!important;
+    color: var(--black);
     transition: .3s ease-in;
 }
 
