@@ -10,40 +10,46 @@ body {
 .card {
     max-width: 20em;
     border: 0;
-    margin: 1rem 0;
-    background-color: var(--red);
-    border-radius: 50px;
+    padding: 0;
+    margin: 1rem;
     font-weight: 700!important;
     color: var(--black);
 }
 
-.card button:first-of-type {
+.backgrounded{
+    min-height: 10em;
+    background-image: url('../Images/background.jpg');
+    background-size: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.name{
     background-color: var(--red);
-    font-size: 1.2rem;
-    text-align: left;
+    padding: 1rem 1rem;
+}
+
+.prop {
+    background: var(--blue);
+    padding: 1rem 0;
+}
+
+.extra {
+    background: var(--yellow);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     padding: 1rem;
 }
-
-.card button {
-    background-color: var(--yellow);
-    border: 0;
-    font-weight: 700!important;
+.extra a{
     color: var(--black);
-    font-size: 1.5rem;
-    padding: 1em 0;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    text-transform: uppercase;
 }
 
-#displayCard {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: white;
-    width: 100%;
-    height: 100%;
+.prop .col {
+    font-size: 12px;
+    margin: 0.1rem 0;
 }
 
-.hidden {
-    display: none;
+i {
+    margin-left: 3px;
 }
