@@ -1,3 +1,7 @@
+<?php
+include './functii/functii.php';
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <title>Stoodle | Resetare Parola</title>
@@ -18,6 +22,7 @@
     </div>
     <div class="col-lg-5 d-flex align-items-center justify-content-center" id="content">
       <div class="conatiner">
+        <form action="./foldereset/resetphp.php" method="post">
         <?php
 
           if(isset($_GET['error'])) {
@@ -59,12 +64,19 @@
         <h1>Resetare parola</h1>
         <div class="form-group row">
           <label for="exampleInputEmail1">E-mail</label>
-          <input type="email" name="mailus" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <?php
+          if(isset($_GET['email'])){
+            echo '<input type="email" name="mailreset" value="'.$_GET['email'].'" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">';
+          }
+          else {
+            echo '<input type="email" name="mailreset" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">';
+          }
+           ?>
           <small id="emailHelp" class="form-text text-muted  alert-note">
             Introdu adresa de mail pentru a-ti putea reseta parola
           </small>
         </div>
-        <button type="submit" name="loginsubmit" class="button">Trimite mail</button>
+        <button type="submit" name="submit-reset" class="button">Trimite mail</button>
     </form>
   </div>
 

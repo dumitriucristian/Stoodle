@@ -14,18 +14,31 @@ if(isset($_POST['submit-parola-reset'])){
       exit();
     }
   }
-  if(empty($parola) || empty($confparola)){
-    header("Location: ../newparola.php?error=emptyfields&select=".$select."&valid=".$token);
-    exit();
+  function validateVarParola($var,$msg){
+    if(!preg_match("/^[a-zA-Z]*$/", $var)) {
+      $msg="Location: ../newparola.php?error=invalid".$msg;
+       header($msg);
+       exit();
+    }
+    if (strlen($var)<8) {
+      $msg="Location: ../newparola.php?error=mic".$msg;
+       header($msg);
+       exit();
+    }
+    if(strlen($var)>48) {
+      $msg="Location: ../newparola.php?error=mare".$msg;
+       header($msg);
+       exit();
+    }
   }
-  elseif (!preg_match("/^[a-zA-Z0-9]*$/", $parola)) {
-    header("Location: ../newparola.php?error=invalidparola&select=".$select."&valid=".$token);
-    exit();
-  }
-  elseif (strlen($parola)<6) {
-    header("Location: ../newparola.php?error=micparola&select=".$select."&valid=".$token);
-    exit();
-  }
+
+
+  emptyVar($parola);
+  emptyVar($confparola);
+
+  validateVarParola($parola,"parola");
+  validateVarParola($confparola,"confirmareparola");
+
   elseif ($parola !== $confparola) {
     header("Location: ../newparola.php?error=difparola&select=".$select."&valid=".$token);
     exit();
@@ -40,7 +53,6 @@ if(isset($_POST['submit-parola-reset'])){
     header("Location: ../newparola.php?error=mysqlerror&select=".$select."&valid=".$token);
     exit();
   }
-  else {
     mysqli_stmt_bind_param($stmt,"ss",$date,$select);
     mysqli_stmt_execute($stmt);
     $rezultat=mysqli_stmt_get_result($stmt);
@@ -58,7 +70,6 @@ if(isset($_POST['submit-parola-reset'])){
       exit();
     }
   }
-    else {
       $ok=password_verify($token,$rand['tokenReset']);
       if($ok===false){
         header("Location: ../newparola.php?error=anothertoken");
@@ -72,7 +83,6 @@ if(isset($_POST['submit-parola-reset'])){
           header("Location: ../newparola.php?error=mysqlerror&select=".$select."&valid=".$token);
           exit();
         }
-        else {
           mysqli_stmt_bind_param($stmt,"s",$rand['mailReset']);
           mysqli_stmt_execute($stmt);
           $rezultat=mysqli_stmt_get_result($stmt);
@@ -88,7 +98,6 @@ if(isset($_POST['submit-parola-reset'])){
               header("Location: ../newparola.php?error=mysqlerror&select=".$select."&valid=".$token);
               exit();
             }
-            else {
               $hash=password_hash($parola, PASSWORD_DEFAULT);
               mysqli_stmt_bind_param($stmt,"s",$hash);
               mysqli_stmt_execute($stmt);
@@ -104,7 +113,6 @@ if(isset($_POST['submit-parola-reset'])){
               header("Location: ../newparola.php?error=mysqlerror&select=".$select."&valid=".$token);
               exit();
             }
-            else {
               $hash=password_hash($parola,PASSWORD_DEFAULT);
               mysqli_stmt_bind_param($stmt,"ss",$hash,$rand['mailReset']);
               mysqli_stmt_execute($stmt);
@@ -115,22 +123,15 @@ if(isset($_POST['submit-parola-reset'])){
                 header("Location: ../newparola.php?error=mysqlerror&select=".$select."&valid=".$token);
                 exit();
               }
-              else {
                 mysqli_stmt_bind_param($stmt,"s",$rand['mailReset']);
                 mysqli_stmt_execute($stmt);
                 header("Location: ../login.php?succes=resetare");
                 exit();
-              }
-            }
             }
           }
 
         }
-      }
     }
-    }
-}
-}
   else{
     header("Location: ../login.php");
   }

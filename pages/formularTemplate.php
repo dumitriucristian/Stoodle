@@ -1,4 +1,6 @@
 <?php
+
+include 'array.php';
 session_start();
 require_once './folderlogin/datacon.php';
 
@@ -105,8 +107,7 @@ else {
                 <label>De ce esti pasionat?</label>
                 <select name="pasiune">
                     <?php
-                        $array = array("Alegeti pasiunea","PESCUIT", "MANCAT");
-                        foreach ($array as $tip)
+                        foreach ($array_pasiune as $tip)
                             echo "<option value='".$tip."'>".$tip."</option>";
                     ?>
                 </select>
@@ -145,10 +146,21 @@ else {
         <div class="row" style="height:100vh">
             <div class="col flex-column d-flex justify-content-center align-items-center" style="height:100vh">
                 <label>Care sunt materiile tale preferate</label>
-                <select name="materii">
+                <select name="materie1">
                     <?php
-                    $array = array("MATE", "FRANCEZA");
-                    foreach ($array as $materie)
+                    foreach ($array_materie as $materie)
+                        echo "<option value='".$materie."'>".$materie."</option>";
+                    ?>
+                </select>
+                <select name="materie2">
+                    <?php
+                    foreach ($array_materie as $materie)
+                        echo "<option value='".$materie."'>".$materie."</option>";
+                    ?>
+                </select>
+                <select name="materie3">
+                    <?php
+                    foreach ($array_materie as $materie)
                         echo "<option value='".$materie."'>".$materie."</option>";
                     ?>
                 </select>
@@ -162,8 +174,7 @@ else {
                     <label>Ce tip de carti iti place sa citesti?</label>
                     <select name="carti">
                         <?php
-                                $array = array("BUNE", "RELE");
-                                foreach ($array as $tip)
+                                foreach ($array_carti as $tip)
                                     echo "<option value='".$tip."'>".$tip."</option>";
                             ?>
                     </select>
@@ -177,8 +188,7 @@ else {
                 <label>Din ce judet esti?</label>
                 <select name="judet">
                     <?php
-                            $array = array("Prahova", "Ilfov");
-                            foreach ($array as $tip)
+                            foreach ($array_judet as $tip)
                                 echo "<option value='".$tip."'>".$tip."</option>";
                         ?>
                 </select>
