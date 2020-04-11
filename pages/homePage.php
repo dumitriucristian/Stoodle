@@ -62,7 +62,8 @@ session_start();
                 </div>
 
                 <div class="input-group md-form form-sm form-2 pl-0">
-                    <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
+                    <input class="form-control my-0 py-1 red-border" onkeyup="sort()"
+                           type="text" placeholder="cauta" id="search_field" aria-label="Search">
                     <div class="input-group-append">
                         <span class="input-group-text red lighten-3" id="basic-text1">
                             Cautare
@@ -108,14 +109,16 @@ session_start();
                         <div class="row-lg-4 backgrounded"></div>
                         <!--Print the proprities-->
                         <div class="row-lg-2 name">
-                            Nume Facultate
+                            <?php
+                            echo $card['Numef'];
+                            ?>
                         </div>
                         <div class="row-lg-3 prop text-center">
                             <div class="col">
                                 <div class="row">
                                     <div class="col">
                                         <?php
-                                        echo $card['Universitatea'];
+                        echo $card['Universitatea'];
                                         ?>
                                     </div>
                                 </div>
@@ -123,7 +126,7 @@ session_start();
                                     <div class="col">100 <i class="fas fa-percentage"></i></div>
                                     <div class="col">
                                         <?php
-                                        echo $card['Judet'];
+                        echo $card['Judet'];
                                         ?>
                                         <i class="fas fa-city"></i>
                                     </div>
@@ -131,7 +134,7 @@ session_start();
                                 <div class="row">
                                     <div class="col">
                                         <?php
-                                        echo $card['Profil'];
+                        echo $card['Profil'];
                                         ?>
                                         <i class="fas fa-code-branch"></i>
                                     </div>
@@ -152,5 +155,6 @@ session_start();
         <!-- SCRIPTING -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="./JS/navbar.js"></script>
+        <script src="./JS/homepage.js"></script>
     </body>
 </html>
