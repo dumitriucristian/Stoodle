@@ -1,4 +1,5 @@
-body {
+body, html {
+    overflow: hidden!important;
     background-color: var(--blue)!important;
 }
 
