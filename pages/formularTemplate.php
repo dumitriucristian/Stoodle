@@ -58,7 +58,9 @@ if(empty($select)||empty($token)){
           mysqli_stmt_bind_param($stmt,"ssss",$rand['numeVerificare'],$rand['prenumeVerificare'],$rand['mailVerificare'],$rand['parolaVerificare']);
           mysqli_stmt_execute($stmt);
 
-          $mysql="DELETE FROM users_verificare WHERE mailVerificare=".$rand['mailVerificare'].";";
+
+          $mail=$rand['mailVerificare'];
+          $mysql="DELETE FROM users_verificare WHERE mailVerificare='".$mail."';";
           mysqli_query($connection,$mysql);
           $_SESSION['mailUser']=$rand['mailVerificare'];
 

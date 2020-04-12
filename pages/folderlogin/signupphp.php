@@ -48,7 +48,7 @@
 
   /*validate parola*/
   function validateVarParola($var,$nume,$prenume,$email,$email_repeat,$password,$password_repeat,$msg){
-    if(!preg_match("/^[a-zA-Z]*$/", $var)) {
+    if(!preg_match("/^[a-zA-Z0-9]*$/", $var)) {
       $msg="Location: ../register.php?error=invalid".$msg."&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat;
        header($msg);
        exit();
@@ -88,7 +88,7 @@
   /*verifica diferentele*/
   function difVar($var1,$var2,$nume,$prenume,$email,$email_repeat,$msg){
     if ($var1!==$var2) {
-      $msg="Location: ../create.php?error=".$msg."&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat;
+      $msg="Location: ../register.php?error=".$msg."&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat;
        header($msg);
        exit();
 
@@ -120,7 +120,7 @@
    difVar($password,$password_repeat,$nume,$prenume,$email,$email_repeat,"passwdother");
 
  if ($checkbox!=1) {
-   header("Location: ../create.php?error=check&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
+   header("Location: ../register.php?error=check&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
    exit();
 }
 
@@ -128,7 +128,7 @@
         $mysql="SELECT mailUser FROM users WHERE mailUser=?";
         $stmt=mysqli_stmt_init($connection);
         if (!mysqli_stmt_prepare($stmt,$mysql)) {
-          header("Location: ../create.php?error=mysqlerror");
+          header("Location: ../register.php?error=mysqlerror");
           exit();
         }
           mysqli_stmt_bind_param($stmt,"s",$email);
@@ -137,7 +137,7 @@
           $rezultat_email=mysqli_stmt_num_rows($stmt);
 
           if($rezultat_email>0){
-            header("Location: ../create.php?error=mailluat&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
+            header("Location: ../register.php?error=mailluat&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
             exit();
           }
               require("../foldereset/PHPMailer/src/PHPMailer.php");
@@ -147,13 +147,13 @@
               $select=bin2hex(random_bytes(12));
               $token=bin2hex(random_bytes(32));
 
-              $link="http://localhost/Stoodle/Back-End/pages/formularTemplate.php?select=".$select."&valid=".$token;
+              $link="http://localhost/Stoodle/pages/formularTemplate.php?select=".$select."&valid=".$token;
               $end=date("U")+24*60*60;
 
               $mysql="DELETE FROM users_verificare WHERE mailVerificare=?;";
               $stmt=mysqli_stmt_init($connection);
               if (!mysqli_stmt_prepare($stmt,$mysql)) {
-                header("Location: ../reset.php?error=mysqlerror2");
+                header("Location: ../register.php?error=mysqlerror2");
                 exit();
               }
                 mysqli_stmt_bind_param($stmt,"s",$email);
