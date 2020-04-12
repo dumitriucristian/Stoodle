@@ -82,7 +82,7 @@ function filterPassword($var){
                     setcookie("select", $selector,$date,"/",'http://localhost',1);
                     setcookie("validator",$token,$date,"/",'http://localhost',1);
                   }
-                    header("Location: ../../indexpp.php");
+                    header("Location: ../homePage.php");
                     exit();
                 }
                 else
