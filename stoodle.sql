@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2020 at 11:00 PM
+-- Generation Time: Apr 13, 2020 at 08:02 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -142,12 +142,19 @@ CREATE TABLE `users` (
   `materie2` varchar(64) DEFAULT NULL,
   `materie3` varchar(64) DEFAULT NULL,
   `carti` varchar(64) DEFAULT NULL,
-  `sociabila` int(1) DEFAULT NULL,
+  `sociabil` int(1) DEFAULT NULL,
   `sport` varchar(64) DEFAULT NULL,
   `stres` int(1) DEFAULT NULL,
   `Judet` text DEFAULT NULL,
   `PozaUser` text DEFAULT 'UserDefault.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`idUser`, `Nume`, `Prenume`, `mailUser`, `pwdUsers`, `Profil`, `Domeniu`, `domeniu_intensitate`, `job`, `materie1`, `materie2`, `materie3`, `carti`, `sociabil`, `sport`, `stres`, `Judet`, `PozaUser`) VALUES
+(6, 'Nume', 'Robert', 'robertplaiasu03@gmail.com', '$2y$10$uJ2AnpXLNXq3Uenquyf3DurigB7ISuaGjWsaxdIlGrvN3OIoXAKpG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'UserDefault.jpg');
 
 -- --------------------------------------------------------
 
@@ -170,6 +177,7 @@ CREATE TABLE `users_gmail` (
 CREATE TABLE `users_verificare` (
   `idVerificare` int(11) NOT NULL,
   `numeVerificare` tinytext NOT NULL,
+  `prenumeVerificare` varchar(64) NOT NULL,
   `mailVerificare` text NOT NULL,
   `parolaVerificare` longtext NOT NULL,
   `selectVerificare` longtext NOT NULL,
@@ -177,6 +185,13 @@ CREATE TABLE `users_verificare` (
   `expireVerificare` int(32) NOT NULL,
   `verificare` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users_verificare`
+--
+
+INSERT INTO `users_verificare` (`idVerificare`, `numeVerificare`, `prenumeVerificare`, `mailVerificare`, `parolaVerificare`, `selectVerificare`, `tokenVerificare`, `expireVerificare`, `verificare`) VALUES
+(1, 'Nume', 'Robert', 'robertplaiasu03@gmail.com', '$2y$10$uJ2AnpXLNXq3Uenquyf3DurigB7ISuaGjWsaxdIlGrvN3OIoXAKpG', '3ff6a069d63330bfe06cacba', '$2y$10$tZs06egu/bbkBQ2dmFvhT.fSDA9RWBm6wcafRTxqPPhosZrYSI8PG', 1586774491, NULL);
 
 --
 -- Indexes for dumped tables
@@ -244,7 +259,7 @@ ALTER TABLE `resetare`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users_gmail`
@@ -256,7 +271,7 @@ ALTER TABLE `users_gmail`
 -- AUTO_INCREMENT for table `users_verificare`
 --
 ALTER TABLE `users_verificare`
-  MODIFY `idVerificare` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idVerificare` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

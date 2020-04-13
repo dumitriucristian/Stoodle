@@ -59,29 +59,29 @@ if (isset($_SESSION['Nume']) && isset($_SESSION['Prenume']) && isset($_SESSION['
                  setcookie("validator",$token,$valori['data'],"/",'http://localhost',1);
 
 
-//               }
+              }
 
-//             }
-//             else {
-//               header("Location: ");
-//               exit();
-//             }
-//       }
-//       else {
-//         header("Location: ");
-//         exit();
-//       }
-//   }
-// }
-//   else {
-//      header();
-//     exit();
-//   }
-// }
-//   else {
-//      header();
-//     exit();
-//   }
+            }
+           else {
+             header("Location: ");
+             exit();
+            }
+     }
+    else {
+        header("Location: ");
+        exit();
+      }
+   }
+ }
+ else {
+      header();
+    exit();
+  }
+ }
+   else {
+    header();
+    exit();
+   }
 ?>
 
 <!DOCTYPE html>
