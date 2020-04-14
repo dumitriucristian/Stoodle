@@ -6,24 +6,27 @@ session_start();
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- BOOTSTRAP -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <!-- MY CSS -->
         <link rel="stylesheet" href="./CSS/navbar.css">
         <link rel="stylesheet" href="./CSS/homePage.css">
         <link rel="stylesheet" href="./CSS/base.css">
+
+        <!-- FONT AWESOME -->
         <script src="https://kit.fontawesome.com/0dfb644902.js" crossorigin="anonymous"></script>
         <title>Stoodle</title>
     </head>
 
     <body>
-        <!-- SIDE NAVBAR -->
+        <!-- SIDE BAR -->
         <nav id="sidebar">
-
             <!-- HEADER -->
-
             <div class="sidebar-header">
-                <img src="./Images/Icons/profile.png" alt="Profil Picture" style="width: 5em;">
-                <p>@
-
+                <img src="./Images/Icons/profile.png" alt="Profil Picture" style="width: 50%;">
+                <p>
                     <?php
                     require './folderlogin/datacon.php';
                     $mail = $_SESSION['mailUser'];
@@ -33,7 +36,7 @@ session_start();
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
-                            print $row['Prenume'];
+                            print "@".$row['Prenume'];
                         }
                     }
                     else
@@ -66,15 +69,14 @@ session_start();
             <a href="./folderlogin/deconectphp.php" class="button"> Deconectare</a>
 
         </nav>
-
         <!-- PAGE CONTENT -->
         <div id="content">
 
-            <nav class="navbar bg-light position-fixed w-100" style="z-index: 1">
+            <nav class="navbar bg-light w-100" style="z-index: 1">
 
-                <img src="./Images/Icons/open.png" id="close" alt="closingIcon">
+                <img src="./Images/Icons/open.png" id="sidebarCollapse" alt="closingIcon">
 
-                <input onkeyup="sort()"
+                <input onkeyup="sort()" class="form-control w-50"
                        type="text" placeholder="cauta" id="search_field" aria-label="Search">
 
             </nav>
@@ -111,12 +113,12 @@ session_start();
                                 <div class="row justify-content-between">
                                     <div class="col">
                                         <?php
-                                            echo $card->compabilitate
+                        echo $card->compabilitate
                                         ?>
                                         <i class="fas fa-percentage"></i></div>
                                     <div class="col">
                                         <?php
-                        echo $card->judet;
+                            echo $card->judet;
                                         ?>
                                         <i class="fas fa-city"></i>
                                     </div>
