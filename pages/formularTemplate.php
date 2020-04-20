@@ -5,7 +5,7 @@ session_start();
 require_once './folderlogin/datacon.php';
 
 
-if(empty($_SESSION['mail'])){
+if(empty($_SESSION['mailUser'])){
 
 $select=$_GET['select'];
 $token=$_GET['valid'];
@@ -156,13 +156,13 @@ else {
                 </select>
                 <select name="materie2">
                     <?php
-                    foreach ($array_materie as $materie)
+                    foreach ($array_materie1 as $materie)
                         echo "<option value='".$materie."'>".$materie."</option>";
                     ?>
                 </select>
                 <select name="materie3">
                     <?php
-                    foreach ($array_materie as $materie)
+                    foreach ($array_materie1 as $materie)
                         echo "<option value='".$materie."'>".$materie."</option>";
                     ?>
                 </select>

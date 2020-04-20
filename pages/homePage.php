@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['mailUser'])){
+  header("Location: ../indexpp.php");
+  exit();
+}
 ?>
 <!doctype html>
 <html lang="en">

@@ -7,4 +7,3 @@
   $client->setRedirectUri('http://localhost/Stoodle/pages/folderlogin/login-google.php');
   $client->addScope('email');
   $client->addScope('profile');
-  session_start();

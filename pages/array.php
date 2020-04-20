@@ -7,7 +7,7 @@ $array_judet=array("Alba","Arad ","Arges","Bacau","Bihor","Bistrita-Nasaud","Bot
 
 $array_materie=array("Limba si literatura romana","Engleza","Franceza","Germana","Spaniola","Matematica","Fizica","Educatie fizica","Religie","Informatica","TIC","Educatie civica","Desen","Muzica",
 "Biologie","Chimie","Istorie","Geografie","Economie","ATP","Latina","Psihologie","Sociologie");
-$array_materie1=array("Limba si literatura romana","Engleza","Franceza","Germana","Spaniola","Matematica","Fizica","Educatie fizica","Religie","Informatica","TIC","Educatie civica","Desen","Muzica",
+$array_materie1=array("Niciuna","Limba si literatura romana","Engleza","Franceza","Germana","Spaniola","Matematica","Fizica","Educatie fizica","Religie","Informatica","TIC","Educatie civica","Desen","Muzica",
 "Biologie","Chimie","Istorie","Geografie","Economie","ATP","Latina","Psihologie","Sociologie");
 
 $array_carti=array("Culinare","Arte,tehnica","Enciclopedii","Biografii,memorii","Lingvistica","Limbi straine","Teatru","Poezie","Fictine","Atlase,ghiduri turistice","Istorie","Religie",
