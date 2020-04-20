@@ -63,9 +63,6 @@ function filterPassword($var){
                 }
                 elseif ($password_verify === true)
                 {
-
-                  $_SESSION['Nume']=$valori['Nume'];
-                  $_SESSION['Prenume']=$valori['Prenume'];
                   $_SESSION['mailUser']=$valori['mailUser'];
 
                   if ($checkbox==1) {
