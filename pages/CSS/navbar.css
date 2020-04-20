@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,700;1,400&display=swap');
 @import url('./variabiles.css');
 #sidebar {
@@ -36,7 +37,7 @@
 
 
 /* ---------------------------------------------------
-    SIDEBAR STYLE
+SIDEBAR STYLE
 ----------------------------------------------------- */
 
 .wrapper {
@@ -45,7 +46,7 @@
 }
 
 #sidebar {
-    width: 450px;
+    width: 35%;
     position: fixed;
     top: 0;
     left: 0;
@@ -63,7 +64,7 @@
 }
 
 #sidebar.active {
-    margin-left: -450px;
+    margin-left: -35%;
 }
 
 #sidebar .sidebar-header {
@@ -77,12 +78,13 @@
 #sidebar .sidebar-header p {
     margin: 0;
     font-weight: 700;
-    font-size: 1.6em;
+    font-size: 0.8em;
 }
 
 #sidebar ul {
     padding: 0 1rem;
     width: 90%;
+    margin: 0;
 }
 
 #sidebar ul li {
@@ -93,8 +95,8 @@
     display: flex!important;
     justify-content: space-between!important;
     align-items: center;
-    padding: 10px 2em;
-    font-size: 1.1em;
+    padding: 0 1rem;
+    font-size: 0.7em;
     display: block;
 }
 
@@ -117,14 +119,15 @@ a[data-toggle="collapse"] {
 
 
 /* ---------------------------------------------------
-    CONTENT STYLE
+CONTENT STYLE
 ----------------------------------------------------- */
 
 #content {
-    width: calc(100% - 450px);
+    width: calc(100% - 35%);
     min-height: 100vh;
     transition: all 0.3s;
     position: absolute;
+    background: var(--white);
     top: 0;
     right: 0;
 }
@@ -157,8 +160,9 @@ a[data-toggle="collapse"] {
 
 
 /* ---------------------------------------------------
-    MEDIAQUERIES
+MEDIAQUERIES
 ----------------------------------------------------- */
+/*
 
 @media (max-width: 784px) {
     .form-control:focus {
@@ -216,3 +220,4 @@ a[data-toggle="collapse"] {
         transition: .3s ease-in;
     }
 }
+*/
