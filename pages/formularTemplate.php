@@ -212,7 +212,7 @@ else {
         <div class="row" style="height:100vh">
             <div class="col flex-column d-flex justify-content-center align-items-center" style="height:100vh">
                 <label>Practici vreun sport</label>
-                <select name="sport">2
+                <select name="sport">
                     <option value="Da">Da</option>
                     <option value="Nu">Nu</option>
                 </select>

@@ -11,11 +11,11 @@ $array_materie1=array("Niciuna","Limba si literatura romana","Engleza","Franceza
 "Biologie","Chimie","Istorie","Geografie","Economie","ATP","Latina","Psihologie","Sociologie");
 
 $array_carti=array("Culinare","Arte,tehnica","Enciclopedii","Biografii,memorii","Lingvistica","Limbi straine","Teatru","Poezie","Fictine","Atlase,ghiduri turistice","Istorie","Religie",
-"Religie","Filozofie","Psihologie","Stiinte sociale,politica","Marketing si comunicare","Business si economie","Drept","Medicina","Stiinte exacte.Matematica","Natura si mediu","Tehnica si tehnologie",
+"Religie","Filozofie","Psihologie","Stiinte sociale,politica","Marketing si comunicare","Business si economie","Drept","Medicina","Stiinte exacte","Natura si mediu","Tehnica si tehnologie",
 "Computere si internet","Dezvoltare personala","Lifestyle,sport");
-$array_pasiune=array("Medicina","Matematica","Agricultura","Ecologie","Programare","Literatura","Muzica","Desen","Arhitectura","Astronomie","Fizica","Sport","Religie","Economie",
+$array_pasiune=array("Medicina","Matematica","Agricultura","Ecologie","Programare/Calculatoare","Literatura","Muzica","Desen","Arhitectura","Astronomie","Fizica","Sport","Religie","Economie",
 "Business","Politica","Limbi straine","Filozofie","Drept","Biologie","Geografie","Geologie","Istorie","Jurnalism","Psihologie","Design","Constructii","Serviciul militar","Actorie","Regie","Editare video/sunet",
-"Chimie","Animale","Limba romana","Serviciul","Calculatoare","Electronica","Electricitate","Cibernetica","Inginerie Aerospatila","Serviciul in cadrul politiei");
+"Chimie","Animale","Limba romana","Serviciul in cadrul politiei","Electronica","Electricitate","Cibernetica","Inginerie Aerospatila","Serviciul in cadrul politiei");
 
 
  ?>
