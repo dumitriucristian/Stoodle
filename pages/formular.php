@@ -23,7 +23,7 @@
       }
     }
     function arrayVal($val,$array){
-      if(!array_search($val,$array,TRUE)){
+      if(!in_array($val,$array)){
         header("Location: ./formularTemplate.php");
         exit();
       }
@@ -49,7 +49,6 @@
     arrayVal($materie3,$array_materie1);
     arrayVal($carti,$array_carti);
     arrayVal($pasiune,$array_pasiune);
-
 
 
     $session=$_SESSION['mailUser'];
