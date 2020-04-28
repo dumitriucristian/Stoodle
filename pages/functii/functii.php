@@ -34,24 +34,23 @@ function succes($value,$msg)
 function comparare($valoare,$valoare_user,$materii_biologie,$materii_straine,$materii_matematica,$materii_informatica,$materii_antreprenor,$materii_psihologie,$materii_geografie)
 {
   if($valoare_user == $valoare)
-          $suma= 5;
+        return $suma= 5;
   elseif(in_array($valoare,$materii_straine) && in_array($valoare_user,$materii_straine))
-    $suma= 3;
+    return $suma= 3;
   elseif(in_array($valoare,$materii_biologie) && in_array($valoare_user,$materii_biologie))
-    $suma= 3;
+    return $suma= 3;
   elseif(in_array($valoare,$materii_matematica) && in_array($valoare_user,$materii_matematica))
-    $suma= 3;
+    return $suma= 3;
   elseif(in_array($valoare,$materii_informatica) && in_array($valoare_user,$materii_informatica))
-    $suma= 3;
+    return $suma= 3;
   elseif(in_array($valoare,$materii_antreprenor) && in_array($valoare_user,$materii_antreprenor))
-    $suma= 3;
+    return $suma= 3;
   elseif(in_array($valoare,$materii_psihologie) && in_array($valoare_user,$materii_psihologie))
-    $suma= 3;
+    return $suma= 3;
   elseif(in_array($valoare,$materii_geografie) && in_array($valoare_user,$materii_geografie))
-    $suma= 3;
+    return $suma= 3;
   else
-    $suma=0;
-  return $suma;
+    return $suma=0;
 }
 
 
