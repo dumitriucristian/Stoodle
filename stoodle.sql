@@ -2,10 +2,10 @@
 -- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 21, 2020 at 01:19 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Gazdă: 127.0.0.1
+-- Timp de generare: mai 01, 2020 la 10:14 PM
+-- Versiune server: 10.4.11-MariaDB
+-- Versiune PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `stoodle`
+-- Bază de date: `stoodle`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth`
+-- Structură tabel pentru tabel `auth`
 --
 
 CREATE TABLE `auth` (
@@ -36,10 +36,17 @@ CREATE TABLE `auth` (
   `data` int(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Eliminarea datelor din tabel `auth`
+--
+
+INSERT INTO `auth` (`id`, `validator`, `selector`, `userid`, `data`) VALUES
+(0, '$2y$10$rbcScoyEbNBEowPr28S3DuBYgdMrt/ClQheK0nVvWRLrvWgBFwb9m', '409cd1463c8cd52d35c8242742fd84b434bfd3762ed1371b', 0, 1590944748);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `facultati`
+-- Structură tabel pentru tabel `facultati`
 --
 
 CREATE TABLE `facultati` (
@@ -58,60 +65,25 @@ CREATE TABLE `facultati` (
   `carti` varchar(64) DEFAULT NULL,
   `sociabil` int(1) DEFAULT NULL,
   `sport` varchar(64) DEFAULT NULL,
-  `stres` int(1) DEFAULT NULL
+  `stres` int(1) DEFAULT NULL,
+  `link_facultate` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `facultati`
+-- Eliminarea datelor din tabel `facultati`
 --
 
-INSERT INTO `facultati` (`Indexf`, `Numef`, `Judet`, `Examenadmi`, `Universitatea`, `Profil`, `Poza`, `job`, `pasiune_facultati`, `materie1`, `materie2`, `materie3`, `carti`, `sociabil`, `sport`, `stres`) VALUES
-(1, 'Facultatea de Teologie Ortodoxa UBB', 'Cluj', 1, 'Universitatea Babes-Bolyai', 'Teologic', 'teologiccluj.jpg', 1, 'Religie', 'Religie', 'Istorie', 'Muzica', 'Religie', 1, '0', 0),
-(2, 'Facultatea de Automatica si Calculatoare                                                                                                                  ', 'Cluj', 1, 'Universitatea Tehnica Cluj', 'Mate-info', 'ACcluj.jpg', 0, 'Programare/Calculatoare', 'Informatica', 'Matematica', 'Fizica', 'Tehnica si tehnologie', 0, '0', 1),
-(3, 'Facultatea de Psihologie si Stiinte ale Educatiei UBB', 'Cluj', 1, 'Universitatea Babes-Bolyai', 'Filologie', 'Pshihologiecluj.jpg', 1, 'Psihologie', 'Psihologie', 'Limba si literatura romana', 'Sociologie', 'Psihologie', 1, '0', 0),
-(4, 'Facultatea de Biologie si Geologie UBB', 'Cluj', 1, 'Universitatea Babes-Bolyai', 'Stiinte ale naturii', 'biologiecluj.jpg', 1, 'Biologie', 'Biologie', 'Chimie', 'Fizica', 'Enciclopedii', 0, '0', 0),
-(5, 'Facultatea de Chimie si Inginerie Chimica', 'Cluj', 1, 'Universitatea Babes-Bolyai', 'Stiinte ale naturii', 'chimiecluj.jpg', 0, 'Chimie', 'Chimmie', 'Fizica', 'Matematica', 'Stiinte exacte', 0, '0', 1),
-(6, 'Facultatea de Sociologie si Asistenta Sociala', 'Cluj', 0, 'Universitatea Babes-Bolyai', 'Filologie', 'sociologiecluj.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 'Facultatea de Litere', 'Cluj', 0, 'Universitatea Babes-Bolyai', 'Filologie', 'literecluj.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(9, 'Facultatea de Business', 'Cluj', 0, 'Universitatea Babes-Bolyai', 'Mate-info', 'businesscluj.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(10, 'Facultatea de Istorie si Filozofie', 'Cluj', 0, 'Universitatea Babes-Bolyai', 'Filologie', 'istoriecluj.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(11, 'Facultatea de Matematica si Informatica', 'Cluj', 1, 'Universitatea Babes-Bolyai', 'Mate-info', '', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(12, 'Facultatea de Fizica', 'Cluj', 1, 'Universitatea Babes-Bolyai', 'Mate-info', 'fizicacluj.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(13, 'Facultatea de Geografie', 'Cluj', 1, 'Universitatea Babes-Bolyai', 'Filologie', 'geografiecluj.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(14, 'Facultatea de Drept', 'Cluj', 1, 'Universitatea Babes-Bolyai', 'Filologie', 'dreptcluj.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(15, 'Facultatea de Educatie Fizica si Sport', 'Cluj', 1, 'Universitatea Babes-Bolyai', 'Sportiv', 'sportcluj.jpg\r\n', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(16, 'Facultatea de Arhitectura si Urbanism', 'Cluj', 1, 'Universitatea Tehnica Cluj', 'Arhitectura', 'arhitecturacluj.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(17, 'Facultatea de Constructii', 'Cluj', 1, 'Universitatea Tehnica Cluj', 'Mate-info', 'constructiicluj.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(18, 'Facultatea de Inginerie Electrica', 'Cluj', 0, 'Universitatea Tehnica Cluj', 'Mate-info', 'electricitatecluj.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(19, 'Facultatea de Instalatii', 'Cluj', 0, 'Universitatea Tehnica Cluj', 'Mate-info', 'instalatiicluj.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(20, 'Facultatea de Farmacie', 'Cluj', 1, 'Universitatea de Medicina si Farmacie Cluj', 'Stiinte ale naturii', 'farmaciecluj.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(21, 'Facultatea de Medicina', 'Cluj', 1, 'Universitatea de Medicina si Farmacie Cluj', 'Stiinte ale naturii', 'medicinacluj.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(22, 'Facultatea de Medicina Dentara', 'Cluj', 1, 'Universitatea de Medicina si Farmacie Cluj', 'Stiinte ale naturii', 'dentaracluj.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(24, 'Facultatea de Nutritie si Dietetica', 'Cluj', 1, 'Universitatea de Medicina si Farmacie Cluj', 'Stiinte ale naturii', '', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(25, 'Facultatea de Medicina  Veterinara', 'Cluj', 1, 'Universitatea de Stiinte Agricole si Medicina Veterinara', 'Stiinte ale naturii', 'agriculturacluj.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(26, 'Facultatea de Agricultura', 'Cluj', 1, 'Universitatea de Stiinte Agricole si Medicina Veterinara', 'Stiinte ale naturii', 'agriculturacluj.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(27, 'Facultatea de Horticultura', 'Cluj', 0, 'Universitatea de Stiiinte Agricole si Medicina Veterinare', 'Stiinte ale Naturii', 'default.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(29, 'Facultatea de Automatica si Calculatore', 'Bucuresti', 1, 'Universitatea Politehnica Bucuresti', 'Mate-info', 'default.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(30, 'Facultatea de Inginerie Electrica', 'Bucuresti', 1, 'Universitatea Politehnica Bucuresti', 'Mate-info', 'default.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(31, 'Facultatea de Chimie Aplicata si Stiinta Materialelor', 'Bucuresti', 1, 'Universitatea Politehnica Bucuresti', 'Stiinte ale naturii', 'default.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(32, 'Facultatea de Energetica', 'Bucuresti', 1, 'Universitatea Politehnica Bucuresti', 'Mate-info', 'default.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(33, 'Facultatea de Ingineria Sistemelor Biotehnice', 'Bucuresti', 1, 'Universitatea Politehnica Bucuresti', 'Stiinte ale Naturii', 'default.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(34, 'Facultatea de Inginerie Aerospatiala', 'Bucuresti', 1, 'Universitatea Politehnica Bucuresti', 'Mate-info', 'default.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(35, 'Facultatea de Inginerie si Managementul Sistemelor Tehnologice', 'Bucuresti', 1, 'Universitatea Politehnica Bucuresti', 'Mate-info', 'default.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(36, 'Facultatea de Ingenerie Medicala', 'Bucuresti', 1, 'Universitatea Politehnica Bucuresti', 'Mate-info', 'default.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(37, 'Facultatea de Stiinta si Ingeneria Materialelor', 'Bucuresti', 1, 'Universitatea Politehnica Bucuresti', 'Mate-info', 'default.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(38, 'Facultatea de Inginerie Mecanica si Mecatronica', 'Bucuresti', 1, 'Universitatea Politehnica Bucuresti', 'Mate-info', 'default.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(39, 'Facultatea de Transporturi', 'Bucuresti', 1, 'Universitatea Politehnica Bucuresti', 'Mate-info', 'default.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(40, 'Facultatea de Electronica,Telecomunicatii si Tehnologia Informatiei', 'Bucuresti', 1, 'Universitatea Politehnica Bucuresti', 'Mate-info', 'default.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(41, 'Facultatea de Administratie si Afaceri', 'Bucuresti', 0, 'Universitatea Bucuresti', 'Mate-info', 'default.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(42, 'Facultatea de Biologie', 'Bucuresti', 0, 'Universitatea Bucuresti', 'Stiinte ale Naturii', 'default.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(43, 'Facultatea de Chimie', 'Bucuresti', 1, 'Universitatea Bucuresti', 'Stiinte ale Naturii', 'default.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL),
-(44, 'Facultatea de Drept', 'Bucuresti', 1, 'Universitatea Bucuresti', 'Filologie', 'default.jpg', NULL, '', '0', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `facultati` (`Indexf`, `Numef`, `Judet`, `Examenadmi`, `Universitatea`, `Profil`, `Poza`, `job`, `pasiune_facultati`, `materie1`, `materie2`, `materie3`, `carti`, `sociabil`, `sport`, `stres`, `link_facultate`) VALUES
+(1, 'Facultatea de Teologie Ortodoxa UBB', 'Cluj', 1, 'Universitatea Babes-Bolyai', 'Teologic', 'teologiccluj.jpg', 1, 'Religie', 'Religie', 'Istorie', 'Muzica', 'Religie', 1, '0', 0, 'http://ot.ubbcluj.ro/'),
+(2, 'Facultatea de Automatica si Calculatoare                                                                                                                  ', 'Cluj', 1, 'Universitatea Tehnica Cluj', 'Mate-info', 'ACcluj.jpg', 0, 'Programare/Calculatoare', 'Informatica', 'Matematica', 'Fizica', 'Tehnica si tehnologie', 0, '0', 1, 'https://acs.pub.ro/'),
+(3, 'Facultatea de Psihologie si Stiinte ale Educatiei UBB', 'Cluj', 1, 'Universitatea Babes-Bolyai', 'Filologie', 'Pshihologiecluj.jpg', 1, 'Psihologie', 'Psihologie', 'Limba si literatura romana', 'Sociologie', 'Psihologie', 1, '0', 0, 'https://psiedu.ubbcluj.ro/'),
+(4, 'Facultatea de Biologie si Geologie UBB', 'Cluj', 1, 'Universitatea Babes-Bolyai', 'Stiinte ale naturii', 'biologiecluj.jpg', 1, 'Biologie', 'Biologie', 'Chimie', 'Fizica', 'Enciclopedii', 0, '0', 0, 'http://bioge.ubbcluj.ro/'),
+(5, 'Facultatea de Chimie si Inginerie Chimica', 'Cluj', 1, 'Universitatea Babes-Bolyai', 'Stiinte ale naturii', 'chimiecluj.jpg', 0, 'Chimie', 'Chimmie', 'Fizica', 'Matematica', 'Stiinte exacte', 0, '0', 1, 'http://chem.ubbcluj.ro/');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `resetare`
+-- Structură tabel pentru tabel `resetare`
 --
 
 CREATE TABLE `resetare` (
@@ -125,7 +97,7 @@ CREATE TABLE `resetare` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structură tabel pentru tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -150,16 +122,17 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Eliminarea datelor din tabel `users`
 --
 
 INSERT INTO `users` (`idUser`, `Nume`, `Prenume`, `mailUser`, `pwdUsers`, `Profil`, `Domeniu`, `domeniu_intensitate`, `job`, `materie1`, `materie2`, `materie3`, `carti`, `sociabil`, `sport`, `stres`, `Judet`, `PozaUser`) VALUES
-(6, 'Nume', 'Robert', 'robertplaiasu03@gmail.com', '$2y$10$uJ2AnpXLNXq3Uenquyf3DurigB7ISuaGjWsaxdIlGrvN3OIoXAKpG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'UserDefault.jpg');
+(6, 'Nume', 'Robert', 'robertplaiasu03@gmail.com', '$2y$10$uJ2AnpXLNXq3Uenquyf3DurigB7ISuaGjWsaxdIlGrvN3OIoXAKpG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'UserDefault.jpg'),
+(0, 'Grigorescu', 'Alexandru', 'grigorescu.aleex@gmail.com', '$2y$10$I6urXCEv4Klu7uMza1J9vejKMVVSJcoqZdFXTPRaFLfuTANTbZNZm', 'Mate-info', 'Programare/Calculatoare', 5, 0, 'Matematica', 'Fizica', 'TIC', 'Psihologie', 0, 'Da', 0, 'Prahova', 'UserDefault.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_gmail`
+-- Structură tabel pentru tabel `users_gmail`
 --
 
 CREATE TABLE `users_gmail` (
@@ -171,7 +144,7 @@ CREATE TABLE `users_gmail` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_verificare`
+-- Structură tabel pentru tabel `users_verificare`
 --
 
 CREATE TABLE `users_verificare` (
@@ -187,91 +160,11 @@ CREATE TABLE `users_verificare` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users_verificare`
+-- Eliminarea datelor din tabel `users_verificare`
 --
 
 INSERT INTO `users_verificare` (`idVerificare`, `numeVerificare`, `prenumeVerificare`, `mailVerificare`, `parolaVerificare`, `selectVerificare`, `tokenVerificare`, `expireVerificare`, `verificare`) VALUES
 (1, 'Nume', 'Robert', 'robertplaiasu03@gmail.com', '$2y$10$uJ2AnpXLNXq3Uenquyf3DurigB7ISuaGjWsaxdIlGrvN3OIoXAKpG', '3ff6a069d63330bfe06cacba', '$2y$10$tZs06egu/bbkBQ2dmFvhT.fSDA9RWBm6wcafRTxqPPhosZrYSI8PG', 1586774491, NULL);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `auth`
---
-ALTER TABLE `auth`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `facultati`
---
-ALTER TABLE `facultati`
-  ADD PRIMARY KEY (`Indexf`);
-
---
--- Indexes for table `resetare`
---
-ALTER TABLE `resetare`
-  ADD PRIMARY KEY (`idReset`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`idUser`);
-
---
--- Indexes for table `users_gmail`
---
-ALTER TABLE `users_gmail`
-  ADD PRIMARY KEY (`idGmail`);
-
---
--- Indexes for table `users_verificare`
---
-ALTER TABLE `users_verificare`
-  ADD PRIMARY KEY (`idVerificare`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `auth`
---
-ALTER TABLE `auth`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `facultati`
---
-ALTER TABLE `facultati`
-  MODIFY `Indexf` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
-
---
--- AUTO_INCREMENT for table `resetare`
---
-ALTER TABLE `resetare`
-  MODIFY `idReset` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `users_gmail`
---
-ALTER TABLE `users_gmail`
-  MODIFY `idGmail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `users_verificare`
---
-ALTER TABLE `users_verificare`
-  MODIFY `idVerificare` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
