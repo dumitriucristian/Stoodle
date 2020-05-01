@@ -74,7 +74,8 @@ function filterPassword($var){
                     $selector=bin2hex(random_bytes(24));
                     $token=bin2hex(random_bytes(64));
                     $hash=password_hash($token,PASSWORD_DEFAULT);
-                    $mysql="INSERT INTO auth(validator,selector,userid,data) VALUES (".$hash.",".$selector.",".$valori['idUser'].",".$date.")";
+                    $id=$valori['idUser'];
+                    $mysql="INSERT INTO auth(validator,selector,userid,data) VALUES ('".$hash."','".$selector."','".$id."','".$date."')";
                     mysqli_query($connection,$mysql);
                     setcookie("select", $selector,$date,"/",'http://localhost',1);
                     setcookie("validator",$token,$date,"/",'http://localhost',1);

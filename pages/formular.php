@@ -31,11 +31,11 @@
     }
 
     if(empty($pasiune) || empty($intensitate_pasiune) || empty($job) || empty($carti) || empty($judet) || empty($sport) || empty($stres) || empty($social) || empty($materie1) || empty($materie2) || empty($materie3)){
-      header("Location: ./formularTemplate.php?2");
+      header("Location: ./formularTemplate.php");
       exit();
     }
     if ($intensitate_pasiune>6 || $intensitate_pasiune<0) {
-      header("Location: ./formularTemplate.php?1");
+      header("Location: ./formularTemplate.php");
       exit();
     }
     bolVal($sport);
@@ -54,14 +54,17 @@
 
 
     $session=$_SESSION['mailUser'];
-    $mysql="INSERT INTO users(Profil,Domeniu,domeniu_intensitate,job,materie1,materie2,materie3,carti,sociabil,sport,stres,Judet) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?) WHERE mailUser=?";
+    $mysql="UPDATE users SET Profil=?,Domeniu=?,domeniu_intensitate=?,job=?,materie1=?,materie2=?,materie3=?,carti=?,sociabil=?,sport=?,stres=?,Judet=? WHERE mailUser=?";
     $stmt=mysqli_stmt_init($connection);
     if(!mysqli_stmt_prepare($stmt,$mysql)){
-      header("Location: ./formularTemplate.php?1");
+      header("Location: ./formularTemplate.php");
       exit();
     }
-    mysqli_stmt_bind_param($stmt,"ssssssssssss",$profil,$pasiune,$intensitate_pasiune,$job,$materie1,$materie2,$materie3,$carti,$social,$sport,$stres,$judet,$session);
+    mysqli_stmt_bind_param($stmt,"sssssssssssss",$profil,$pasiune,$intensitate_pasiune,$job,$materie1,$materie2,$materie3,$carti,$social,$sport,$stres,$judet,$session);
     mysqli_stmt_execute($stmt);
+
+    header("Location: ./homePage.php");
+    exit();
 
 
 

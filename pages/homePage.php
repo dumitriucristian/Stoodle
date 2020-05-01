@@ -1,10 +1,29 @@
 <?php
+require './folderlogin/datacon.php';
 session_start();
-if(!isset($_SESSION['mailUser']) || !isset($_SESSION['mailGmail'])){
-  header("Location: ../indexpp.php");
+if(!isset($_SESSION['mailUser']) && !isset($_SESSION['mailGmail'])){
+  header("Location: ../indexpp.php?1");
   exit();
 }
-$sql="SELECT FROM users WHERE"
+$mail = $_SESSION['mailUser'];
+$mysql="SELECT * FROM users WHERE mailUser=?";
+$stmt = mysqli_stmt_init($connection);
+if (!mysqli_stmt_prepare($stmt, $mysql))
+{
+    header("Location: ../indexpp.php?2");
+    exit();
+}
+mysqli_stmt_bind_param($stmt, "s", $_SESSION['mailUser']);
+mysqli_stmt_execute($stmt);
+$result= mysqli_stmt_get_result($stmt);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+}
+if(empty($row['Profil'])){
+  header("Location: ./formularTemplate.php");
+  exit();
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,23 +51,9 @@ $sql="SELECT FROM users WHERE"
             <div class="sidebar-header">
                 <img src="./Images/Icons/profile.png" alt="Profil Picture" style="width: 50%;">
                 <p>
-                    <?php
-                    require './folderlogin/datacon.php';
-                    $mail = $_SESSION['mailUser'];
-                    $sql = "SELECT * FROM `users` WHERE `mailUser` = '$mail'";
-                    $result = mysqli_query($connection,$sql);
-                    $myArray = array();
-                    if ($result->num_rows > 0) {
-                        // output data of each row
-                        while($row = $result->fetch_assoc()) {
-                            print "@".$row['Prenume'];
-                        }
-                    }
-                    else
-                    {
-                        echo "0 results";
-                    }
-                    ?>
+                  <?php
+                  print "@".$row['Prenume'];
+                   ?>
                 </p>
             </div>
 
@@ -142,11 +147,7 @@ $sql="SELECT FROM users WHERE"
                             </div>
                         </div>
                         <div class="row-lg-3 extra text-center">
-                            <a href="
-                                     <?php
-                        echo $card->link;
-                                     ?>
-                                     ">Afla mai mult</a>
+                            <a href="#">Afla mai mult</a>
                         </div>
                     </div>
                     <?php } ?>

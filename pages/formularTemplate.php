@@ -59,10 +59,10 @@ if(empty($select)||empty($token)){
           mysqli_stmt_execute($stmt);
 
 
-          $mail=$rand['mailVerificare'];
-          $mysql="DELETE FROM users_verificare WHERE mailVerificare='".$mail."';";
-          mysqli_query($connection,$mysql);
+          $id=$rand['idVerificare'];
           $_SESSION['mailUser']=$rand['mailVerificare'];
+          $mysql="DELETE FROM users_verificare WHERE idVerificare='$id'";
+          mysqli_query($connection,$mysql);
 
     }
     else {
@@ -75,6 +75,7 @@ else {
   exit();
 }
 }
+
 
 
 
