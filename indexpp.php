@@ -8,24 +8,8 @@ function destroyCookie($select,$token){
 session_start();
 if (isset($_SESSION['mailUser']))
 {
-  $mysql = "SELECT * FROM users WHERE mailUser=?;";
-  $stmt = mysqli_stmt_init($connection);
-  if (!mysqli_stmt_prepare($stmt, $mysql))
-  {
-      header("Location: ../login.php?error=sqlierror");
-      exit();
-  }
-      mysqli_stmt_bind_param($stmt, "s", $mailuserid);
-      mysqli_stmt_execute($stmt);
-      $check = mysqli_stmt_get_result($stmt);
-      if ($valori = mysqli_fetch_assoc($check))
-      {
     header("Location: ./pages/homePage.php");
     exit();
-  }
-    session_unset();
-    session_destroy();
-
 }
 elseif(isset($_COOKIE['select']) && isset($_COOKIE['validator'])){
     if(ctype_xdigit($_COOKIE['select']) && ctype_xdigit($_COOKIE['validator'])){
@@ -56,7 +40,6 @@ elseif(isset($_COOKIE['select']) && isset($_COOKIE['validator'])){
                     header('Refresh: 1; url=indexpp.php');
                     exit();
                 }
-                else{
                     $_SESSION['mailUser']=$result['mailUser'];
 
                     /*aici se termina sesiunile*/
@@ -73,8 +56,6 @@ elseif(isset($_COOKIE['select']) && isset($_COOKIE['validator'])){
 
                     header("Location: ./pages/homePage.php");
                     exit();
-                }
-
             }
             else {
                 destroyCookie($_COOKIE['select'],$_COOKIE['validator']);
