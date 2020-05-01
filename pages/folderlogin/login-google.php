@@ -10,7 +10,6 @@
     $mail=$google_info->email;
     $name=$google_info->name;
     $_SESSION['mailGmail']=$mail;
-    $_SESSION['nameGmail']=$name;
     $mysql="SELECT mailGmail FROM users_gmail WHERE mailGmail='$mail';";
       $result=mysqli_query($connection,$mysql);
       if(mysqli_num_rows($result)>0){

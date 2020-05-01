@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['mailUser'])){
+if (!isset($_SESSION['mailUser']) || !isset($_SESSION['mailGmail'])){
   header("Location: ../indexpp.php");
   exit();
 }
