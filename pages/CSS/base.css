@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,700;1,400&display=swap');
 @import url('./variabiles.css');
+
 body,
 html {
     margin: 0;
@@ -9,12 +10,15 @@ html {
     font-family: 'Barlow', sans-serif;
 }
 
+
+/* BUTTON */
 .button {
     background-color: var(--black);
     color: var(--yellow)!important;
     font-weight: 700;
     border-radius: 8px;
-    padding: 1rem 2rem;
+    padding: .5em 1.5em;
+    font-size: 1.5rem;
     margin: 1em;
     border: 0;
 }

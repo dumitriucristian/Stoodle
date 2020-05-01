@@ -1,76 +1,69 @@
 <?php
-    session_start();
+session_start();
 ?>
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="./CSS/navbar.css">
-    <link rel="stylesheet" href="./CSS/contact.css">
-    <link rel="stylesheet" href="./CSS/base.css">
-    <script src="https://kit.fontawesome.com/0dfb644902.js" crossorigin="anonymous"></script>
-    <title>Stoodle</title>
-  </head>
-  <body>
-
-    <!-- SIDE NAVBAR -->
-    <nav id="sidebar">
-
-        <!-- HEADER -->
-        <div class="sidebar-header">
-            <img src="./Images/Icons/profile.png" alt="Profil Picture" style="width: 5em;">
-            <p>@Username</p>
-        </div>
-
-        <!-- BODY -->
-        <ul class="list-unstyled components">
-            <li>
-                <a href="./homePage.php">Acasa <img src="./Images/Icons/home.png" alt="icon"></a>
-            </li>
-            <li>
-                <a href="./profile.php">Profil <img src="./Images/Icons/profile.png" alt="icon"></a>
-            </li>
-            <li>
-                <a href="./contact.php">Contact <img src="./Images/Icons/home.png" alt="icon"></a>
-            </li>
-            <li>
-                <a href="./news.php">Știri <img src="./Images/Icons/home.png" alt="icon"></a>
-            </li>
-            <li>
-                <a href="./faq.php">Intrebari <img src="./Images/Icons/question.png" alt="icon"></a>
-            </li>
-        </ul>
-
-        <a href="./folderlogin/deconectphp.php" class="button"> Deconectare</a>
-    </nav>
-
-    <!-- PAGE CONTENT-->
-    <div id="content">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-            <div class="container-fluid">
-                <div id="sidebarCollapse" style="cursor: pointer;">
-
-                    <!-- ID-URILE SUNT INVERSATE -->
-                    <img src="./Images/Icons/open.png" id="close" alt="closingIcon">
-                    <img src="./Images/Icons/close.png" id="open" alt="openingIcon">
-
-                </div>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="./CSS/navbar.css">
+        <link rel="stylesheet" href="./CSS/contact.css">
+        <link rel="stylesheet" href="./CSS/base.css">
+        <script src="https://kit.fontawesome.com/0dfb644902.js" crossorigin="anonymous"></script>
+        <title>Stoodle</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a href="#"> 
+                <?php
+                require './folderlogin/datacon.php';
+                $mail = $_SESSION['mailUser'];
+                $sql = "SELECT * FROM `users` WHERE `mailUser` = '$mail'";
+                $result = mysqli_query($connection,$sql);
+                $myArray = array();
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        print "Salut, ".$row['Prenume'];
+                    }
+                }
+                else
+                {
+                    echo "0 results";
+                }
+                ?>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">☰</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav" style="flex-direction: row-reverse;">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="./homePage.php" class="nav-link">Acasa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./formularTemplate.php" class="nav-link">Formular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./contact.php" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./news.php" class="nav-link">Știri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./faq.php" class="nav-link">Intrebari</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./folderlogin/deconectphp.php" class="nav-link"> Deconectare</a>
+                    </li>
+                </ul>
             </div>
-
-            <div class="input-group md-form form-sm form-2 pl-0">
-                <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                    <span class="input-group-text red lighten-3" id="basic-text1">
-                        Cautare
-                    </span>
-                </div>  
-            </div>
-
         </nav>
+        <div id="search">
+            <input onkeyup="sort()" class="form-control w-75"
+                   type="text" placeholder="cauta" id="search_field" aria-label="Search">
+        </div>
 
         <!-- CONTACT INFO -->
         <div id="showcase">
@@ -104,7 +97,7 @@
                 </div>
             </div>
         </div>
-    </div>
+        </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="./JS/navbar.js"></script>
