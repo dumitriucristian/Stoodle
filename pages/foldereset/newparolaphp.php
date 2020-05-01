@@ -15,7 +15,7 @@ if(isset($_POST['submit-parola-reset'])){
     }
   }
   function validateVarParola($var,$msg){
-    if(!preg_match("/^[a-zA-Z]*$/", $var)) {
+    if(!preg_match("/^[a-zA-Z0-9]*$/", $var)) {
       $msg="Location: ../newparola.php?error=invalid".$msg;
        header($msg);
        exit();
@@ -36,10 +36,10 @@ if(isset($_POST['submit-parola-reset'])){
   emptyVar($parola);
   emptyVar($confparola);
 
-  validateVarParola($parola,"parola");
+  validateVarParola($parola,"passw");
   validateVarParola($confparola,"confirmareparola");
 
-  elseif ($parola !== $confparola) {
+  if ($parola !== $confparola) {
     header("Location: ../newparola.php?error=difparola&select=".$select."&valid=".$token);
     exit();
   }
@@ -90,8 +90,6 @@ if(isset($_POST['submit-parola-reset'])){
             header("Location: ../reset.php?error=nouser");
             exit();
           }
-
-          else{
             $mysql="SELECT * FROM users WHERE pwdUsers=?";
             $stmt=mysqli_stmt_init($connection);
             if (!mysqli_stmt_prepare($stmt,$mysql)) {
@@ -128,7 +126,6 @@ if(isset($_POST['submit-parola-reset'])){
                 header("Location: ../login.php?succes=resetare");
                 exit();
             }
-          }
 
         }
     }

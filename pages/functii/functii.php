@@ -23,7 +23,7 @@ function succes($value,$msg)
 {
     if(isset($_GET['succes'])){
         if($_GET['succes']==$value){
-            echo '<div class="alert alert-danger" role="alert">
+            echo '<div class="alert alert-success" role="alert">
                 '.$msg.'
             </div>';
         }

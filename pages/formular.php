@@ -52,9 +52,14 @@
     arrayVal($pasiune,$array_pasiune);
     arrayVal($profil,$array_profil);
 
-
-    $session=$_SESSION['mailUser'];
-    $mysql="UPDATE users SET Profil=?,Domeniu=?,domeniu_intensitate=?,job=?,materie1=?,materie2=?,materie3=?,carti=?,sociabil=?,sport=?,stres=?,Judet=? WHERE mailUser=?";
+    if (isset($_SESSION['mailUser'])) {
+      $session=$_SESSION['mailUser'];
+      $mysql="UPDATE users SET Profil=?,Domeniu=?,domeniu_intensitate=?,job=?,materie1=?,materie2=?,materie3=?,carti=?,sociabil=?,sport=?,stres=?,Judet=? WHERE mailUser=?";
+    }
+    elseif(isset($_SESSION['mailGmail'])) {
+      $session=$_SESSION['mailGmail'];
+      $mysql="UPDATE users_gmail SET Profil=?,Domeniu=?,domeniu_intensitate=?,job=?,materie1=?,materie2=?,materie3=?,carti=?,sociabil=?,sport=?,stres=?,Judet=? WHERE mailGmail=?";
+    }
     $stmt=mysqli_stmt_init($connection);
     if(!mysqli_stmt_prepare($stmt,$mysql)){
       header("Location: ./formularTemplate.php");
