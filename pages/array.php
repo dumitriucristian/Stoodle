@@ -1,7 +1,7 @@
 <?php
 
 
-$array_judet=array("Alba","Arad ","Arges","Bacau","Bihor","Bistrita-Nasaud","Botosani","Braila","Brasov","Buzau","Calarasi","Caras-Severin","Cluj","Constanta","Covasna","Dambovta",
+$array_judet=array("Alba","Arad ","Arges","Bacau","Bihor","Bistrita-Nasaud","Botosani","Braila","Brasov","Buzau","Calarasi","Caras-Severin","Cluj","Constanta","Covasna","Dambovita",
 "Dolj","Galati","Giurgiu","Gorj","Harghita","Hunedoara","Ialomita","Iasi","Ilfov","Maramures","Mehedinti","Mures","Neamt","Olt","Prahova","Salaj","Satu-Mare","Sibiu","Suceava","Teleorman",
 "Timis","Tulcea","Valcea","Vaslui","Vrancea");
 
@@ -17,5 +17,5 @@ $array_pasiune=array("Medicina","Matematica","Agricultura","Ecologie","Programar
 "Business","Politica","Limbi straine","Filozofie","Drept","Biologie","Geografie","Geologie","Istorie","Jurnalism","Psihologie","Design","Constructii","Serviciul militar","Actorie","Regie","Editare video/sunet",
 "Chimie","Animale","Limba romana","Serviciul in cadrul politiei","Electronica","Electricitate","Cibernetica","Inginerie Aerospatila","Serviciul in cadrul politiei");
 
-$array_profil=array("Teologic","Mate-info","Filologie","Stiinte ale naturii","Sportiv","Tehnologic","Arhitectura","Actorie");
+$array_profil=array("Teologic","Mate-info","Filologie","Stiinte ale naturii","Sportiv","Tehnologic","Arhitectura","Actorie","Stiinte-sociale");
  ?>
