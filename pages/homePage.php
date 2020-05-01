@@ -1,8 +1,8 @@
 <?php
 session_start();
 if (!isset($_SESSION['mailUser'])){
-  header("Location: ../indexpp.php");
-  exit();
+    header("Location: ../indexpp.php");
+    exit();
 }
 ?>
 <!doctype html>
@@ -141,7 +141,11 @@ if (!isset($_SESSION['mailUser'])){
                             </div>
                         </div>
                         <div class="row-lg-3 extra text-center">
-                            <a href="#">Afla mai mult</a>
+                            <a href="
+                                     <?php
+                        echo $card->link;
+                                     ?>
+                                     ">Afla mai mult</a>
                         </div>
                     </div>
                     <?php } ?>
