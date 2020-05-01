@@ -9,6 +9,7 @@ class facultate {
     public $judet;
     public $profil;
     public $compabilitate;
+    public $link;
 }
 
 //GET USER INFO FROM DATABASE
@@ -53,6 +54,7 @@ foreach ($myArray as $_facultate) {
     $temp->judet = $_facultate['Judet'];
     $temp->profil = $_facultate['Profil'];
     $temp->compabilitate = getCompability($_facultate, $user);
+    $temp->link = $_facultate['link_facultate'];
     array_push($facultati, $temp);
 }
 
