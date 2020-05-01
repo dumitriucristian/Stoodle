@@ -4,8 +4,9 @@
   include 'array.php';
   if (isset($_POST['formularsubmit']))
 {
+    $profil=$_POST['profil'];
     $pasiune=$_POST['pasiune'];
-    $intensitate_pasiune=$_POST['intesitate_pasiune'];
+    $intensitate_pasiune=$_POST['intensitate_pasiune'];
     $job=$_POST['job'];
     $carti=$_POST['carti'];
     $judet=$_POST['judet'];
@@ -24,7 +25,7 @@
     }
     function arrayVal($val,$array){
       if(!in_array($val,$array)){
-        header("Location: ./formularTemplate.php");
+        header("Location: ./formularTemplate.php?7");
         exit();
       }
     }
@@ -33,7 +34,7 @@
       header("Location: ./formularTemplate.php?2");
       exit();
     }
-    if ($intensitate_pasiune<6 && $intensitate_pasiune>0) {
+    if ($intensitate_pasiune>6 || $intensitate_pasiune<0) {
       header("Location: ./formularTemplate.php?1");
       exit();
     }
@@ -49,16 +50,17 @@
     arrayVal($materie3,$array_materie1);
     arrayVal($carti,$array_carti);
     arrayVal($pasiune,$array_pasiune);
+    arrayVal($profil,$array_profil);
 
 
     $session=$_SESSION['mailUser'];
-    $mysql="INSERT INTO users(Domeniu,domeniu_intensitate,job,materie1,materie2,materie3,carti,sociabil,sport,stres,Judet) VALUES(?,?,?,?,?,?,?,?,?,?,?,?) WHERE mailUser=?";
+    $mysql="INSERT INTO users(Profil,Domeniu,domeniu_intensitate,job,materie1,materie2,materie3,carti,sociabil,sport,stres,Judet) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?) WHERE mailUser=?";
     $stmt=mysqli_stmt_init($connection);
     if(!mysqli_stmt_prepare($stmt,$mysql)){
       header("Location: ./formularTemplate.php?1");
       exit();
     }
-    mysqli_stmt_bind_param($stmt,"ssssssssssss",$pasiune,$intensitate_pasiune,$job,$materie1,$materie2,$materie3,$carti,$social,$sport,$stres,$judet,$session);
+    mysqli_stmt_bind_param($stmt,"ssssssssssss",$profil,$pasiune,$intensitate_pasiune,$job,$materie1,$materie2,$materie3,$carti,$social,$sport,$stres,$judet,$session);
     mysqli_stmt_execute($stmt);
 
 

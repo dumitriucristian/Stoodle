@@ -119,9 +119,8 @@ else {
 
         <div class="row" style="height:100vh">
             <div class="col flex-column d-flex justify-content-center align-items-center" style="height:100vh">
-                <label>Cat de mult esti pasionat?</label>
-                <select name="intesitate_pasiune">
-                    <option value="null">Pe o scara de la 1 la 5</option>
+                <label>Cat de mult esti pasionat pe o scara de la 1 la 5 ?</label>
+                <select name="intensitate_pasiune">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -215,6 +214,19 @@ else {
                 <select name="sport">
                     <option value="Da">Da</option>
                     <option value="Nu">Nu</option>
+                </select>
+                <input type="button" onclick="nextQuestion()" class="button" value="Urmatoare intrebare"></input>
+            </div>
+        </div>
+
+        <div class="row" style="height:100vh">
+            <div class="col flex-column d-flex justify-content-center align-items-center" style="height:100vh">
+                <label>Pe ce profil esti ?</label>
+                <select name="profil">
+                  <?php
+                          foreach ($array_profil as $tip)
+                              echo "<option value='".$tip."'>".$tip."</option>";
+                      ?>
                 </select>
                 <input type="button" onclick="nextQuestion()" class="button" value="Urmatoare intrebare"></input>
             </div>

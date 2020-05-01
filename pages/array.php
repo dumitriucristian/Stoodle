@@ -17,5 +17,5 @@ $array_pasiune=array("Medicina","Matematica","Agricultura","Ecologie","Programar
 "Business","Politica","Limbi straine","Filozofie","Drept","Biologie","Geografie","Geologie","Istorie","Jurnalism","Psihologie","Design","Constructii","Serviciul militar","Actorie","Regie","Editare video/sunet",
 "Chimie","Animale","Limba romana","Serviciul in cadrul politiei","Electronica","Electricitate","Cibernetica","Inginerie Aerospatila","Serviciul in cadrul politiei");
 
-
+$array_profil=array("Teologic","Mate-info","Filologie","Stiinte ale naturii","Sportiv","Tehnologic","Arhitectura","Actorie");
  ?>

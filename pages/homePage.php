@@ -1,9 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION['mailUser']) || !isset($_SESSION['mailGmail'])){
+if(!isset($_SESSION['mailUser']) || !isset($_SESSION['mailGmail'])){
   header("Location: ../indexpp.php");
   exit();
 }
+$sql="SELECT FROM users WHERE"
 ?>
 <!doctype html>
 <html lang="en">
