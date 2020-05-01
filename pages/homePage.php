@@ -141,7 +141,11 @@ if (!isset($_SESSION['mailUser']) || !isset($_SESSION['mailGmail'])){
                             </div>
                         </div>
                         <div class="row-lg-3 extra text-center">
-                            <a href="#">Afla mai mult</a>
+                            <a href="
+                                     <?php
+                        echo $card->link;
+                                     ?>
+                                     ">Afla mai mult</a>
                         </div>
                     </div>
                     <?php } ?>
