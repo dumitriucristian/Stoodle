@@ -2,15 +2,15 @@
 require './folderlogin/datacon.php';
 session_start();
 if(!isset($_SESSION['mailUser']) && !isset($_SESSION['mailGmail'])){
-  header("Location: ../indexpp.php?1");
-  exit();
+    header("Location: ../indexpp.php?1");
+    exit();
 }
 $mail = $_SESSION['mailUser'];
 $mysql="SELECT * FROM users WHERE mailUser=?";
 $stmt = mysqli_stmt_init($connection);
 if (!mysqli_stmt_prepare($stmt, $mysql))
 {
-    header("Location: ../indexpp.php?2");
+    header("Location: ../indexpp.php?");
     exit();
 }
 mysqli_stmt_bind_param($stmt, "s", $_SESSION['mailUser']);
@@ -21,8 +21,8 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 }
 if(empty($row['Profil'])){
-  header("Location: ./formularTemplate.php");
-  exit();
+    header("Location: ./formularTemplate.php");
+    exit();
 }
 ?>
 <!doctype html>
@@ -46,55 +46,48 @@ if(empty($row['Profil'])){
 
     <body>
         <!-- SIDE BAR -->
-        <nav id="sidebar">
-            <!-- HEADER -->
-            <div class="sidebar-header">
-                <img src="./Images/Icons/profile.png" alt="Profil Picture" style="width: 50%;">
-                <p>
-                  <?php
-                  print "@".$row['Prenume'];
-                   ?>
-                </p>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a href="#"> 
+                <?php
+                print "Salut, ".$row['Prenume'];
+                ?>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">☰</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav" style="flex-direction: row-reverse;">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="./homePage.php" class="nav-link">Acasa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a onclick="formular();" class="nav-link">Formular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./contact.php" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./news.php" class="nav-link">Știri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./faq.php" class="nav-link">Intrebari</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./folderlogin/deconectphp.php" class="nav-link"> Deconectare</a>
+                    </li>
+                </ul>
             </div>
-
-
-            <!-- SIDEBAR BODY -->
-            <ul class="list-unstyled components">
-                <li>
-                    <a href="./homePage.php">Acasa</a>
-                </li>
-                <li>
-                    <a href="./formularTemplate.php">Formular</a>
-                </li>
-                <li>
-                    <a href="./contact.php">Contact</a>
-                </li>
-                <li>
-                    <a href="./news.php">Știri</a>
-                </li>
-                <li>
-                    <a href="./faq.php">Intrebari</a>
-                </li>
-            </ul>
-            <a href="./folderlogin/deconectphp.php" class="button"> Deconectare</a>
-
         </nav>
+        <div id="search">
+            <input onkeyup="sort()" class="form-control w-75"
+                   type="text" placeholder="cauta" id="search_field" aria-label="Search">
+        </div>
+
         <!-- PAGE CONTENT -->
-        <div id="content">
-
-            <nav class="navbar bg-light w-100" style="z-index: 1">
-
-                <img src="./Images/Icons/open.png" id="sidebarCollapse" alt="closingIcon">
-
-                <input onkeyup="sort()" class="form-control w-50"
-                       type="text" placeholder="cauta" id="search_field" aria-label="Search">
-
-            </nav>
-
+        <main class="container">
             <!-- CARD SHOWCASE -->
-            <div id="showcase" class="mt-5">
-
-                <div class="row justify-content-center">
+            <div id="showcase">
+                <div class="row">
 
                     <?php
                     require './functii/facultati.php';
@@ -105,7 +98,7 @@ if(empty($row['Profil'])){
                     foreach ($facultati as $card) {
                     ?>
                     <!--Print the card-->
-                    <div class="col-lg-3 card">
+                    <div class="col card">
                         <!--Image Background-->
                         <div class="row-lg-4 backgrounded"></div>
                         <!--Print the proprities-->
@@ -153,12 +146,12 @@ if(empty($row['Profil'])){
                     <?php } ?>
 
                 </div>
-
             </div>
-
-        </div>
+        </main>
         <!-- SCRIPTING -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="./JS/navbar.js"></script>
         <script src="./JS/homepage.js"></script>
     </body>

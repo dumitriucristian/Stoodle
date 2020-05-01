@@ -4,11 +4,19 @@ body {
 }
 
 #showcase {
-    margin: 0 .5rem;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1024px;
+}
+
+.row{
+    flex-wrap: wrap;
+    flex: 1 1 0px
 }
 
 .card {
     max-width: 20em;
+    min-width: 225px;
     border: 0;
     padding: 0;
     margin: 1rem;
@@ -27,6 +35,7 @@ body {
 .name{
     background-color: var(--red);
     padding: 1rem 1rem;
+    height: 100%;
 }
 
 .prop {
