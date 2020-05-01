@@ -25,62 +25,14 @@ include './functii/functii.php';
                     <form action="./foldereset/resetphp.php" method="post">
                         <?php
 
+                        erore2("emptymail","Completeaza campul!");
+                        erore2("nucont","Nu exista cont cu aceasta adresa de email!");
+                        erore2("mysqlerror","Eroare baza de date!");
+                        erore2("numail","Acesta adreasa de mail nu este una corecta!");
 
-                        if(isset($_GET['error'])) {
-                            if($_GET['error']=="emptymail") {
-                                echo '<div class="alert alert-danger" role="alert">
-                      Completeaza campul!
-                  </div>';
-                            }
-                            elseif($_GET['error']=="nucont") {
-                                echo '<div class="alert alert-danger" role="alert">
-                      Nu exista cont cu aceasta adresa de email!
-                  </div>';
-                            }
-                            elseif($_GET['error']=="mysqlerror") {
-                                echo '<div class="alert alert-danger" role="alert">
-                      Eroare baza de date!
-                  </div>';
-                            }
-                            elseif($_GET['error']=="numail") {
-                                echo '<div class="alert alert-danger" role="alert">
-                      Acesta adreasa de mail nu este una corecta!
-                  </div>';
-                            }
-                            elseif($_GET['error']=="expire") {
-                                echo '<div class="alert alert-danger" role="alert">
-                      Cererea a expirat trimite una din nou!
-                  </div>';
-                            }
-                        }
-                        if(isset($_GET['resetmail'])) {
-                            if($_GET['resetmail']=="succes") {
-                                echo '
-                <div class="alert alert-succes" role="alert">
-                  Mail-ul pentru resetarea parolei a fost trimis!
-                </div>';
-                                <<<<<<< HEAD
-                            }
-                        }
+                        succes("resetmail","Mail-ul pentru resetarea parolei a fost trimis!");
+
                         ?>
-                        <h1>Resetare parola</h1>
-                        <div class="form-group row">
-                            <label for="exampleInputEmail1">E-mail</label>
-                            <input type="email" name="mailus" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            <small id="emailHelp" class="form-text text-muted  alert-note">
-                                Introdu adresa de mail pentru a-ti putea reseta parola
-                            </small>
-                        </div>
-                        <button type="submit" name="loginsubmit" class="button">Trimite mail</button>
-                        </div>
-                </div>
-            </div>
-            </body>
-
-        =======
-        }
-        }
-        ?>
         <h1>Resetare parola</h1>
         <div class="form-group row">
             <label for="exampleInputEmail1">E-mail</label>
@@ -92,9 +44,6 @@ include './functii/functii.php';
                 echo '<input type="email" name="mailreset" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">';
             }
             ?>
-            <small id="emailHelp" class="form-text text-muted  alert-note">
-                Introdu adresa de mail pentru a-ti putea reseta parola
-            </small>
         </div>
         <button type="submit" name="submit-reset" class="button">Trimite mail</button>
         </form>
@@ -104,6 +53,4 @@ include './functii/functii.php';
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
-
->>>>>>> 9ba5d4bce2418aa08a005d69b2b0c60b60dfdd50
 </html>
