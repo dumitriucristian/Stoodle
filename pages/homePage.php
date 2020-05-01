@@ -3,6 +3,9 @@ session_start();
 if (!isset($_SESSION['mailUser'])){
     header("Location: ../indexpp.php");
     exit();
+if (!isset($_SESSION['mailUser']) || !isset($_SESSION['mailGmail'])){
+  header("Location: ../indexpp.php");
+  exit();
 }
 ?>
 <!doctype html>
