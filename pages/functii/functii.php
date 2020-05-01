@@ -74,7 +74,7 @@ function getCompability($array, $user)
         $compability_couter += 5;
     if($user[0]['carti'] == $array['carti'])
         $compability_couter += 5;
-    if($user[0]['sociabila'] == $array['sociabil'])
+    if($user[0]['sociabil'] == $array['sociabil'])
         $compability_couter += 5;
     if($user[0]['sport'] == $array['sport'])
         $compability_couter += 5;
@@ -85,7 +85,7 @@ function getCompability($array, $user)
     $compability_couter += comparare($array['materie2'],$user[0]['materie2'],$materii_biologie,$materii_straine,$materii_matematica,$materii_informatica,$materii_antreprenor,$materii_psihologie,$materii_geografie);
     $compability_couter += comparare($array['materie3'],$user[0]['materie3'],$materii_biologie,$materii_straine,$materii_matematica,$materii_informatica,$materii_antreprenor,$materii_psihologie,$materii_geografie);
 
-    return floor(($compability_couter/$number_questions) * 100);
+    return floor(($compability_couter/$number_imapartire) * 100);
 }
 
 

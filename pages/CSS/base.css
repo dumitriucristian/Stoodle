@@ -14,7 +14,7 @@ html {
     color: var(--yellow)!important;
     font-weight: 700;
     border-radius: 8px;
-    padding: 5% 10%;
+    padding: 1rem 2rem;
     margin: 1em;
     border: 0;
 }

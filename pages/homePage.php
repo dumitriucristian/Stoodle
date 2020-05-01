@@ -92,6 +92,9 @@ if (!isset($_SESSION['mailUser']) || !isset($_SESSION['mailGmail'])){
 
                     <?php
                     require './functii/facultati.php';
+                    usort($facultati,function($first,$second){
+                        return $first->compabilitate < $second->compabilitate;
+                    });
                     // PRINT DATA
                     foreach ($facultati as $card) {
                     ?>
