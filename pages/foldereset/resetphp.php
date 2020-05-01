@@ -107,7 +107,7 @@ if(isset($_POST['submit-reset'])){
     $mail->AddAddress($email);
     $mail->Send();
 
-    header("Location: ../reset.php?resetmail=succes");
+    header("Location: ../reset.php?succes=resetmail");
 }
 else {
   header("Location: ../login.php");
