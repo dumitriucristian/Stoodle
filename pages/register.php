@@ -29,7 +29,7 @@ include 'functii/functii.php';
                 </div>
             </div>
 
-            <div class="col-lg-8 d-flex align-items-center justify-content-center" id="content">
+            <div class="col-lg-8 d-flex align-items-center justify-content-center content" id="content">
                 <div class="conatiner w-75">
                     <h1>Începe aventura</h1>
 
