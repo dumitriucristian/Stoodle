@@ -25,18 +25,36 @@ include 'functii/functii.php';
                 <div class="conatiner">
                     <form action="foldereset/newparolaphp.php" method="post">
                         <div class="form-group row">
+                          <?php
+                          erore2("mysqlerror","Eroare baza de date!");
+                          erore2("anothertoken","Tokenul este gresit")
+                           ?>
                             <div class="col-lg-6">
+                              <?php
+                              $select=$_GET['select'];
+                              $token=$_GET['valid'];
+                              if(empty($select)||empty($token)){
+                                  header("Location: ./reset.php?error=invalidlink");
+                                  exit();
+                              }
+                              if(ctype_xdigit($select)===true && ctype_xdigit($token)===true){
+                                echo '<input type="hidden" name="select" value="'.$select.'">';
+                                echo '<input type="hidden" name="token" value="'.$token.'">';
+                              }
+                               ?>
+
                                 <label for="exampleInputPassword1">Parolă</label>
                                 <input type="password" name="resetparola" class="form-control">
                                 <small class="form-text text-muted">
                                     <?php
-                                    erore1("emptyfieldpass","Completeaza toate campurile!");
+                                    erore1("emptyfieldpassw","Completeaza toate campurile!");
                                     erore1("invalidpassw","Pentru parola se pot folosi doar cifre si litere ale alfabetului englez!");
-                                    erore1("micpassw","Parola este prea sccurta trebuie sa aiba minim 8 caractere!");
-                                    erore1("marepassw","Parola este prea lunga poate sa aiba maxim 32 de caractere!");
+                                    erore1("micpassw","Parola este prea scurta trebuie sa aiba minim 8 caractere!");
+                                    erore1("marepassw","Parola este prea lunga poate sa aiba maxim 48 de caractere!");
                                     erore1("identicpasswnume","Parola este asemanatoare  cu numele!");
                                     erore1("identicpasswprenume","Parola este asemanatoare  cu prenumele!");
                                     erore1("passwdother","Parola este diferita fata de cofiramre parola!");
+                                    erore1("aceeasiparola","Parola este asemanatoare cu cea veche!")
                                     ?>
                                 </small>
                             </div>
@@ -46,8 +64,10 @@ include 'functii/functii.php';
                                 <input type="password" name="resetconfirmareparola" class="form-control">
                                 <small class="form-text text-muted alert-note">
                                     <?php
-                                    erore1("emptyfieldpassrepeat","Completeaza toate campurile!");
-                                    erore1("invalidpasswrepeat","Pentru parola se pot folosi doar cifre si litere ale alfabetului englez!");
+                                    erore1("emptyfieldpasswrepeat","Completeaza toate campurile!");
+                                    erore1("invalidpasswrepeat","Pentru repetare parola se pot folosi doar cifre si litere ale alfabetului englez!");
+                                    erore1("micpasswrepeat","Repetare parola este prea scurta trebuie sa aiba minim 8 caractere!");
+                                    erore1("marepasswrepeat","Parola este prea lunga poate sa aiba maxim 48 de caractere!");
                                     ?>
                                 </small>
                             </div>

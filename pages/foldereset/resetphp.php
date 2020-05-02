@@ -63,28 +63,6 @@ if(isset($_POST['submit-reset'])){
     /*  trimitere mail */
 
 
-    /*
-    FUNCTIA DIN PHP MAIL SE FOLOSESTE DOAR DACA AI UN MAIL SERVER ALTFEL NU VA FUNCTIONA ADICA TREBUIE SA AI SITE UL HOSTAT
-
-
-    $subiect='Resetarea parolei pentru contul tau Stoodle';
-
-    $header=
-    '
-    <a href="http://localhost/stoodledarnu%20definitiv/"><p style="font-size: 2rem; font-weight: 700; font-family: 'Raleway', sans-serif;">Stoodle</p></a>
-    ';
-
-    $mesaj=
-    '
-    <p>Am primit o cerere de resetare a parolei.Link-ul pentru a va reseta parola este mai jos.
-    Daca nu dumneavoastra ati facut aceasta cerere puteti ignora acest mail.</p>
-    </br><p>Aici este link-ul depentru a reseta parola:<a href="'.$link.'">'.$link.'</a></p>
-    ';
-
-    mail($email,$subiect,$mesaj,$header);
-
-    */
-
     /*Gmail mail sender care este limitat la 100 de mail-uri pe zi*/
     $mail=new PHPMailer\PHPMailer\PHPMailer();
     $mail->isSMTP(true);

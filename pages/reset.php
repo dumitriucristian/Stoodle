@@ -24,12 +24,9 @@ include './functii/functii.php';
                 <div class="conatiner">
                     <form action="./foldereset/resetphp.php" method="post">
                         <?php
-
-                        erore2("emptymail","Completeaza campul!");
-                        erore2("nucont","Nu exista cont cu aceasta adresa de email!");
                         erore2("mysqlerror","Eroare baza de date!");
-                        erore2("numail","Acesta adreasa de mail nu este una corecta!");
-
+                        erore2("expire","Link-ul a expirat");
+                        erore2("nouser","Nu exista cont!")
                         succes("resetmail","Mail-ul pentru resetarea parolei a fost trimis!");
 
                         ?>
@@ -44,6 +41,13 @@ include './functii/functii.php';
                 echo '<input type="email" name="mailreset" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">';
             }
             ?>
+              <small class="form-text text-muted">
+                <?php
+                erore1("emptymail","Completeaza campul!");
+                erore1("numail","Acesta adreasa de mail nu este una corecta!");
+                erore1("nucont","Nu exista cont cu aceasta adresa de email!");
+                 ?>
+              </small>
         </div>
         <button type="submit" name="submit-reset" class="button">Trimite mail</button>
         </form>
