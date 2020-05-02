@@ -1,7 +1,7 @@
 <?php
+session_start();
   if(isset($_SESSION['mailUser']))
   {
-  session_start();
   session_unset();
   session_destroy();
   header("Location: ../../indexpp.php?logout=succes");
