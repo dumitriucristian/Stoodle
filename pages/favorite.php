@@ -3,7 +3,7 @@ require './folderlogin/datacon.php';
 
 session_start();
 if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
-    header("Location: ../indexpp.php?12");
+    header("Location: ../indexpp.php");
     exit();
 }
 if(isset($_SESSION['mailUser']))
@@ -210,7 +210,7 @@ sort($favorite);
                             </form>
                         </div>
                         <div class="row-lg-3 extra text-center">
-                            <a href=" 
+                            <a href="
                                      <?php
                         echo $card->link;
                                      ?>

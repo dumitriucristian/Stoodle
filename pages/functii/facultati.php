@@ -38,12 +38,7 @@ if (isset($_SESSION['mailGmail'])) {
         $user[] = $row;
     }
 }
-else
-{
-    echo "0 results";
-}
 
-//print_r($user*/
 
 // GET COLLEGES FROM DATABASE
 $sql = "SELECT * FROM facultati";
@@ -54,10 +49,6 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $myArray[] = $row;
     }
-}
-else
-{
-    echo "0 results";
 }
 
 $facultati = array();
@@ -73,6 +64,3 @@ foreach ($myArray as $_facultate) {
     $temp->link = $_facultate['link_facultate'];
     array_push($facultati, $temp);
 }
-
-//print json_encode($facultati);
-//print_r($myArray

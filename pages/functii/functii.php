@@ -30,36 +30,25 @@ function succes($value,$msg)
     }
 }
 
-function binarySearch(Array $arr, $x) 
-{ 
-	// check for empty array 
-	if (count($arr) === 0) return false; 
-	$low = 0; 
-	$high = count($arr) - 1; 
-	
-	while ($low <= $high) { 
-		
-		// compute middle index 
-		$mid = floor(($low + $high) / 2); 
-
-		// element found at mid 
-		if($arr[$mid] == $x) { 
-			return true; 
-		} 
-
-		if ($x < $arr[$mid]) { 
-			// search the left side of the array 
-			$high = $mid -1; 
-		} 
-		else { 
-			// search the right side of the array 
-			$low = $mid + 1; 
-		} 
-	} 
-	
-	// If we reach here element x doesnt exist 
-	return false; 
-} 
+function binarySearch(Array $var, $nr)
+{
+	if (count($var) === 0) return false;
+	$nr_mic = 0;
+	$nr_mare = count($arr) - 1;
+	while ($nr_mic <= $nr_mare) {
+		$nr_important = floor(($nr_mic + $nr_mare) / 2);
+		if($var[$nr_important] == $nr) {
+			return true;
+		}
+		if ($nr < $var[$nr_important]) {
+			$nr_mare = $nr_important -1;
+		}
+		else {
+			$nr_mic = $nr_important + 1;
+		}
+	}
+	return false;
+}
 
 function comparare_materii($valoare,$valoare_user)
 {
