@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
+    header("Location: ../indexpp.php");
+    exit();
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -15,7 +19,7 @@ session_start();
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a href="#"> 
+            <a href="#">
                 <?php
                 require './folderlogin/datacon.php';
                 $mail = $_SESSION['mailUser'];
