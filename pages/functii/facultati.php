@@ -4,6 +4,7 @@ require './functii/functii.php';
 //session_start();
 
 class facultate {
+    public $Indexf;
     public $nume;
     public $universitate;
     public $judet;
@@ -45,7 +46,7 @@ else
 //print_r($user*/
 
 // GET COLLEGES FROM DATABASE
-$sql = "SELECT * FROM `facultati`";
+$sql = "SELECT * FROM facultati";
 $result = mysqli_query($connection,$sql);
 $myArray = array();
 if ($result->num_rows > 0) {
@@ -63,6 +64,7 @@ $facultati = array();
 // GET DATA
 foreach ($myArray as $_facultate) {
     $temp = new facultate();
+    $temp->Indexf=$_facultate['Indexf'];
     $temp->nume = $_facultate['Numef'];
     $temp->universitate = $_facultate['Universitatea'];
     $temp->judet = $_facultate['Judet'];

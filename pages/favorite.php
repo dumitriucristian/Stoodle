@@ -152,8 +152,13 @@ sort($favorite);
                     usort($facultati,function($first,$second){
                         return $first->compabilitate < $second->compabilitate;
                     });
+                    $ok=true;
                     // PRINT DATA
                     foreach ($facultati as $card) {
+                        if(!binarySearch($favorite, $card->Indexf))
+                            continue;
+                        else
+                            $ok=false;
                     ?>
                     <!--Print the card-->
                     <div class="col card">
@@ -200,10 +205,7 @@ sort($favorite);
                         <div class="row-lg-3 fav text-center">
                             <form action="./favoriteAlg.php" method="post">
                                 <?php
-                        if(binarySearch($favorite, $card->Indexf))
-                            echo '<button type="submit" style="all: unset" name="scoatere" id="'.$card->Indexf.'" value="'.$card->Indexf.'"><i class="fas fa-heart"></i> Scoate de la favorite</button>';
-                        else
-                            echo '<button type="submit" style="all: unset" name="adaugare" id="'.$card->Indexf.'" value="'.$card->Indexf.'"><i class="far fa-heart"></i> Adauga la favorite</button>';
+                            echo '<button type="submit" style="all: unset" name="scoatere_fav" id="'.$card->Indexf.'" value="'.$card->Indexf.'"><i class="fas fa-heart"></i> Scoate de la favorite</button>';
                                 ?>
                             </form>
                         </div>
@@ -215,7 +217,10 @@ sort($favorite);
                                      ">Afla mai mult</a>
                         </div>
                     </div>
-                    <?php } ?>
+                    <?php }
+                        if($ok)
+                            echo "<div class='display-4'>Nu ai facultati favorite</div>";
+                    ?>
 
                 </div>
             </div>
