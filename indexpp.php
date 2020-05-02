@@ -95,72 +95,72 @@ elseif(isset($_COOKIE['select']) && isset($_COOKIE['validator'])){
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
-        <div class="container">
-            <div class="display-4">Stoodle</div>
+      <div class="container">
+          <div class="display-4">Stoodle</div>
 
-            <div id="carouselExampleIndicators" class="carousel slide my-5" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="container">
-                            <div class="text">
-                                <p>
-                                    Stoodle e mai mult decât un site. Stoodle este un univers al elevilor, făcut tot de elevi. Pentru că cine înțelege mai bine nevoia de orientare dacă nu ei?! Ca idee unică în România, Stoodle impresionează prin mecanismul amplu prin care ajută tinerii să își găsească vocațiile și îi îndrumă spre studiile superioare, punând cap la cap informații despre utilizator.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="container">
-                            <div class="text">
-                                <p>
-                                    Viața ta începe în momentul în care începi să iei decizii. Decizii importante care îți marchează tot viitorul. Și sigur nu vrei să fie unele greșite. Pentru a fi sigur că te îndrepți spre reușită, ia cele mai bune decizii pentru tine, în funcție de aptitudinile pe care le ai.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="container">
-                            <div class="text">
-                                <p>
-                                    Gata, ai luat decizia. Sigur e cea mai bună pentru tine. Acum nu mai există șansa de a da greș. Ți-ai ales drumul și ești pregătit pentru a face ceea ce îți place, pentru a excela în domeniul în care te descurci cel mai bine.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <div id="carouselExampleIndicators" class="carousel slide my-5" data-ride="carousel">
+              <div class="carousel-inner">
+                  <div class="carousel-item active">
+                      <div class="container">
+                          <div class="text">
+                              <p>
+                                  Stoodle e mai mult decât un site. Stoodle este un univers al elevilor, făcut tot de elevi. Pentru că cine înțelege mai bine nevoia de orientare dacă nu ei?! Ca idee unică în România, Stoodle impresionează prin mecanismul amplu prin care ajută tinerii să își găsească vocațiile și îi îndrumă spre studiile superioare, punând cap la cap informații despre utilizator.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                      <div class="container">
+                          <div class="text">
+                              <p>
+                                  Viața ta începe în momentul în care începi să iei decizii. Decizii importante care îți marchează tot viitorul. Și sigur nu vrei să fie unele greșite. Pentru a fi sigur că te îndrepți spre reușită, ia cele mai bune decizii pentru tine, în funcție de aptitudinile pe care le ai.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                      <div class="container">
+                          <div class="text">
+                              <p>
+                                  Gata, ai luat decizia. Sigur e cea mai bună pentru tine. Acum nu mai există șansa de a da greș. Ți-ai ales drumul și ești pregătit pentru a face ceea ce îți place, pentru a excela în domeniul în care te descurci cel mai bine.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
-            <a href="./pages/login.php" class="button"> Incepe </a>
+          <a href="./pages/login.php" class="button"> Incepe </a>
 
-        </div>
-        <div class="cookie-container">
-            <p>
-                We use cookies in this website to give you the best experience on our
-                site and show you relevant ads. To find out more, read our
-                <a href="#">privacy policy</a> and <a href="#">cookie policy</a>.
-            </p>
+      </div>
+      <div class="cookie-container">
+          <p>
+              We use cookies in this website to give you the best experience on our
+              site and show you relevant ads. To find out more, read our
+              <a href="#">privacy policy</a> and <a href="#">cookie policy</a>.
+          </p>
 
-            <button class="cookie-btn">
-                Okay
-            </button>
-        </div>
+          <button class="cookie-btn">
+              Okay
+          </button>
+      </div>
 
-        <script>
+      <script>
 
-            const cookieContainer = document.querySelector(".cookie-container");
-            const cookieButton = document.querySelector(".cookie-btn");
+          const cookieContainer = document.querySelector(".cookie-container");
+          const cookieButton = document.querySelector(".cookie-btn");
 
-            cookieButton.addEventListener("click", () => {
-                cookieContainer.classList.remove("active");
-                localStorage.setItem("cookieBannerDisplayed", "true");
-            });
+          cookieButton.addEventListener("click", () => {
+              cookieContainer.classList.remove("active");
+              localStorage.setItem("cookieBannerDisplayed", "true");
+          });
 
-            setTimeout(() => {
-                if (!localStorage.getItem("cookieBannerDisplayed")) {
-                    cookieContainer.classList.add("active");
-                }
-            }, 2000);
-        </script>
+          setTimeout(() => {
+              if (!localStorage.getItem("cookieBannerDisplayed")) {
+                  cookieContainer.classList.add("active");
+              }
+          }, 2000);
+      </script>
 
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
