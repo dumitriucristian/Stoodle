@@ -1,4 +1,6 @@
 <?php
+include 'navbar/navbar_functii.php';
+require './folderlogin/datacon.php';
 session_start();
 if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
     header("Location: ../indexpp.php");
@@ -21,13 +23,15 @@ if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
         <nav class="navbar navbar-expand-lg navbar-light">
             <a href="#">
                 <?php
-                require './folderlogin/datacon.php';
-                if (isset($_SESSION['mailUser']))
+                if (isset($_SESSION['mailUser'])){
                   $mail=$_SESSION['mailUser'];
-                if (isset($_SESSION['mailGmail']))
-                  $mail=$_SESSION['mailGmail'];
+                  $sql = "SELECT * FROM `users` WHERE `mailUser` = '$mail'";
+                }
 
-                $sql = "SELECT * FROM `users` WHERE `mailUser` = '$mail'";
+                if (isset($_SESSION['mailGmail'])){
+                  $mail=$_SESSION['mailGmail'];
+                  $sql = "SELECT * FROM `users_gmail` WHERE `mailUser` = '$mail'";
+                }
                 $result = mysqli_query($connection,$sql);
                 $myArray = array();
                 if ($result->num_rows > 0) {
@@ -65,15 +69,9 @@ if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
             </div>
         </nav>
 
-        <div class="alert alert-danger alert-dismissible fade show hidden formular-alert"role="alert">
-            <strong>Atentie !</strong>
-            <button type="button" class="close" onclick="alert();">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <hr>
-            Va trebui sa raspunzi din nou la toate intrebarile din formular. Raspunsuri vor fi modificate doar la finalul acestuia. <br>
-            <a href="./formularTemplate.php">Doresc sa continui</a>
-        </div>
+        <?php
+         alerta_formular();
+        ?>
 
         <script>
             function alert(){
@@ -97,7 +95,7 @@ if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
                         <img src="./Images/Robert.jpg" alt="Poza cu Robert">
                         <h3>Plaiasu Robert</h3>
                         <h6>Back-End Developer</h6>
-                        <p>Imi place metal-ul</p>
+                        <p>Imi place sa ma uit la seriale</p>
                     </div>
 
                 </div>

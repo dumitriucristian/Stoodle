@@ -31,10 +31,6 @@ if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
                         print "Salut, ".$row['Prenume'];
                     }
                 }
-                else
-                {
-                    echo "0 results";
-                }
                 ?>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,8 +81,7 @@ if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
             $array = array(
                 (object) array(
                     "enunt" => "Ce este Stoodle?",
-                    "raspuns" => "Stoodle este o platforma online ce vine in ajutorul tinerilor ce sunt in cautarea unei facultati.
-"
+                    "raspuns" => "Stoodle este o platforma online ce vine in ajutorul tinerilor ce sunt in cautarea unei facultati."
                 ),
                 (object) array(
                     "enunt" => "Cat costa sa ma inscriu pe aceasta platforma?",
@@ -94,14 +89,11 @@ if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
                 ),
                 (object) array(
                     "enunt" => "Ce face Stoodle cu datele mele ?",
-                    "raspuns" => "Stoodle foloseste datele tale doar pentru a creea o experienta cat mai buna a dumneavoastra cand utilizati platforma,cu asigurarea ca nu vor fi impartasite cu
-nimeni."
+                    "raspuns" => "Stoodle foloseste datele tale doar pentru a creea o experienta cat mai buna a dumneavoastra cand utilizati platforma,cu asigurarea ca nu vor fi impartasite cu nimeni."
                 ),
                 (object) array(
                     "enunt" => "Care este viziunea aplicatiei in viitor?",
-                    "raspuns" => "In viitor , aplicatia isi propune sa customizeze cu cat mai mult experienta fiecarui utilizator,imbunatatind algoritmul de sortare al facultatilor.In acelasi timp
-isi propune sa adauge un sistem comentarii pentru fiecare facultate si un forum. pentru a permite utilazatorilor sa schimbe pareri despre facultati.
-"
+                    "raspuns" => "In viitor , aplicatia isi propune sa customizeze cu cat mai mult experienta fiecarui utilizator,imbunatatind algoritmul de sortare al facultatilor.In acelasi timp isi propune sa adauge un sistem comentarii pentru fiecare facultate si un forum. pentru a permite utilazatorilor sa schimbe pareri despre facultati."
                 ),
                 (object) array(
                     "enunt" => "Cum a pornit ideea acestui site?",

@@ -34,7 +34,7 @@ function binarySearch(Array $var, $nr)
 {
 	if (count($var) === 0) return false;
 	$nr_mic = 0;
-	$nr_mare = count($arr) - 1;
+	$nr_mare = count($var) - 1;
 	while ($nr_mic <= $nr_mare) {
 		$nr_important = floor(($nr_mic + $nr_mare) / 2);
 		if($var[$nr_important] == $nr) {

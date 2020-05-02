@@ -52,11 +52,13 @@
     arrayVal($pasiune,$array_pasiune);
     arrayVal($profil,$array_profil);
 
-    if (isset($_SESSION['mailUser'])) {
+    if (isset($_SESSION['mailUser']))
+    {
       $session=$_SESSION['mailUser'];
       $mysql="UPDATE users SET Profil=?,Domeniu=?,domeniu_intensitate=?,job=?,materie1=?,materie2=?,materie3=?,carti=?,sociabil=?,sport=?,stres=?,Judet=? WHERE mailUser=?";
     }
-    elseif(isset($_SESSION['mailGmail'])) {
+    elseif(isset($_SESSION['mailGmail']))
+    {
       $session=$_SESSION['mailGmail'];
       $mysql="UPDATE users_gmail SET Profil=?,Domeniu=?,domeniu_intensitate=?,job=?,materie1=?,materie2=?,materie3=?,carti=?,sociabil=?,sport=?,stres=?,Judet=? WHERE mailGmail=?";
     }
