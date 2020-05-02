@@ -60,11 +60,7 @@ session_start();
                 </ul>
             </div>
         </nav>
-        <div id="search">
-            <input onkeyup="sort()" class="form-control w-75"
-                   type="text" placeholder="cauta" id="search_field" aria-label="Search">
-        </div>
-
+        
         <!-- CONTACT INFO -->
         <div id="showcase">
             <div id="content d-flex align-items-center">
@@ -96,7 +92,6 @@ session_start();
 
                 </div>
             </div>
-        </div>
         </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

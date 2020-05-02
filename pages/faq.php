@@ -59,49 +59,59 @@ session_start();
                 </ul>
             </div>
         </nav>
-        <div id="search">
-            <input onkeyup="sort()" class="form-control w-75"
-                   type="text" placeholder="cauta" id="search_field" aria-label="Search">
-        </div>
 
         <!-- CARD SHOWCASE -->
-        <div id="showcase" style="margin: 0 3rem;">
+        <div id="showcase" style="margin: 0 10rem;">
             <?php
             $array = array(
                 (object) array(
-                    "enunt" => "Ce sunt florile?",
-                    "raspuns" => "Masini de pompieri!"
+                    "enunt" => "Ce este Stoodle?",
+                    "raspuns" => "Stoodle este o platforma online ce vine in ajutorul tinerilor ce sunt in cautarea unei facultati.
+"
                 ),
                 (object) array(
-                    "enunt" => "Ce sunt florile?",
-                    "raspuns" => "Masini de pompieri!"
+                    "enunt" => "Cat costa sa ma inscriu pe aceasta platforma?",
+                    "raspuns" => "Platforma este gratuita in momentul de fata."
                 ),
                 (object) array(
-                    "enunt" => "Ce sunt florile?",
-                    "raspuns" => "Masini de pompieri!"
+                    "enunt" => "Ce face Stoodle cu datele mele ?",
+                    "raspuns" => "Stoodle foloseste datele tale doar pentru a creea o experienta cat mai buna a dumneavoastra cand utilizati platforma,cu asigurarea ca nu vor fi impartasite cu
+nimeni."
                 ),
                 (object) array(
-                    "enunt" => "Ce sunt florile?",
-                    "raspuns" => "Masini de pompieri!"
+                    "enunt" => "Care este viziunea aplicatiei in viitor?",
+                    "raspuns" => "In viitor , aplicatia isi propune sa customizeze cu cat mai mult experienta fiecarui utilizator,imbunatatind algoritmul de sortare al facultatilor.In acelasi timp
+isi propune sa adauge un sistem comentarii pentru fiecare facultate si un forum. pentru a permite utilazatorilor sa schimbe pareri despre facultati.
+"
                 ),
                 (object) array(
-                    "enunt" => "Ce sunt florile?",
-                    "raspuns" => "Masini de pompieri!"
+                    "enunt" => "Cum a pornit ideea acestui site?",
+                    "raspuns" => "Totul a pornit cand cei ce au creat aplicatia doreau sa se orienteze spre o facultate, dar nu au gasit o aplicatie web ccare sa raspunda la toate cerintele, asa 
+luand nastere Stoodle."
+                ),
+                (object) array(
+                    "enunt" => "Care este cea mai mare calitate a acestei aplicatii web?",
+                    "raspuns" => "Stoodle va pune intotdeauna utilizatorul pe primul plan, totul bazandu-se pe alegerile facute de acesta.
+"
+                ),
+                (object) array(
+                    "enunt" => "In ce stadiu al constructiei este in acest moment aplicatia ?",
+                    "raspuns" => "Aplicatia este in stadiul de beta platformei inca trebuind sa i se adauge cateva mici imbunatatiri.
+"
                 ),
             );
             foreach ($array as $intrebare){
                 echo "
                         <div style='margin: 2rem 0'>
                             <h1 style='margin: 0'>".$intrebare->enunt." </h1>
-                            <p>".$intrebare->raspuns." </p>
+                            <p style='width: 80%;'>".$intrebare->raspuns." </p>
                         </div>
                     ";
             }
             ?>
         </div>
-        </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="./JS/navbar.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="./JS/navbar.js"></script>
     </body>
 </html>

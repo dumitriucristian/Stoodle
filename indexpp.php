@@ -40,22 +40,22 @@ elseif(isset($_COOKIE['select']) && isset($_COOKIE['validator'])){
                     header('Refresh: 1; url=indexpp.php');
                     exit();
                 }
-                    $_SESSION['mailUser']=$result['mailUser'];
+                $_SESSION['mailUser']=$result['mailUser'];
 
-                    /*aici se termina sesiunile*/
+                /*aici se termina sesiunile*/
 
-                    /*aici incepe resetarea cookieurilor*/
-                    $selector=bin2hex(random_bytes(24));
-                    $token=bin2hex(random_bytes(64));
-                    $hash=password_hash($token,PASSWORD_DEFAULT);
-                    $mysql="UPDATE auth(validator,selector) VALUES (".$hash.",".$selector.")";
-                    mysqli_query($connection,$mysql);
+                /*aici incepe resetarea cookieurilor*/
+                $selector=bin2hex(random_bytes(24));
+                $token=bin2hex(random_bytes(64));
+                $hash=password_hash($token,PASSWORD_DEFAULT);
+                $mysql="UPDATE auth(validator,selector) VALUES (".$hash.",".$selector.")";
+                mysqli_query($connection,$mysql);
 
-                    setcookie("select", $selector,$valori['data'],"/",'http://localhost',1);
-                    setcookie("validator",$token,$valori['data'],"/",'http://localhost',1);
+                setcookie("select", $selector,$valori['data'],"/",'http://localhost',1);
+                setcookie("validator",$token,$valori['data'],"/",'http://localhost',1);
 
-                    header("Location: ./pages/homePage.php");
-                    exit();
+                header("Location: ./pages/homePage.php");
+                exit();
             }
             else {
                 destroyCookie($_COOKIE['select'],$_COOKIE['validator']);
@@ -91,11 +91,6 @@ elseif(isset($_COOKIE['select']) && isset($_COOKIE['validator'])){
     </head>
     <body>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="container">
@@ -128,15 +123,36 @@ elseif(isset($_COOKIE['select']) && isset($_COOKIE['validator'])){
                     </div>
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
+
+        <div class="cookie-container">
+            <p>
+                We use cookies in this website to give you the best experience on our
+                site and show you relevant ads. To find out more, read our
+                <a href="#">privacy policy</a> and <a href="#">cookie policy</a>.
+            </p>
+
+            <button class="cookie-btn">
+                Okay
+            </button>
+        </div>
+
+        <script>
+
+            const cookieContainer = document.querySelector(".cookie-container");
+            const cookieButton = document.querySelector(".cookie-btn");
+
+            cookieButton.addEventListener("click", () => {
+                cookieContainer.classList.remove("active");
+                localStorage.setItem("cookieBannerDisplayed", "true");
+            });
+
+            setTimeout(() => {
+                if (!localStorage.getItem("cookieBannerDisplayed")) {
+                    cookieContainer.classList.add("active");
+                }
+            }, 2000);
+        </script>
 
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

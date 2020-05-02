@@ -24,6 +24,15 @@
     color: rgba(255,255,255,.8)!important;
 }
 
+.nav-item:last-of-type{
+    background: white;
+    border-radius: 5px;
+}
+
+.nav-item:last-of-type a{
+      color: black!important;
+}
+
 .nav-link:hover{
     color: rgba(255, 255, 255, 1)!important;
 }
