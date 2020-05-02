@@ -42,13 +42,13 @@ session_start();
                         <a href="./homePage.php" class="nav-link">Acasa</a>
                     </li>
                     <li class="nav-item">
-                        <a href="./formularTemplate.php" class="nav-link">Formular</a>
+                        <a onclick="alert();" class="nav-link">Formular</a>
                     </li>
                     <li class="nav-item">
                         <a href="./contact.php" class="nav-link">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a href="./news.php" class="nav-link">Știri</a>
+                        <a href="./favorite.php" class="nav-link">Facultati favorite</a>
                     </li>
                     <li class="nav-item">
                         <a href="./faq.php" class="nav-link">Intrebari</a>
@@ -61,6 +61,21 @@ session_start();
         </nav>
 
         <!-- CARD SHOWCASE -->
+        <div class="alert alert-danger alert-dismissible fade show hidden formular-alert"role="alert">
+            <strong>Atentie !</strong>
+            <button type="button" class="close" onclick="alert();">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <hr>
+            Va trebui sa raspunzi din nou la toate intrebarile din formular. Raspunsuri vor fi modificate doar la finalul acestuia. <br>
+            <a href="./formularTemplate.php">Doresc sa continui</a>
+        </div>
+
+        <script>
+            function alert(){
+                $(".formular-alert").toggleClass("hidden");
+            }
+        </script>
         <div id="showcase" style="margin: 0 10rem;">
             <?php
             $array = array(

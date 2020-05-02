@@ -8,13 +8,13 @@ if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
 }
 if(isset($_SESSION['mailUser']))
 {
-  $mail = $_SESSION['mailUser'];
-  $mysql="SELECT * FROM users WHERE mailUser=?";
+    $mail = $_SESSION['mailUser'];
+    $mysql="SELECT * FROM users WHERE mailUser=?";
 }
 if(isset($_SESSION['mailGmail']))
 {
-  $mail = $_SESSION['mailGmail'];
-  $mysql="SELECT * FROM users_gmail WHERE mailGmail=?";
+    $mail = $_SESSION['mailGmail'];
+    $mysql="SELECT * FROM users_gmail WHERE mailGmail=?";
 }
 $stmt = mysqli_stmt_init($connection);
 if (!mysqli_stmt_prepare($stmt, $mysql))
@@ -58,9 +58,9 @@ if(empty($row['Profil'])){
             <a href="#">
                 <?php
                 if (isset($row['prenumeGmail']))
-                  print "Salut, ".$row['prenumeGmail'];
+                    print "Salut, ".$row['prenumeGmail'];
                 if (isset($row['Prenume']))
-                  print "Salut, ".$row['Prenume'];
+                    print "Salut, ".$row['Prenume'];
                 ?>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,13 +72,13 @@ if(empty($row['Profil'])){
                         <a href="./homePage.php" class="nav-link">Acasa</a>
                     </li>
                     <li class="nav-item">
-                        <a onclick="formular();" class="nav-link">Formular</a>
+                        <a onclick="alert();" class="nav-link">Formular</a>
                     </li>
                     <li class="nav-item">
                         <a href="./contact.php" class="nav-link">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a href="./news.php" class="nav-link">Știri</a>
+                        <a href="./favorite.php" class="nav-link">Facultati favorite</a>
                     </li>
                     <li class="nav-item">
                         <a href="./faq.php" class="nav-link">Intrebari</a>
@@ -95,8 +95,26 @@ if(empty($row['Profil'])){
         </div>
 
         <!-- PAGE CONTENT -->
+
         <main class="container">
             <!-- CARD SHOWCASE -->
+
+            <div class="alert alert-danger alert-dismissible fade show hidden formular-alert"role="alert">
+                <strong>Atentie !</strong>
+                <button type="button" class="close" onclick="alert();">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <hr>
+                Va trebui sa raspunzi din nou la toate intrebarile din formular. Raspunsuri vor fi modificate doar la finalul acestuia. <br>
+                <a href="./formularTemplate.php">Doresc sa continui</a>
+            </div>
+            
+            <script>
+                function alert(){
+                    $(".formular-alert").toggleClass("hidden");
+                }
+            </script>
+
             <div id="showcase">
                 <div class="row">
 
@@ -155,10 +173,10 @@ if(empty($row['Profil'])){
                         </div>
                         <div class="row-lg-3 extra text-center">
                             <a href=" 
-                            <?php
-                                     echo $card->link;
+                                     <?php
+                        echo $card->link;
                                      ?>
-                            ">Afla mai mult</a>
+                                     ">Afla mai mult</a>
                         </div>
                     </div>
                     <?php } ?>

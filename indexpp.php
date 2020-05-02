@@ -8,8 +8,8 @@ function destroyCookie($selector,$token){
 session_start();
 if (isset($_SESSION['mailUser']) || isset($_SESSION['mailGmail']))
 {
-  header("Location: ./pages/homePage.php");
-   exit();
+    header("Location: ./pages/homePage.php");
+    exit();
 }
 elseif(isset($_COOKIE['select']) && isset($_COOKIE['validator'])){
     if(ctype_xdigit($_COOKIE['select']) && ctype_xdigit($_COOKIE['validator'])){
@@ -41,25 +41,25 @@ elseif(isset($_COOKIE['select']) && isset($_COOKIE['validator'])){
                     exit();
                 }
                 if($rezultat = $result->fetch_assoc()){
-                $_SESSION['mailUser']=$rezultat['mailUser'];
+                    $_SESSION['mailUser']=$rezultat['mailUser'];
 
-                /*aici se termina sesiunile*/
+                    /*aici se termina sesiunile*/
 
-                /*aici incepe resetarea cookieurilor*/
-                $selector=bin2hex(random_bytes(24));
-                $token=bin2hex(random_bytes(64));
-                $hash=password_hash($token,PASSWORD_DEFAULT);
-                $mysql="UPDATE auth(validator,selector) VALUES (".$hash.",".$selector.")";
-                mysqli_query($connection,$mysql);
+                    /*aici incepe resetarea cookieurilor*/
+                    $selector=bin2hex(random_bytes(24));
+                    $token=bin2hex(random_bytes(64));
+                    $hash=password_hash($token,PASSWORD_DEFAULT);
+                    $mysql="UPDATE auth(validator,selector) VALUES (".$hash.",".$selector.")";
+                    mysqli_query($connection,$mysql);
 
-                setcookie("select", $selector,$valori['data'],"/");
-                setcookie("validator",$token,$valori['data'],"/");
+                    setcookie("select", $selector,$valori['data'],"/");
+                    setcookie("validator",$token,$valori['data'],"/");
 
-                header("Location: ./pages/homePage.php");
-                exit();}
+                    header("Location: ./pages/homePage.php");
+                    exit();}
                 else {
-                  destroyCookie($_COOKIE['select'],$_COOKIE['validator']);
-                  header('Refresh: 1; url=indexpp.php');
+                    destroyCookie($_COOKIE['select'],$_COOKIE['validator']);
+                    header('Refresh: 1; url=indexpp.php');
                 }
             }
             else {
@@ -134,10 +134,9 @@ elseif(isset($_COOKIE['select']) && isset($_COOKIE['validator'])){
 
         </div>
         <div class="cookie-container">
-            <p>
-                We use cookies in this website to give you the best experience on our
-                site and show you relevant ads. To find out more, read our
-                <a href="#">privacy policy</a> and <a href="#">cookie policy</a>.
+            <p class="p-2">
+                Folosim cookie-uri pe acest site web pentru a vă oferi cea mai bună experiență pe site-ul nostru și pentru a vă afișa reclame relevante. Pentru a afla mai multe, citiți
+                <a href="#">politica noastră de confidențialitate</a> și <a href="#">olitica privind cookie-urile</a>.
             </p>
 
             <button class="cookie-btn">
