@@ -150,6 +150,9 @@ if(empty($row['Profil'])){
                                 </div>
                             </div>
                         </div>
+                        <div class="row-lg-3 fav text-center">
+                            <buttton><i class="far fa-heart"></i> Adauga la favorite</buttton>
+                        </div>
                         <div class="row-lg-3 extra text-center">
                             <a href="#">Afla mai mult</a>
                         </div>

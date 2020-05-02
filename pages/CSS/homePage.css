@@ -43,6 +43,12 @@ body {
     padding: 1rem 0;
 }
 
+.fav{
+    background: var(--red);
+    padding: 1rem 0;
+    cursor: pointer;
+}
+
 .extra {
     background: var(--yellow);
     border-bottom-left-radius: 8px;
