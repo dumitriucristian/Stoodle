@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
+    header("Location: ../indexpp.php");
+    exit();
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -14,7 +18,7 @@ session_start();
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a href="#"> 
+            <a href="#">
                 <?php
                 require './folderlogin/datacon.php';
                 $mail = $_SESSION['mailUser'];
@@ -101,7 +105,7 @@ isi propune sa adauge un sistem comentarii pentru fiecare facultate si un forum.
                 ),
                 (object) array(
                     "enunt" => "Cum a pornit ideea acestui site?",
-                    "raspuns" => "Totul a pornit cand cei ce au creat aplicatia doreau sa se orienteze spre o facultate, dar nu au gasit o aplicatie web ccare sa raspunda la toate cerintele, asa 
+                    "raspuns" => "Totul a pornit cand cei ce au creat aplicatia doreau sa se orienteze spre o facultate, dar nu au gasit o aplicatie web ccare sa raspunda la toate cerintele, asa
 luand nastere Stoodle."
                 ),
                 (object) array(
