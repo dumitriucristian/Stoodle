@@ -154,7 +154,11 @@ if(empty($row['Profil'])){
                             <buttton><i class="far fa-heart"></i> Adauga la favorite</buttton>
                         </div>
                         <div class="row-lg-3 extra text-center">
-                            <a href="#">Afla mai mult</a>
+                            <a href=" 
+                            <?php
+                                     echo $card->link;
+                                     ?>
+                            ">Afla mai mult</a>
                         </div>
                     </div>
                     <?php } ?>
