@@ -22,6 +22,12 @@ if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
             <a href="#">
                 <?php
                 require './folderlogin/datacon.php';
+                if ($_SESSION['mailUser']) {
+                  $mail=$_SESSION['mailUser'];
+                }
+                if () {
+                  $mail=$_SESSION['mailGmail'];
+                }
                 $mail = $_SESSION['mailUser'];
                 $sql = "SELECT * FROM `users` WHERE `mailUser` = '$mail'";
                 $result = mysqli_query($connection,$sql);
