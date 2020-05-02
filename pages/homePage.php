@@ -2,8 +2,8 @@
 require './folderlogin/datacon.php';
 
 session_start();
-if(!isset($_SESSION['mailUser']) && !isset($_SESSION['mailGmail'])){
-    header("Location: ../indexpp.php?1");
+if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
+    header("Location: ../indexpp.php?12");
     exit();
 }
 if(isset($_SESSION['mailUser']))
@@ -19,7 +19,7 @@ if(isset($_SESSION['mailGmail']))
 $stmt = mysqli_stmt_init($connection);
 if (!mysqli_stmt_prepare($stmt, $mysql))
 {
-    header("Location: ../indexpp.php?");
+    header("Location: ../indexpp.php");
     exit();
 }
 mysqli_stmt_bind_param($stmt, "s", $mail);
@@ -58,7 +58,10 @@ if(empty($row['Profil'])){
         <nav class="navbar navbar-expand-lg navbar-light">
             <a href="#">
                 <?php
-                print "Salut, ".$row['Prenume'];
+                if (isset($row['prenumeGmail']))
+                  print "Salut, ".$row['prenumeGmail'];
+                if (isset($row['Prenume']))
+                  print "Salut, ".$row['Prenume'];
                 ?>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

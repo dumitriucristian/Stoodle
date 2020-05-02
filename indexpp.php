@@ -6,10 +6,10 @@ function destroyCookie($select,$token){
     setcookie("validator",$token,-60*60*24*30,"/",'http://localhost',1);
 }
 session_start();
-if (isset($_SESSION['mailUser']))
+if (isset($_SESSION['mailUser']) || isset($_SESSION['mailGmail']))
 {
-    header("Location: ./pages/homePage.php");
-    exit();
+   header("Location: ./pages/homePage.php");
+   exit();
 }
 elseif(isset($_COOKIE['select']) && isset($_COOKIE['validator'])){
     if(ctype_xdigit($_COOKIE['select']) && ctype_xdigit($_COOKIE['validator'])){

@@ -1,5 +1,5 @@
-
 <?php
+require 'folderlogin/google-config.php';
 session_start();
 if (isset($_SESSION['mailUser']) || isset($_SESSION['mailGmail'])) {
   header("Location: ./homePage.php");
@@ -87,6 +87,13 @@ require_once './folderlogin/google-config.php';
                             <label class="form-check-label" for="exampleCheck1">Ține-mă minte.</label>
 
                         </div>
+
+
+                            <a class="btn btn-outline-dark" <?php echo 'href="'.$client->createAuthUrl().'"' ?>  role="button" style="text-transform:none">
+                              <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                              Login with Google
+                            </a>
+
 
                         <button type="submit" name="loginsubmit" class="button">Loghaeză-te</button>
                     </form>

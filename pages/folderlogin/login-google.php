@@ -1,4 +1,5 @@
 <?php
+  session_start();
   require 'google-config.php';
   require 'datacon.php';
 
@@ -19,9 +20,9 @@
         exit();
       }
       else {
-        $mysql="INSERT INTO users_gmail(numGmail,prenumeGmail,mailGmail) VALUES('$nume','$prenume','$mail');";
+        $mysql="INSERT INTO users_gmail(numeGmail,prenumeGmail,mailGmail) VALUES('$nume','$prenume','$mail');";
       if(mysqli_query($connection,$mysql)){
-        header('Location: ../homePage?login=succes');
+        header('Location: ../homePage.php?login=succes');
         exit();
       }
         else {
