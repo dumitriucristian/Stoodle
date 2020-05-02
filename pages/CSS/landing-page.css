@@ -1,29 +1,32 @@
 @import "base.css";
+
 body{
-    height: 100vh;
+    background: url('../Images/background-landing.png');
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.display-4{
+    margin-top: 10%;
 }
 
 .carousel{
-    height: 100%;
+    width: 100%;
+    max-width: 650px;
 }
 
-.carousel-inner{
-    display: flex;
-    height: 100%;
-    background: url('../Images/background_landing.jpg');
-    background-size: cover;
-    color: white;
-    font-weight: 600;
+a{
+    max-width: 300px;
 }
 
-.carousel-item{
-    align-self: center;
-    margin-left: 3em;
-}
-
-.carousel-item p{
-    width: 45%;
-    margin-bottom: 2em;
+.row{
+    max-width: 600px;
 }
 
 .cookie-container {
@@ -56,11 +59,4 @@ body{
     margin-bottom: 16px;
     border-radius: 8px;
     cursor: pointer;
-}
-
-
-@media (max-width: 966px) {
-    .carousel-item p{
-        width: 80%;
-    }
 }

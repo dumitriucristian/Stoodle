@@ -95,41 +95,44 @@ elseif(isset($_COOKIE['select']) && isset($_COOKIE['validator'])){
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="container">
-                        <div class="text">
-                            <p>
-                                Stoodle e mai mult decât un site. Stoodle este un univers al elevilor, făcut tot de elevi. Pentru că cine înțelege mai bine nevoia de orientare dacă nu ei?! Ca idee unică în România, Stoodle impresionează prin mecanismul amplu prin care ajută tinerii să își găsească vocațiile și îi îndrumă spre studiile superioare, punând cap la cap informații despre utilizator.
-                            </p>
-                            <a href="./pages/login.php" class="button"> Incepe Aventura </a>
+        <div class="container">
+            <div class="display-4">Stoodle</div>
+
+            <div id="carouselExampleIndicators" class="carousel slide my-5" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container">
+                            <div class="text">
+                                <p>
+                                    Stoodle e mai mult decât un site. Stoodle este un univers al elevilor, făcut tot de elevi. Pentru că cine înțelege mai bine nevoia de orientare dacă nu ei?! Ca idee unică în România, Stoodle impresionează prin mecanismul amplu prin care ajută tinerii să își găsească vocațiile și îi îndrumă spre studiile superioare, punând cap la cap informații despre utilizator.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="container">
-                        <div class="text">
-                            <p>
-                                Viața ta începe în momentul în care începi să iei decizii. Decizii importante care îți marchează tot viitorul. Și sigur nu vrei să fie unele greșite. Pentru a fi sigur că te îndrepți spre reușită, ia cele mai bune decizii pentru tine, în funcție de aptitudinile pe care le ai.
-                            </p>
-                            <a href="./pages/login.php" class="button"> Incepe Aventura </a>
+                    <div class="carousel-item">
+                        <div class="container">
+                            <div class="text">
+                                <p>
+                                    Viața ta începe în momentul în care începi să iei decizii. Decizii importante care îți marchează tot viitorul. Și sigur nu vrei să fie unele greșite. Pentru a fi sigur că te îndrepți spre reușită, ia cele mai bune decizii pentru tine, în funcție de aptitudinile pe care le ai.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="container">
-                        <div class="text">
-                            <p>
-                                Gata, ai luat decizia. Sigur e cea mai bună pentru tine. Acum nu mai există șansa de a da greș. Ți-ai ales drumul și ești pregătit pentru a face ceea ce îți place, pentru a excela în domeniul în care te descurci cel mai bine.
-                            </p>
-                            <a href="./pages/login.php" class="button"> Incepe Aventura </a>
+                    <div class="carousel-item">
+                        <div class="container">
+                            <div class="text">
+                                <p>
+                                    Gata, ai luat decizia. Sigur e cea mai bună pentru tine. Acum nu mai există șansa de a da greș. Ți-ai ales drumul și ești pregătit pentru a face ceea ce îți place, pentru a excela în domeniul în care te descurci cel mai bine.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
+            <a href="./pages/login.php" class="button"> Incepe </a>
+
+        </div>
         <div class="cookie-container">
             <p>
                 We use cookies in this website to give you the best experience on our

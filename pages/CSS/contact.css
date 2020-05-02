@@ -1,8 +1,8 @@
 .card {
     max-width: 30%;
     background-color: var(--black);
-    padding: 2em 4em;
-    margin: 2em 0;
+    padding: 4em 2em;
+    margin: 10em 0;
     color: var(--yellow)!important;
     font-weight: 700;
 }
@@ -19,4 +19,14 @@
 
 .card img {
     border-radius: 50%;
+    width: 40%;
+    position: absolute;
+    top: -35%;
+    left: 30%;
+}
+
+.card:last-of-type > img{
+    width: 50%;
+    left: 25;
+    top: -30%;
 }
