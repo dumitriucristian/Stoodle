@@ -19,7 +19,7 @@
         exit();
       }
       else {
-        $mysql="INSERT INTO users_gmail(nameGmail,mailGmail) VALUES('$name','$mail');";
+        $mysql="INSERT INTO users_gmail(numGmail,prenumeGmail,mailGmail) VALUES('$nume','$prenume','$mail');";
       if(mysqli_query($connection,$mysql)){
         header('Location: ../homePage?login=succes');
         exit();

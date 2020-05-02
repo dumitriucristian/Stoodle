@@ -23,11 +23,11 @@ include 'functii/functii.php';
             </div>
             <div class="col-lg-5 d-flex align-items-center justify-content-center" id="content">
                 <div class="conatiner">
-                    <form action="">
+                    <form action="foldereset/newparolaphp.php" method="post">
                         <div class="form-group row">
                             <div class="col-lg-6">
                                 <label for="exampleInputPassword1">Parolă</label>
-                                <input type="password" name="passw" class="form-control">
+                                <input type="password" name="resetparola" class="form-control">
                                 <small class="form-text text-muted">
                                     <?php
                                     erore1("emptyfieldpass","Completeaza toate campurile!");
@@ -43,7 +43,7 @@ include 'functii/functii.php';
 
                             <div class="col-lg-6">
                                 <label for="exampleInputPassword1"> Confirmare Parolă</label>
-                                <input type="password" name="passw-repeat" class="form-control">
+                                <input type="password" name="resetconfirmareparola" class="form-control">
                                 <small class="form-text text-muted alert-note">
                                     <?php
                                     erore1("emptyfieldpassrepeat","Completeaza toate campurile!");
@@ -52,7 +52,7 @@ include 'functii/functii.php';
                                 </small>
                             </div>
                         </div>
-                        <button type="submit" name="signupsubmit" class="button">Creează cont</button>
+                        <button type="submit" name="submit-parola-reset" class="button">Creează cont</button>
                     </form>
                 </div>
             </div>
