@@ -47,7 +47,7 @@ include 'functii/functii.php';
                                 }
                                 ?>
 
-                                <small class="form-text text-muted alert-note">
+                                <small class="form-text alert-note">
 
                                     <?php
                                     erore1("emptyfieldnume","Completeaza toate campurile!");
@@ -101,7 +101,7 @@ include 'functii/functii.php';
                                 }
                                 ?>
 
-                                <small class="form-text text-muted">
+                                <small class="form-text">
 
                                     <?php
                                     erore1("emptyfieldemail","Completeaza toate campurile!");
@@ -124,7 +124,7 @@ include 'functii/functii.php';
                                     echo '<input type="email" name="confirmail" class="form-control" aria-describedby="emailHelp">';
                                 }
                                 ?>
-                                <small class="form-text text-muted alert-note">
+                                <small class="form-text alert-note">
                                     <?php
 
                                     erore1("emptyfieldemailrepeat","Completeaza toate campurile!");
@@ -139,7 +139,7 @@ include 'functii/functii.php';
                             <div class="col-lg-6">
                                 <label for="exampleInputPassword1">Parolă</label>
                                 <input type="password" name="passw" class="form-control">
-                                <small class="form-text text-muted">
+                                <small class="form-text">
                                     <?php
                                     erore1("emptyfieldpass","Completeaza toate campurile!");
                                     erore1("invalidpassw","Pentru parola se pot folosi doar cifre si litere ale alfabetului englez!");
@@ -155,7 +155,7 @@ include 'functii/functii.php';
                             <div class="col-lg-6">
                                 <label for="exampleInputPassword1"> Confirmare Parolă</label>
                                 <input type="password" name="passw-repeat" class="form-control">
-                                <small class="form-text text-muted alert-note">
+                                <small class="form-text alert-note">
                                     <?php
                                     erore1("emptyfieldpassrepeat","Completeaza toate campurile!");
                                     erore1("invalidpasswrepeat","Pentru parola se pot folosi doar cifre si litere ale alfabetului englez!");
@@ -171,7 +171,7 @@ include 'functii/functii.php';
                                 <a href="terms.html" style="color: rgba(25, 74, 196, 1);">termeni și condiițiile</a>
                                 propuse de stoodle.
                             </label>
-                            <small class="form-text text-muted alert-note">
+                            <small class="form-text alert-note">
                                 <?php
                                 erore1("check","Bifeaza casuta de mai sus!");
                                 ?>
