@@ -18,6 +18,7 @@
 
 .navbar a{
     color: white;
+    cursor: pointer;
 }
 
 .nav-link{

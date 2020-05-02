@@ -164,20 +164,6 @@ include 'functii/functii.php';
                             </div>
                         </div>
 
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" name="checkbox" value="1" id="exampleCheck1">
-                            <label class="form-check-label"  for="exampleCheck1">
-                                Sunt de acord cu
-                                <a href="terms.html" style="color: rgba(25, 74, 196, 1);">termeni și condiițiile</a>
-                                propuse de stoodle.
-                            </label>
-                            <small class="form-text alert-note">
-                                <?php
-                                erore1("check","Bifeaza casuta de mai sus!");
-                                ?>
-                            </small>
-                        </div>
-
                         <button type="submit" name="signupsubmit" class="button">Creează cont</button>
                     </form>
 

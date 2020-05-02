@@ -32,6 +32,8 @@ a{
 .cookie-container {
     position: fixed;
     bottom: -100%;
+    width: 100%;
+    max-width: 600px;
     left: 0;
     right: 0;
     background: #2f3640;
