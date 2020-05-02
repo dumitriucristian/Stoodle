@@ -70,15 +70,15 @@ function filterPassword($var){
                     $mysql="DELETE FROM auth WHERE userid=".$valori['idUser'];
                     mysqli_query($connection,$mysql);
 
-                    $date=date("U")+ 60*60*24*30;
+                    $date=time()+ 60*60*24*30;
                     $selector=bin2hex(random_bytes(24));
                     $token=bin2hex(random_bytes(64));
                     $hash=password_hash($token,PASSWORD_DEFAULT);
                     $id=$valori['idUser'];
                     $mysql="INSERT INTO auth(validator,selector,userid,data) VALUES ('".$hash."','".$selector."','".$id."','".$date."')";
                     mysqli_query($connection,$mysql);
-                    setcookie("select", $selector,$date,"/",'http://localhost',1);
-                    setcookie("validator",$token,$date,"/",'http://localhost',1);
+                    setcookie("select", $selector,$date,"/");
+                    setcookie("validator",$token,$date,"/");
                   }
                     header("Location: ../homePage.php");
                     exit();

@@ -25,7 +25,6 @@ if (!mysqli_stmt_prepare($stmt, $mysql))
 mysqli_stmt_bind_param($stmt, "s", $mail);
 mysqli_stmt_execute($stmt);
 $result= mysqli_stmt_get_result($stmt);
-
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 }

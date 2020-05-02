@@ -1,14 +1,14 @@
 <?php
 require './pages/folderlogin/datacon.php';
 
-function destroyCookie($select,$token){
-    setcookie("select", $selector,-60*60*24*30,"/",'http://localhost',1);
-    setcookie("validator",$token,-60*60*24*30,"/",'http://localhost',1);
+function destroyCookie($selector,$token){
+    setcookie("select", $selector,-60*60*24*30,"/");
+    setcookie("validator",$token,-60*60*24*30,"/");
 }
 session_start();
 if (isset($_SESSION['mailUser']) || isset($_SESSION['mailGmail']))
 {
-   header("Location: ./pages/homePage.php");
+  header("Location: ./pages/homePage.php");
    exit();
 }
 elseif(isset($_COOKIE['select']) && isset($_COOKIE['validator'])){
@@ -32,15 +32,16 @@ elseif(isset($_COOKIE['select']) && isset($_COOKIE['validator'])){
             if($password_verify===true){
 
                 /*aici pun sesiunile*/
-                $mysql="SELECT mailUser FROM users WHERE idUser=".$valori['iduser'];
+                $mysql="SELECT * FROM users WHERE idUser=".$valori['userid'];
                 $result=mysqli_query($connection,$mysql);
-                if(!$result){
+                if(mysqli_num_rows($result)!=1){
                     destroyCookie($_COOKIE['select'],$_COOKIE['validator']);
 
                     header('Refresh: 1; url=indexpp.php');
                     exit();
                 }
-                $_SESSION['mailUser']=$result['mailUser'];
+                if($rezultat = $result->fetch_assoc()){
+                $_SESSION['mailUser']=$rezultat['mailUser'];
 
                 /*aici se termina sesiunile*/
 
@@ -51,11 +52,15 @@ elseif(isset($_COOKIE['select']) && isset($_COOKIE['validator'])){
                 $mysql="UPDATE auth(validator,selector) VALUES (".$hash.",".$selector.")";
                 mysqli_query($connection,$mysql);
 
-                setcookie("select", $selector,$valori['data'],"/",'http://localhost',1);
-                setcookie("validator",$token,$valori['data'],"/",'http://localhost',1);
+                setcookie("select", $selector,$valori['data'],"/");
+                setcookie("validator",$token,$valori['data'],"/");
 
                 header("Location: ./pages/homePage.php");
-                exit();
+                exit();}
+                else {
+                  destroyCookie($_COOKIE['select'],$_COOKIE['validator']);
+                  header('Refresh: 1; url=indexpp.php');
+                }
             }
             else {
                 destroyCookie($_COOKIE['select'],$_COOKIE['validator']);
