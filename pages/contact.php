@@ -22,13 +22,11 @@ if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
             <a href="#">
                 <?php
                 require './folderlogin/datacon.php';
-                if ($_SESSION['mailUser']) {
+                if ($_SESSION['mailUser'])
                   $mail=$_SESSION['mailUser'];
-                }
-                if () {
+                if ($_SESSION['mailGmail'])
                   $mail=$_SESSION['mailGmail'];
-                }
-                $mail = $_SESSION['mailUser'];
+
                 $sql = "SELECT * FROM `users` WHERE `mailUser` = '$mail'";
                 $result = mysqli_query($connection,$sql);
                 $myArray = array();
@@ -37,10 +35,6 @@ if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
                     while($row = $result->fetch_assoc()) {
                         print "Salut, ".$row['Prenume'];
                     }
-                }
-                else
-                {
-                    echo "0 results";
                 }
                 ?>
             </a>
