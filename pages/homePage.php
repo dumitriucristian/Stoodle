@@ -1,19 +1,28 @@
 <?php
 require './folderlogin/datacon.php';
+
 session_start();
 if(!isset($_SESSION['mailUser']) && !isset($_SESSION['mailGmail'])){
     header("Location: ../indexpp.php?1");
     exit();
 }
-$mail = $_SESSION['mailUser'];
-$mysql="SELECT * FROM users WHERE mailUser=?";
+if(isset($_SESSION['mailUser']))
+{
+  $mail = $_SESSION['mailUser'];
+  $mysql="SELECT * FROM users WHERE mailUser=?";
+}
+if(isset($_SESSION['mailGmail']))
+{
+  $mail = $_SESSION['mailGmail'];
+  $mysql="SELECT * FROM users_gmail WHERE mailGmail=?";
+}
 $stmt = mysqli_stmt_init($connection);
 if (!mysqli_stmt_prepare($stmt, $mysql))
 {
     header("Location: ../indexpp.php?");
     exit();
 }
-mysqli_stmt_bind_param($stmt, "s", $_SESSION['mailUser']);
+mysqli_stmt_bind_param($stmt, "s", $mail);
 mysqli_stmt_execute($stmt);
 $result= mysqli_stmt_get_result($stmt);
 
@@ -47,7 +56,7 @@ if(empty($row['Profil'])){
     <body>
         <!-- SIDE BAR -->
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a href="#"> 
+            <a href="#">
                 <?php
                 print "Salut, ".$row['Prenume'];
                 ?>
