@@ -60,41 +60,31 @@ session_start();
                 </ul>
             </div>
         </nav>
-        
+
         <!-- CONTACT INFO -->
         <div id="showcase">
             <div id="content d-flex align-items-center">
                 <div class="row justify-content-around">
 
-                    <div class="card col-lg-4 justify-content-around align-items-center">
-                        <img src="./Images/Grigo.jpg" alt="poza" style="width: 10em; margin-bottom: 1em;">
-                        <h3 class="m-0">Grigorescu</h3>
-                        <h4>Alexandru</h4>
-                        <p>Phasellus quis eleifend quam, sed tincidunt felis. Nulla aliquet, tellus.</p>
-                        <div class="socialMedia d-flex justify-content-around w-100">
-                            <a href="https://www.facebook.com/grigorescu.alexandru.94" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/aleex_grigo/" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="mailto:grigorescu.aleex@gmail.com?subject=Stoodle| Problema ta" target="_blank"><i class="fas fa-envelope"></i></a>
-                        </div>
+                    <div class="card text-center">
+                        <img src="./Images/Grigo.jpg" alt="Poza cu Grigo">
+                        <h3>Grigorescu Alexandru</h3>
+                        <h6>Front-End Developer</h6>
+                        <p>Ma consider o persoana joviala</p>
                     </div>
 
-                    <div class="card col-lg-4 justify-content-around align-items-center">
-                        <img src="./Images/Robert.jpg" alt="poza" style="width: 10em; margin-bottom: 1em;">
-                        <h3 class="m-0">Plaiasu</h3>
-                        <h4>Robert</h4>
-                        <p>Phasellus quis eleifend quam, sed tincidunt felis. Nulla aliquet, tellus.</p>
-                        <div class="socialMedia d-flex justify-content-around w-100">
-                            <a href="https://www.facebook.com/robert.plaiasu" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/tridev_robert/" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="mailto:robertplaiasu03@gmail.com?subject=Stoodle| Problema ta" target="_blank"><i class="fas fa-envelope"></i></a>
-                        </div>
+                    <div class="card text-center">
+                        <img src="./Images/Robert.jpg" alt="Poza cu Robert">
+                        <h3>Plaiasu Robert</h3>
+                        <h6>Back-End Developer</h6>
+                        <p>Imi place metal-ul</p>
                     </div>
 
                 </div>
             </div>
         </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="./JS/navbar.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="./JS/navbar.js"></script>
     </body>
 </html>

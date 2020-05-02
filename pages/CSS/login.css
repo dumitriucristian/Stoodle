@@ -1,6 +1,7 @@
 body, html {
     overflow: hidden!important;
-    background-color: var(--blue)!important;
+    background: url("../Images/background.jpg")!important;
+    background-size: cover;
 }
 
 #text {
