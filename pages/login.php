@@ -2,8 +2,8 @@
 require 'folderlogin/google-config.php';
 session_start();
 if (isset($_SESSION['mailUser']) || isset($_SESSION['mailGmail'])) {
-  header("Location: ./homePage.php");
-  exit();
+    header("Location: ./homePage.php");
+    exit();
 }
 include 'functii/functii.php';
 require_once './folderlogin/google-config.php';
@@ -55,7 +55,7 @@ require_once './folderlogin/google-config.php';
                             }
                             ?>
 
-                            <small id="emailHelp" class="form-text text-muted  alert-note">
+                            <small id="emailHelp" class="form-text alert-note">
 
                                 <?php
                                 erore1("emptymail",'Completeaza campul !');
@@ -71,7 +71,7 @@ require_once './folderlogin/google-config.php';
 
                             <label for="exampleInputPassword1">Parolă</label>
                             <input type="password" name="passw" class="form-control" id="exampleInputPassword1">
-                            <small id="emailHelp" class="form-text text-muted alert-note">
+                            <small id="emailHelp" class="form-text alert-note">
                                 <?php
                                 erore1("emptypass","Completeaza campul");
                                 erore1("invalidpassw","Pentru parola se folosesc doar caractere a alfabetui englez!");
@@ -81,6 +81,11 @@ require_once './folderlogin/google-config.php';
 
                         </div>
 
+
+                        <a href="register.php">
+                            Nu ai cont? <span>Înregistrează-te</span>
+                        </a>
+
                         <div class="form-group form-check">
 
                             <input type="checkbox" class="form-check-input" name="checkbox" value="1" id="exampleCheck1">
@@ -89,18 +94,14 @@ require_once './folderlogin/google-config.php';
                         </div>
 
 
-                            <a class="btn btn-outline-dark" <?php echo 'href="'.$client->createAuthUrl().'"' ?>  role="button" style="text-transform:none">
-                              <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
-                              Login with Google
-                            </a>
+                        <a class="btn btn-outline-dark" <?php echo 'href="'.$client->createAuthUrl().'"' ?>  role="button" style="text-transform:none; width: 100%; padding: 1em; margin: .3em 0;">
+                            <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                            Login with Google
+                        </a>
 
 
                         <button type="submit" name="loginsubmit" class="button">Loghaeză-te</button>
                     </form>
-
-                    <a href="register.php">
-                        Nu ai cont? <span>Înregistrează-te</span>
-                    </a>
 
                 </div>
             </div>
