@@ -71,7 +71,7 @@ if(empty($_SESSION['mailUser'])&& empty($_SESSION['mailGmail'])){
         }
     }
     else {
-        header("Location: ./register.php?error=eroaregenerala");
+        header("Location: ./register.php?error=invalidlink");
         exit();
     }
 }

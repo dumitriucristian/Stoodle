@@ -128,7 +128,7 @@
         $mysql="SELECT mailUser FROM users WHERE mailUser=?";
         $stmt=mysqli_stmt_init($connection);
         if (!mysqli_stmt_prepare($stmt,$mysql)) {
-          header("Location: ../register.php?error=mysqlerror");
+          header("Location: ../register.php?error=mysqlerror&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
           exit();
         }
           mysqli_stmt_bind_param($stmt,"s",$email);
@@ -153,7 +153,7 @@
               $mysql="DELETE FROM users_verificare WHERE mailVerificare=?;";
               $stmt=mysqli_stmt_init($connection);
               if (!mysqli_stmt_prepare($stmt,$mysql)) {
-                header("Location: ../register.php?error=mysqlerror2");
+                header("Location: ../register.php?error=mysqlerror&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
                 exit();
               }
                 mysqli_stmt_bind_param($stmt,"s",$email);
@@ -163,7 +163,7 @@
                 $mysql="INSERT INTO users_verificare(numeVerificare,prenumeVerificare,mailVerificare,parolaVerificare,selectVerificare,tokenVerificare,expireVerificare) VALUES(?,?,?,?,?,?,?);";
                 $stmt=mysqli_stmt_init($connection);
                 if (!mysqli_stmt_prepare($stmt,$mysql)) {
-                  header("Location: ../register.php?error=mysqlerror1");
+                  header("Location: ../register.php?error=mysqlerror&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
                   exit();
                 }
                   $parola=password_hash($password,PASSWORD_DEFAULT);
@@ -171,33 +171,7 @@
                   mysqli_stmt_bind_param($stmt,"sssssss",$nume,$prenume,$email,$parola,$select,$hash,$end);
                   mysqli_stmt_execute($stmt);
 
-
-
-
                   /*  trimitere mail */
-
-
-                  /*
-                  FUNCTIA DIN PHP MAIL SE FOLOSESTE DOAR DACA AI UN MAIL SERVER ALTFEL NU VA FUNCTIONA ADICA TREBUIE SA AI SITE UL HOSTAT
-
-
-                  $subiect='Resetarea parolei pentru contul tau Stoodle';
-
-                  $header=
-                  '
-                  <a href="http://localhost/stoodledarnu%20definitiv/"><p style="font-size: 2rem; font-weight: 700; font-family: 'Raleway', sans-serif;">Stoodle</p></a>
-                  ';
-
-                  $mesaj=
-                  '
-                  <p>Am primit o cerere de resetare a parolei.Link-ul pentru a va reseta parola este mai jos.
-                  Daca nu dumneavoastra ati facut aceasta cerere puteti ignora acest mail.</p>
-                  </br><p>Aici este link-ul depentru a reseta parola:<a href="'.$link.'">'.$link.'</a></p>
-                  ';
-
-                  mail($email,$subiect,$mesaj,$header);
-
-                  */
 
                   /*Gmail mail sender care este limitat la 100 de mail-uri pe zi*/
                   $mail=new PHPMailer\PHPMailer\PHPMailer();

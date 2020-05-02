@@ -35,6 +35,14 @@ include 'functii/functii.php';
 
                     <form action="folderlogin/signupphp.php" method="post">
                         <div class="form-group row">
+                          <?php
+                          erore2("mysqlerror","Eroare baza de date!");
+                          erore2("invalidlink","Link-ul este invalid!");
+                          erore2("expire","Timpul pentru verificarea adresei de email a fost depasit trebuie sa completezi din nou formularul!");
+                          erore2("alttoken","Tokenul nu este bun!");
+                          erore2("eroaregenerala","Eroare aplicatie!");
+                          succes("register","Te-ai inregistrat succes!Acum verifica adresa ta de email!");
+                           ?>
                             <div class="col-lg-6">
                                 <label for="exampleInputEmail1">Nume de familie</label>
 
@@ -158,6 +166,8 @@ include 'functii/functii.php';
                                 <small class="form-text alert-note">
                                     <?php
                                     erore1("emptyfieldpassrepeat","Completeaza toate campurile!");
+                                    erore1("micpasswrepeat","Parola este prea sccurta trebuie sa aiba minim 8 caractere!");
+                                    erore1("marepasswrepeat","Parola este prea lunga poate sa aiba maxim 32 de caractere!");
                                     erore1("invalidpasswrepeat","Pentru parola se pot folosi doar cifre si litere ale alfabetului englez!");
                                     ?>
                                 </small>

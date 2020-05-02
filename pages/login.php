@@ -74,7 +74,7 @@ require_once './folderlogin/google-config.php';
                             <small id="emailHelp" class="form-text alert-note">
                                 <?php
                                 erore1("emptypass","Completeaza campul");
-                                erore1("invalidpassw","Pentru parola se folosesc doar caractere a alfabetui englez!");
+                                erore1("invalidpassw","Pentru parola se folosesc doar caractere a alfabetui englez si cifrele de la 0-9!");
                                 erore1("parolagresita","Combinatia email si parola este gresita");
                                 ?>
                             </small>
@@ -85,13 +85,17 @@ require_once './folderlogin/google-config.php';
                         <a href="register.php">
                             Nu ai cont? <span>Înregistrează-te</span>
                         </a>
-
+                        <br>
+                        <a href="register.php">
+                             Ai uitat parola?<span>Schimb-o</span>
+                        </a>
                         <div class="form-group form-check">
 
                             <input type="checkbox" class="form-check-input" name="checkbox" value="1" id="exampleCheck1">
                             <label class="form-check-label" for="exampleCheck1">Ține-mă minte.</label>
 
                         </div>
+
 
 
                         <a class="btn btn-outline-dark" <?php echo 'href="'.$client->createAuthUrl().'"' ?>  role="button" style="text-transform:none; width: 100%; padding: 1em; margin: .3em 0;">
