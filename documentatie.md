@@ -18,8 +18,10 @@
 - [Font-awesome](https://fontawesome.com/)
 
 >Provocările întâlnită pe parcursul acestui proiect.
+
     Pentru noi cea mai grea parte a proiectului __Stoodle__ a fost creeare unui „AI” care să găsească cea mai potrivită facultate pentru user, dar și creeare posibilității de a adauga și a scoate anumite facultați de la favorite. Cateva dintre obstacolele intâlnite au fost:
-    > Crearea unui formular
+    
+    >> Crearea unui formular
         Cert aceasta a fost cea mai dificilă parte a întregului proiect deoarece nu a constat în alegerea unui tehnici de programare ci în găsirea unui set de întrebări psihologici care să determine personalitatea __unică__ a fiecărui user. 
     > Găsirea unui mod optim de si precis de a utiliza informația
         Dacă la crearea formularului problema a fost că nu știam ce întrebări ar trebuii adresate la un astfel de formular aici problema a stat cu totul altfel. Având acces la atâtea tehnici de programare a trebuit să alegem una. Aici proiectul a început să se zdruncine. Pur și simplu aveam idei diferite de aplicare a „AI”. Unul voia cu backtracking altul cu creearea unui șlabon al cadidatului ideal pentur fiecare facultate. Am pierdut o zi de lucru pentru a realiza că __A fără B nu se poate și nici B fără A__.
