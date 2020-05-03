@@ -3,7 +3,7 @@ session_start();
 function deconect(){
   session_unset();
   session_destroy();
-  setcookie("select", " ",-60*60*24*30,"/");
+  setcookie("select", "",-60*60*24*30,"/");
   setcookie("validator","",-60*60*24*30,"/");
   header("Location: ../../index.php?logout=succes");
   exit();
