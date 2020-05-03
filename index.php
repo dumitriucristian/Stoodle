@@ -4,7 +4,7 @@ require './pages/folderlogin/datacon.php';
 function destroyCookie($selector,$token){
     setcookie("select", $selector,-60*60*24*30,"/");
     setcookie("validator",$token,-60*60*24*30,"/");
-    header('Refresh: 1; url=indexpp.php');
+    header('Refresh: 1; url=index.php');
     exit();
 }
 session_start();
