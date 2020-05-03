@@ -30,7 +30,7 @@ Pentru noi cea mai grea parte a proiectului __Stoodle__ a fost creeare unui „A
 A trebuit să venim cu formulă care să determine compabilitatea de tip user facultate. După altă zi în care ne-am bătut capul am reușit: `(suma_compatibila_user/suma_compatibila_facultate) * 100`. Dacă doriți să vedeți tot codul îl puteți găsi în `./pages/functii/functii.php`
 ### Adaugarea și scoatere facultăților de la favorite
 > Față de ceea ce a trebuit să înfruntăm la crearea „AI-ului”, acum trebuie să creeăm această funcție de favorite. Două lucruri de precizat: 
-1. Noi când am ales să adaugăm aceasta funcție site-ului nu am știut că cel mai bine favorabil este de facut cu __AJAX__
+1. Noi când am ales să adaugăm aceasta funcție site-ului nu am știut că cel mai bine favorabil este de facut cu __AJAX__, pentru că dă refresh la baza de date fără se de-a refresh la pagină.
 2. Niciunul nu știe __AJAX__.
 Să înceapă distracția! Cum reușim sa facem asta eficient fără AJAX? CUM FACEM BAZA DE DATE?? Exact în acel moment de cumpănă pe Robert(Back-end Developer) l-a lovit: __un tabel care salvează id-ul userului, indexul facultății și tip-ul de user(ar puteam să se conecteze cu Google). Principala problemă cu această abordare este faptul că este neeficient, însă cu sort și o mică căutare binară chiar ar putea fi decent. Zis și făcut am trecut și această idee în cod și trbuie sa recunosc este chiar eficient... _oarecum_.
 
