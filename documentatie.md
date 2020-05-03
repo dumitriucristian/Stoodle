@@ -43,9 +43,9 @@ Să înceapă distracția! Cum reușim sa facem asta eficient fără AJAX? CUM F
 Am învățat atât de multe lucruri încât nici nu am cum să le înșir pe toate
 
 ### Cum am continua dezvoltarea Stoodle
-[]Optimizări, multe optimizări
-[]Mărirea bazei de date cu facultăți
-[]Mici modificări de design
+- Optimizări, multe optimizări
+- Mărirea bazei de date cu facultăți
+- Mici modificări de design
 
 ### Cum să intalezi proiectul
 1. Downloadați stoodle-master.
