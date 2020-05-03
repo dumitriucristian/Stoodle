@@ -137,8 +137,8 @@ if(empty($_SESSION['mailUser'])&& empty($_SESSION['mailGmail'])){
                 <div class="col flex-column d-flex justify-content-center align-items-center" style="height:100vh">
                     <label>Vrei un part-time job?</label>
                     <select name="job">
-                        <option value="Da">Da</option>
-                        <option value="Nu">Nu</option>
+                        <option value="0">Da</option>
+                        <option value="1">Nu</option>
                     </select>
                     <input type="button" onclick="nextQuestion()" class="button" value="Urmatoare intrebare">
                 </div>
@@ -202,8 +202,8 @@ if(empty($_SESSION['mailUser'])&& empty($_SESSION['mailGmail'])){
                 <div class="col flex-column d-flex justify-content-center align-items-center" style="height:100vh">
                     <label>Te consideri o persoana sociabila?</label>
                     <select name="social">
-                        <option value="Da">Da</option>
-                        <option value="Nu">Nu</option>
+                        <option value="1">Da</option>
+                        <option value="0">Nu</option>
                     </select>
                     <input type="button" onclick="nextQuestion()" class="button" value="Urmatoare intrebare">
                 </div>
@@ -213,8 +213,8 @@ if(empty($_SESSION['mailUser'])&& empty($_SESSION['mailGmail'])){
                 <div class="col flex-column d-flex justify-content-center align-items-center" style="height:100vh">
                     <label>Practici vreun sport</label>
                     <select name="sport">
-                        <option value="Da">Da</option>
-                        <option value="Nu">Nu</option>
+                        <option value="1">Da</option>
+                        <option value="0">Nu</option>
                     </select>
                     <input type="button" onclick="nextQuestion()" class="button" value="Urmatoare intrebare">
                 </div>
@@ -237,8 +237,8 @@ if(empty($_SESSION['mailUser'])&& empty($_SESSION['mailGmail'])){
                 <div class="col flex-column d-flex justify-content-center align-items-center" style="height:100vh">
                     <label>Consideri ca poti ca poti face fata unor situatii foarte stresante?</label>
                     <select name="stres">
-                        <option value="Da">Da</option>
-                        <option value="Nu">Nu</option>
+                        <option value="1">Da</option>
+                        <option value="0">Nu</option>
                     </select>
                     <br />
 
