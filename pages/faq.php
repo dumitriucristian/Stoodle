@@ -1,4 +1,5 @@
 <?php
+require './folderlogin/datacon.php';
 session_start();
 if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
     header("Location: ../indexpp.php");
@@ -20,15 +21,24 @@ if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
         <nav class="navbar navbar-expand-lg navbar-light">
             <a href="#">
                 <?php
-                require './folderlogin/datacon.php';
-                $mail = $_SESSION['mailUser'];
-                $sql = "SELECT * FROM `users` WHERE `mailUser` = '$mail'";
+                if (isset($_SESSION['mailUser'])){
+                  $mail=$_SESSION['mailUser'];
+                  $sql = "SELECT * FROM `users` WHERE `mailUser` = '$mail'";
+                }
+
+                if (isset($_SESSION['mailGmail'])){
+                  $mail=$_SESSION['mailGmail'];
+                  $sql = "SELECT * FROM `users_gmail` WHERE `mailGmail` = '$mail'";
+                }
                 $result = mysqli_query($connection,$sql);
                 $myArray = array();
-                if ($result->num_rows > 0) {
+                if (mysqli_num_rows($result) > 0) {
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
+                      if (isset($_SESSION['mailUser']))
                         print "Salut, ".$row['Prenume'];
+                      else
+                        print "Salut, ".$row['prenumeGmail'];
                     }
                 }
                 ?>

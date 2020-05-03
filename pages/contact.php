@@ -1,5 +1,4 @@
 <?php
-include 'navbar/navbar_functii.php';
 require './folderlogin/datacon.php';
 session_start();
 if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
@@ -30,14 +29,17 @@ if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
 
                 if (isset($_SESSION['mailGmail'])){
                   $mail=$_SESSION['mailGmail'];
-                  $sql = "SELECT * FROM `users_gmail` WHERE `mailUser` = '$mail'";
+                  $sql = "SELECT * FROM `users_gmail` WHERE `mailGmail` = '$mail'";
                 }
                 $result = mysqli_query($connection,$sql);
                 $myArray = array();
-                if ($result->num_rows > 0) {
+                if (mysqli_num_rows($result) > 0) {
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
+                      if (isset($_SESSION['mailUser']))
                         print "Salut, ".$row['Prenume'];
+                      else
+                        print "Salut, ".$row['prenumeGmail'];
                     }
                 }
                 ?>
@@ -69,9 +71,15 @@ if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
             </div>
         </nav>
 
-        <?php
-         alerta_formular();
-        ?>
+        <div class="alert alert-danger alert-dismissible fade show hidden formular-alert"role="alert">
+            <strong>Atentie !</strong>
+            <button type="button" class="close" onclick="alert();">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <hr>
+            Va trebui sa raspunzi din nou la toate intrebarile din formular. Raspunsuri vor fi modificate doar la finalul acestuia. <br>
+            <a href="./formularTemplate.php">Doresc sa continui</a>
+        </div>
 
         <script>
             function alert(){
