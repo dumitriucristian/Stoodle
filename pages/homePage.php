@@ -212,7 +212,7 @@ sort($favorite);
                                      <?php
                         echo $card->link;
                                      ?>
-                                     ">Afla mai mult</a>
+                                     " target="_blank">Afla mai mult</a>
                         </div>
                     </div>
                     <?php } ?>

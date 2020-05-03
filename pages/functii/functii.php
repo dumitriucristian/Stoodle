@@ -96,6 +96,52 @@ function comparare_profil($valoare,$valoare_user){
    return 0;
 }
 
+function comparare_pasiune($valoare,$valoare_user){
+
+  $pasiune_programare=array("Matematica","Programare/Calculatoare","Electronica","Cibernetica");
+  $pasiune_fizica=array("Matematica","Fizica","Astronomie","Arhitectura","Constructii","Inginerie electrica","Electronica","Inginerie Aerospatila");
+  $pasiune_medicina=array("Chimie","Medicina","Biologie","Animale","Agricultura","Ecologie","Animale");
+  $pasiune_politica=array("Politica","Drept");
+  $pasiune_lingvistica=array("Limbi straine","Literatura","Limba romana","Filozofie","Psihologie");
+  $pasiune_jurnalism=array("Jurnalism","Editare video/sunet","Regie","Actorie");
+  $pasiune_geografie=array("Geografie","Istorie");
+  $pasiune_sport=array("Biologie","Medicina","Sport");
+  $pasiune_afaceri=array("Business","Economie","Matematica");
+  $pasiune_serviciu=array("Drept","Serviciul in cadrul politiei","Serviciul militar");
+  $pasiune_design=array("Design","Desen","Editare video/sunet");
+  $pasiune_religie=array("Religie","Istorie");
+  $pasiune_geologie=array("Geologie","Geografie","Biologie");
+
+  if($valoare_user == $valoare)
+        return 10;
+  elseif(in_array($valoare,$pasiune_programare) && in_array($valoare_user,$pasiune_programare))
+    return 5;
+  elseif(in_array($valoare,$pasiune_fizica) && in_array($valoare_user,$pasiune_fizica))
+    return 5;
+  elseif(in_array($valoare,$pasiune_medicina) && in_array($valoare_user,$pasiune_medicina))
+    return 5;
+  elseif(in_array($valoare,$pasiune_politica) && in_array($valoare_user,$pasiune_politica))
+    return 5;
+  elseif(in_array($valoare,$pasiune_jurnalism) && in_array($valoare_user,$pasiune_jurnalism))
+    return 5;
+  elseif(in_array($valoare,$pasiune_geografie) && in_array($valoare_user,$pasiune_geografie))
+    return 5;
+  elseif(in_array($valoare,$pasiune_sport) && in_array($valoare_user,$pasiune_sport))
+    return 5;
+  elseif(in_array($valoare,$pasiune_afaceri) && in_array($valoare_user,$pasiune_afaceri))
+    return 5;
+  elseif(in_array($valoare,$pasiune_serviciu) && in_array($valoare_user,$pasiune_serviciu))
+    return 5;
+  elseif(in_array($valoare,$pasiune_design) && in_array($valoare_user,$pasiune_design))
+    return 5;
+  elseif(in_array($valoare,$pasiune_religie) && in_array($valoare_user,$pasiune_religie))
+    return 5;
+  elseif(in_array($valoare,$pasiune_geologie) && in_array($valoare_user,$pasiune_geologie))
+    return 5;
+  else
+   return 0;
+}
+
 function comparare_judet($valoare,$valoare_user){
 
   $judet_sud=array("Ilfov","Prahova","Teleorman","Giurgiu","Calarasi","Constanta","Tulcea","Braila","Buzau","Bucuresti","Dambovita","Arges","Valcea","Gorj","Mehedinti","Dolj","Brasov");
@@ -120,9 +166,7 @@ function comparare_judet($valoare,$valoare_user){
 function getCompability($array, $user)
 {
     $compability_couter = 0;
-    $number_imapartire = 100;
-    if($user[0]['Domeniu'] == $array['pasiune_facultati'])
-        $compability_couter += 8*$user[0]['domeniu_intensitate'];
+    $number_imapartire = 110;
     if($user[0]['job'] == $array['job'])
         $compability_couter += 5;
     if($user[0]['carti'] == $array['carti'])
@@ -141,6 +185,8 @@ function getCompability($array, $user)
     $compability_couter += comparare_profil($array['Profil'],$user[0]['Profil']);
 
     $compability_couter += comparare_judet($array['Judet'],$user[0]['Judet']);
+
+    $compability_couter += $user[0]['domeniu_intensitate']*comparare_pasiune($user[0]['Domeniu'],$array['pasiune_facultati']);
 
     return floor(($compability_couter/$number_imapartire) * 100);
 }

@@ -15,7 +15,7 @@ $array_carti=array("Culinare","Arte,tehnica","Enciclopedii","Biografii,memorii",
 "Computere si internet","Dezvoltare personala","Lifestyle,sport");
 $array_pasiune=array("Medicina","Matematica","Agricultura","Ecologie","Programare/Calculatoare","Literatura","Muzica","Desen","Arhitectura","Astronomie","Fizica","Sport","Religie","Economie",
 "Business","Politica","Limbi straine","Filozofie","Drept","Biologie","Geografie","Geologie","Istorie","Jurnalism","Psihologie","Design","Constructii","Serviciul militar","Actorie","Regie","Editare video/sunet",
-"Chimie","Animale","Limba romana","Serviciul in cadrul politiei","Electronica","Inginerie electrica","Cibernetica","Inginerie Aerospatila","Serviciul in cadrul politiei");
+"Chimie","Animale","Limba romana","Serviciul in cadrul politiei","Electronica","Inginerie electrica","Cibernetica","Inginerie Aerospatila");
 
 $array_profil=array("Teologic","Mate-info","Filologie","Stiinte ale naturii","Sportiv","Tehnologic","Arhitectura","Actorie","Stiinte-sociale");
  ?>
