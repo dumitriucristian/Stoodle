@@ -2,10 +2,10 @@
 -- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 02, 2020 at 02:09 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Gazdă: 127.0.0.1
+-- Timp de generare: mai 03, 2020 la 12:08 PM
+-- Versiune server: 10.4.11-MariaDB
+-- Versiune PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `stoodle`
+-- Bază de date: `stoodle`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth`
+-- Structură tabel pentru tabel `auth`
 --
 
 CREATE TABLE `auth` (
@@ -37,7 +37,7 @@ CREATE TABLE `auth` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `auth`
+-- Eliminarea datelor din tabel `auth`
 --
 
 INSERT INTO `auth` (`id`, `validator`, `selector`, `userid`, `data`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `auth` (`id`, `validator`, `selector`, `userid`, `data`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `facultati`
+-- Structură tabel pentru tabel `facultati`
 --
 
 CREATE TABLE `facultati` (
@@ -71,7 +71,7 @@ CREATE TABLE `facultati` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `facultati`
+-- Eliminarea datelor din tabel `facultati`
 --
 
 INSERT INTO `facultati` (`Indexf`, `Numef`, `Judet`, `Examenadmi`, `Universitatea`, `Profil`, `Poza`, `job`, `pasiune_facultati`, `materie1`, `materie2`, `materie3`, `carti`, `sociabil`, `sport`, `stres`, `link_facultate`) VALUES
@@ -84,7 +84,27 @@ INSERT INTO `facultati` (`Indexf`, `Numef`, `Judet`, `Examenadmi`, `Universitate
 -- --------------------------------------------------------
 
 --
--- Table structure for table `resetare`
+-- Structură tabel pentru tabel `favorite`
+--
+
+CREATE TABLE `favorite` (
+  `id` int(11) NOT NULL,
+  `idUser` int(11) DEFAULT NULL,
+  `Indexf` int(11) DEFAULT NULL,
+  `tip` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Eliminarea datelor din tabel `favorite`
+--
+
+INSERT INTO `favorite` (`id`, `idUser`, `Indexf`, `tip`) VALUES
+(1, 1, 3, 'normal');
+
+-- --------------------------------------------------------
+
+--
+-- Structură tabel pentru tabel `resetare`
 --
 
 CREATE TABLE `resetare` (
@@ -98,7 +118,7 @@ CREATE TABLE `resetare` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structură tabel pentru tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -123,7 +143,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Eliminarea datelor din tabel `users`
 --
 
 INSERT INTO `users` (`idUser`, `Nume`, `Prenume`, `mailUser`, `pwdUsers`, `Profil`, `Domeniu`, `domeniu_intensitate`, `job`, `materie1`, `materie2`, `materie3`, `carti`, `sociabil`, `sport`, `stres`, `Judet`, `PozaUser`) VALUES
@@ -133,7 +153,7 @@ INSERT INTO `users` (`idUser`, `Nume`, `Prenume`, `mailUser`, `pwdUsers`, `Profi
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_gmail`
+-- Structură tabel pentru tabel `users_gmail`
 --
 
 CREATE TABLE `users_gmail` (
@@ -155,10 +175,17 @@ CREATE TABLE `users_gmail` (
   `Judet` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Eliminarea datelor din tabel `users_gmail`
+--
+
+INSERT INTO `users_gmail` (`idGmail`, `numeGmail`, `prenumeGmail`, `mailGmail`, `Profil`, `Domeniu`, `domeniu_intensitate`, `job`, `materie1`, `materie2`, `materie3`, `carti`, `sociabil`, `sport`, `stres`, `Judet`) VALUES
+(1, 'Grigorescu', 'Alexandru', 'grigorescu.aleex@gmail.com', 'Teologic', 'Medicina', 1, 0, 'Istorie', 'Geografie', 'Educatie civica', 'Culinare', 0, 0, 0, 'Alba');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_verificare`
+-- Structură tabel pentru tabel `users_verificare`
 --
 
 CREATE TABLE `users_verificare` (
@@ -174,88 +201,100 @@ CREATE TABLE `users_verificare` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users_verificare`
+-- Eliminarea datelor din tabel `users_verificare`
 --
 
 INSERT INTO `users_verificare` (`idVerificare`, `numeVerificare`, `prenumeVerificare`, `mailVerificare`, `parolaVerificare`, `selectVerificare`, `tokenVerificare`, `expireVerificare`, `verificare`) VALUES
 (1, 'Nume', 'Robert', 'robertplaiasu03@gmail.com', '$2y$10$uJ2AnpXLNXq3Uenquyf3DurigB7ISuaGjWsaxdIlGrvN3OIoXAKpG', '3ff6a069d63330bfe06cacba', '$2y$10$tZs06egu/bbkBQ2dmFvhT.fSDA9RWBm6wcafRTxqPPhosZrYSI8PG', 1586774491, NULL);
 
 --
--- Indexes for dumped tables
+-- Indexuri pentru tabele eliminate
 --
 
 --
--- Indexes for table `auth`
+-- Indexuri pentru tabele `auth`
 --
 ALTER TABLE `auth`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `facultati`
+-- Indexuri pentru tabele `facultati`
 --
 ALTER TABLE `facultati`
   ADD PRIMARY KEY (`Indexf`);
 
 --
--- Indexes for table `resetare`
+-- Indexuri pentru tabele `favorite`
+--
+ALTER TABLE `favorite`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexuri pentru tabele `resetare`
 --
 ALTER TABLE `resetare`
   ADD PRIMARY KEY (`idReset`);
 
 --
--- Indexes for table `users`
+-- Indexuri pentru tabele `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`idUser`);
 
 --
--- Indexes for table `users_gmail`
+-- Indexuri pentru tabele `users_gmail`
 --
 ALTER TABLE `users_gmail`
   ADD PRIMARY KEY (`idGmail`);
 
 --
--- Indexes for table `users_verificare`
+-- Indexuri pentru tabele `users_verificare`
 --
 ALTER TABLE `users_verificare`
   ADD PRIMARY KEY (`idVerificare`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pentru tabele eliminate
 --
 
 --
--- AUTO_INCREMENT for table `auth`
+-- AUTO_INCREMENT pentru tabele `auth`
 --
 ALTER TABLE `auth`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `facultati`
+-- AUTO_INCREMENT pentru tabele `facultati`
 --
 ALTER TABLE `facultati`
   MODIFY `Indexf` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `resetare`
+-- AUTO_INCREMENT pentru tabele `favorite`
+--
+ALTER TABLE `favorite`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT pentru tabele `resetare`
 --
 ALTER TABLE `resetare`
   MODIFY `idReset` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pentru tabele `users`
 --
 ALTER TABLE `users`
   MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `users_gmail`
+-- AUTO_INCREMENT pentru tabele `users_gmail`
 --
 ALTER TABLE `users_gmail`
-  MODIFY `idGmail` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idGmail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `users_verificare`
+-- AUTO_INCREMENT pentru tabele `users_verificare`
 --
 ALTER TABLE `users_verificare`
   MODIFY `idVerificare` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
