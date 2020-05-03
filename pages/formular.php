@@ -25,7 +25,7 @@
     }
     function arrayVal($val,$array){
       if(!in_array($val,$array)){
-        header("Location: ./formularTemplate.php?7");
+        header("Location: ./formularTemplate.php");
         exit();
       }
     }

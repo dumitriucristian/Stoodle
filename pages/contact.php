@@ -2,7 +2,7 @@
 require './folderlogin/datacon.php';
 session_start();
 if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
-    header("Location: ../indexpp.php");
+    header("Location: ../index.php");
     exit();
 }
 ?>

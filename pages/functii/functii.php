@@ -50,7 +50,7 @@ function binarySearch(Array $var, $nr)
 	return false;
 }
 
-function comparare_materii($valoare,$valoare_user)
+function comparare_materii($valoare1,$valoare_user,$valoare2,$valoare3)
 {
   $materii_biologie=array("Chimie","Biologie","Fizica","Matematica");
   $materii_straine=array("Engleza","Franceza","Germana","Spaniola","Latina");
@@ -61,21 +61,21 @@ function comparare_materii($valoare,$valoare_user)
   $materii_geografie=array("Geografie","Istorie");
 
 
-  if($valoare_user == $valoare)
+  if(($valoare_user == $valoare1) xor ($valoare_user == $valoare2) xor ($valoare_user == $valoare3))
         return 5;
-  elseif(in_array($valoare,$materii_straine) && in_array($valoare_user,$materii_straine))
+  elseif(in_array($valoare1,$materii_straine) && in_array($valoare_user,$materii_straine))
     return 3;
-  elseif(in_array($valoare,$materii_biologie) && in_array($valoare_user,$materii_biologie))
+  elseif(in_array($valoare1,$materii_biologie) && in_array($valoare_user,$materii_biologie))
     return 3;
-  elseif(in_array($valoare,$materii_matematica) && in_array($valoare_user,$materii_matematica))
+  elseif(in_array($valoare1,$materii_matematica) && in_array($valoare_user,$materii_matematica))
     return 3;
-  elseif(in_array($valoare,$materii_informatica) && in_array($valoare_user,$materii_informatica))
+  elseif(in_array($valoare1,$materii_informatica) && in_array($valoare_user,$materii_informatica))
     return 3;
-  elseif(in_array($valoare,$materii_antreprenor) && in_array($valoare_user,$materii_antreprenor))
+  elseif(in_array($valoare1,$materii_antreprenor) && in_array($valoare_user,$materii_antreprenor))
     return 3;
-  elseif(in_array($valoare,$materii_psihologie) && in_array($valoare_user,$materii_psihologie))
+  elseif(in_array($valoare1,$materii_psihologie) && in_array($valoare_user,$materii_psihologie))
     return 3;
-  elseif(in_array($valoare,$materii_geografie) && in_array($valoare_user,$materii_geografie))
+  elseif(in_array($valoare1,$materii_geografie) && in_array($valoare_user,$materii_geografie))
     return 3;
   else
     return 0;
@@ -89,11 +89,11 @@ function comparare_profil($valoare,$valoare_user){
   if($valoare_user == $valoare)
         return 10;
   elseif(in_array($valoare,$profile_filo) && in_array($valoare_user,$profile_filo))
-    return $suma= 5;
+    return 5;
   elseif(in_array($valoare,$profile_real) && in_array($valoare_user,$profile_real))
     return 5;
   else
-    0;
+   return 0;
 }
 
 function comparare_judet($valoare,$valoare_user){
@@ -134,9 +134,9 @@ function getCompability($array, $user)
     if($user[0]['stres'] == $array['stres'])
         $compability_couter += 5;
 
-    $compability_couter += comparare_materii($array['materie1'],$user[0]['materie1']);
-    $compability_couter += comparare_materii($array['materie2'],$user[0]['materie2']);
-    $compability_couter += comparare_materii($array['materie3'],$user[0]['materie3']);
+    $compability_couter += comparare_materii($array['materie1'],$user[0]['materie1'],$array['materie2'],$array['materie3']);
+    $compability_couter += comparare_materii($array['materie2'],$user[0]['materie2'],$array['materie2'],$array['materie3']);
+    $compability_couter += comparare_materii($array['materie3'],$user[0]['materie3'],$array['materie2'],$array['materie3']);
 
     $compability_couter += comparare_profil($array['Profil'],$user[0]['Profil']);
 

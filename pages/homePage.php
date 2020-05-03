@@ -3,7 +3,7 @@ require './folderlogin/datacon.php';
 
 session_start();
 if(empty($_SESSION['mailUser']) && empty($_SESSION['mailGmail'])){
-    header("Location: ../indexpp.php");
+    header("Location: ../index.php");
     exit();
 }
 if(isset($_SESSION['mailUser']))
@@ -19,7 +19,7 @@ if(isset($_SESSION['mailGmail']))
 $stmt = mysqli_stmt_init($connection);
 if (!mysqli_stmt_prepare($stmt, $mysql))
 {
-    header("Location: ../indexpp.php");
+    header("Location: ../index.php");
     exit();
 }
 mysqli_stmt_bind_param($stmt, "s", $mail);
