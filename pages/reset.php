@@ -26,7 +26,7 @@ include './functii/functii.php';
                         <?php
                         erore2("mysqlerror","Eroare baza de date!");
                         erore2("expire","Link-ul a expirat");
-                        erore2("nouser","Nu exista cont!")
+                        erore2("nouser","Nu exista cont!");
                         succes("resetmail","Mail-ul pentru resetarea parolei a fost trimis!");
 
                         ?>
@@ -41,7 +41,7 @@ include './functii/functii.php';
                 echo '<input type="email" name="mailreset" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">';
             }
             ?>
-              <small class="form-text text-muted">
+              <small class="form-text alert-note">
                 <?php
                 erore1("emptymail","Completeaza campul!");
                 erore1("numail","Acesta adreasa de mail nu este una corecta!");

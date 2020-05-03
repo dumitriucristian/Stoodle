@@ -7,6 +7,24 @@ if(isset($_POST['submit-parola-reset'])){
   $confparola=$_POST['resetconfirmareparola'];
 
 
+  function asemanariParola($nume,$prenume,$password,$password_repeat,$select,$token){
+    if (strpos(strtolower($nume),strtolower($password))!==false) {
+      header("Location: ../newparola.php?error=identicpasswnume&select=".$select."&valid=".$token);
+      exit();
+    }
+    if (strpos(strtolower($password),strtolower($nume))!==false) {
+      header("Location: ../newparola.php?error=identicpasswnume&select=".$select."&valid=".$token);
+      exit();
+    }
+    if (strpos(strtolower($prenume),strtolower($password))!==false) {
+      header("Location: ../newparola.php?error=identicpasswprenume&select=".$select."&valid=".$token);
+      exit();
+    }
+    if (strpos(strtolower($password),strtolower($prenume))!==false) {
+      header("Location: ../newparola.php?error=identicpasswprenume&select=".$select."&valid=".$token);
+      exit();
+    }
+  }
   /*empty fields*/
   function emptyVar($var,$msg,$select,$token){
     if(empty($var)){
@@ -88,21 +106,12 @@ if(isset($_POST['submit-parola-reset'])){
             header("Location: ../reset.php?error=nouser");
             exit();
           }
-            $mysql="SELECT * FROM users WHERE pwdUsers=?";
-            $stmt=mysqli_stmt_init($connection);
-            if (!mysqli_stmt_prepare($stmt,$mysql)) {
-              header("Location: ../newparola.php?error=mysqlerror&select=".$select."&valid=".$token);
-              exit();
-            }
-              $hash=password_hash($parola, PASSWORD_DEFAULT);
-              mysqli_stmt_bind_param($stmt,"s",$hash);
-              mysqli_stmt_execute($stmt);
-              $rezultat=mysqli_stmt_get_result($stmt);
-              if($var=mysqli_fetch_assoc($rezultat)){
-                header("Location: ../newparola.php?error=aceeasiparola&select=".$select."&valid=".$token);
-                exit();
-              }
-
+          asemanariParola($var['Nume'],$var['Prenume'],$parola,$confparola,$select,$token);
+          $password_verify = password_verify($parola, $var['pwdUsers']);
+          if ($password_verify==true) {
+            header("Location: ../reset.php?error=aceeasiparola");
+            exit();
+          }
             $mysql="UPDATE users SET pwdUsers=? WHERE mailUser=?";
             $stmt=mysqli_stmt_init($connection);
             if (!mysqli_stmt_prepare($stmt,$mysql)) {

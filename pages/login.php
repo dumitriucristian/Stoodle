@@ -86,7 +86,7 @@ require_once './folderlogin/google-config.php';
                             Nu ai cont? <span>Înregistrează-te</span>
                         </a>
                         <br>
-                        <a href="register.php">
+                        <a href="reset.php">
                              Ai uitat parola?<span>Schimb-o</span>
                         </a>
                         <div class="form-group form-check">

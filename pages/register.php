@@ -81,7 +81,7 @@ include 'functii/functii.php';
 
                                 ?>
 
-                                <small>
+                                <small class="form-text alert-note">
 
                                     <?php
 
@@ -109,7 +109,7 @@ include 'functii/functii.php';
                                 }
                                 ?>
 
-                                <small class="form-text">
+                                <small class="form-text alert-note">
 
                                     <?php
                                     erore1("emptyfieldemail","Completeaza toate campurile!");
@@ -147,7 +147,7 @@ include 'functii/functii.php';
                             <div class="col-lg-6">
                                 <label for="exampleInputPassword1">Parolă</label>
                                 <input type="password" name="passw" class="form-control">
-                                <small class="form-text">
+                                <small class="form-text alert-note">
                                     <?php
                                     erore1("emptyfieldpass","Completeaza toate campurile!");
                                     erore1("invalidpassw","Pentru parola se pot folosi doar cifre si litere ale alfabetului englez!");

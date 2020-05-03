@@ -45,7 +45,7 @@ include 'functii/functii.php';
 
                                 <label for="exampleInputPassword1">Parolă</label>
                                 <input type="password" name="resetparola" class="form-control">
-                                <small class="form-text text-muted">
+                                <small class="form-text alert-note">
                                     <?php
                                     erore1("emptyfieldpassw","Completeaza toate campurile!");
                                     erore1("invalidpassw","Pentru parola se pot folosi doar cifre si litere ale alfabetului englez!");
@@ -53,7 +53,7 @@ include 'functii/functii.php';
                                     erore1("marepassw","Parola este prea lunga poate sa aiba maxim 48 de caractere!");
                                     erore1("identicpasswnume","Parola este asemanatoare  cu numele!");
                                     erore1("identicpasswprenume","Parola este asemanatoare  cu prenumele!");
-                                    erore1("passwdother","Parola este diferita fata de cofiramre parola!");
+                                    erore1("difparola","Parola este diferita fata de cofirmare parola!");
                                     erore1("aceeasiparola","Parola este asemanatoare cu cea veche!")
                                     ?>
                                 </small>
@@ -62,7 +62,7 @@ include 'functii/functii.php';
                             <div class="col-lg-6">
                                 <label for="exampleInputPassword1"> Confirmare Parolă</label>
                                 <input type="password" name="resetconfirmareparola" class="form-control">
-                                <small class="form-text text-muted alert-note">
+                                <small class="form-text alert-note">
                                     <?php
                                     erore1("emptyfieldpasswrepeat","Completeaza toate campurile!");
                                     erore1("invalidpasswrepeat","Pentru repetare parola se pot folosi doar cifre si litere ale alfabetului englez!");
