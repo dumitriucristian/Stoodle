@@ -17,7 +17,7 @@
 - [Bootstrap](https://getbootstrap.com/)
 - [Font-awesome](https://fontawesome.com/)
 
->Provocările întâlnită pe parcursul acestui proiect
+>Provocările întâlnită pe parcursul acestui proiect.
     Pentru noi cea mai grea parte a proiectului __Stoodle__ a fost creeare unui „AI” care să găsească cea mai potrivită facultate pentru user, dar și creeare posibilității de a adauga și a scoate anumite facultați de la favorite. Cateva dintre obstacolele intâlnite au fost:
     > Crearea unui formular
         Cert aceasta a fost cea mai dificilă parte a întregului proiect deoarece nu a constat în alegerea unui tehnici de programare ci în găsirea unui set de întrebări psihologici care să determine personalitatea __unică__ a fiecărui user. 
@@ -41,9 +41,9 @@
 Am învățat atât de multe lucruri încât nici nu am cum să le înșir pe toate
 
 > Cum am continua dezvoltarea Stoodle
-[] Optimizări, multe optimizări
-[] Mărirea bazei de date cu facultăți
-[] Mici modificări de design
+    [] Optimizări, multe optimizări
+    [] Mărirea bazei de date cu facultăți
+    [] Mici modificări de design
 
 > Cum să intalezi proiectul
 1. Downloadați stoodle-master.
