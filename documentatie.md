@@ -1,23 +1,23 @@
 # Documentatie Stoodle
 
-###Limbaje de programare folosite
+### Limbaje de programare folosite
 - PHP
 - HTML(limbaj de tag-uri)
 - CSS(limbaj de tag-uri)
 - Javascript
 
-###API-uri folosite
+### API-uri folosite
 - [PHPMailer](https://github.com/PHPMailer/PHPMailer)
     > Cum se seteaza PHPMailer?(se găsește în createphp.php și în resetphp.php)
     Ca PHPMailerul să funcționeze trebuie să se atribuie lui $mail->Username o adresă de mail validă,și trebuie pusă și parola corespunzatoare mail-ului în $mail->Password.După trebuie sa primți un mail în legatură cu securitatea contului in care ii spuneți că dumneavoastră ați accesat acel ip.In acelasi timp trebuie să vă asigurați că sunt permise  aplicațiile mai puțin [sigure](https://myaccount.google.com/security).
 
 
-###Libraries
+### Libraries
 - [Jquery](https://jquery.com/)
 - [Bootstrap](https://getbootstrap.com/)
 - [Font-awesome](https://fontawesome.com/)
 
-###Provocările întâlnită pe parcursul acestui proiect.
+### Provocările întâlnită pe parcursul acestui proiect
 
     Pentru noi cea mai grea parte a proiectului __Stoodle__ a fost creeare unui „AI” care să găsească cea mai potrivită facultate pentru user, dar și creeare posibilității de a adauga și a scoate anumite facultați de la favorite. Cateva dintre obstacolele intâlnite au fost:
     
