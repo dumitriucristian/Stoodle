@@ -42,6 +42,7 @@ require_once './folderlogin/google-config.php';
                             erore2("sqlierror","Eroare server!");
                             erore2("fatalerrorsql","Eroare aplicatie!");
                             succes("resetare","Parola a fost schimbata");
+                            succes("register","Verifica adresa de email pentru a te putea loga!");
                             ?>
 
                             <label for="exampleInputEmail1">Email</label>
@@ -104,7 +105,7 @@ require_once './folderlogin/google-config.php';
                         </a>
 
 
-                        <button type="submit" name="loginsubmit" class="button">Loghaeză-te</button>
+                        <button type="submit" name="loginsubmit" class="button">Logare</button>
                     </form>
 
                 </div>

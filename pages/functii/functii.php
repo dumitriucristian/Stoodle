@@ -61,21 +61,21 @@ function comparare_materii($valoare1,$valoare_user,$valoare2,$valoare3)
   $materii_geografie=array("Geografie","Istorie");
 
 
-  if(($valoare_user == $valoare1) xor ($valoare_user == $valoare2) xor ($valoare_user == $valoare3))
+  if(($valoare_user == $valoare1) || ($valoare_user == $valoare2) || ($valoare_user == $valoare3))
         return 5;
-  elseif(in_array($valoare1,$materii_straine) && in_array($valoare_user,$materii_straine))
+  elseif((in_array($valoare1,$materii_straine) && in_array($valoare_user,$materii_straine)) || (in_array($valoare2,$materii_straine) && in_array($valoare_user,$materii_straine)) || (in_array($valoare3,$materii_straine) && in_array($valoare_user,$materii_straine)))
     return 3;
-  elseif(in_array($valoare1,$materii_biologie) && in_array($valoare_user,$materii_biologie))
+  elseif((in_array($valoare1,$materii_biologie) && in_array($valoare_user,$materii_biologie)) || (in_array($valoare2,$materii_biologie) && in_array($valoare_user,$materii_biologie)) || (in_array($valoare3,$materii_biologie) && in_array($valoare_user,$materii_biologie)))
     return 3;
-  elseif(in_array($valoare1,$materii_matematica) && in_array($valoare_user,$materii_matematica))
+  elseif((in_array($valoare1,$materii_matematica) && in_array($valoare_user,$materii_matematica)) || (in_array($valoare2,$materii_matematica) && in_array($valoare_user,$materii_matematica)) || (in_array($valoare3,$materii_matematica) && in_array($valoare_user,$materii_matematica)))
     return 3;
-  elseif(in_array($valoare1,$materii_informatica) && in_array($valoare_user,$materii_informatica))
+  elseif((in_array($valoare1,$materii_informatica) && in_array($valoare_user,$materii_informatica)) || (in_array($valoare2,$materii_informatica) && in_array($valoare_user,$materii_informatica)) || (in_array($valoare3,$materii_informatica) && in_array($valoare_user,$materii_informatica)))
     return 3;
-  elseif(in_array($valoare1,$materii_antreprenor) && in_array($valoare_user,$materii_antreprenor))
+  elseif((in_array($valoare1,$materii_antreprenor) && in_array($valoare_user,$materii_antreprenor)) || (in_array($valoare2,$materii_antreprenor) && in_array($valoare_user,$materii_antreprenor)) || (in_array($valoare3,$materii_antreprenor) && in_array($valoare_user,$materii_antreprenor)))
     return 3;
-  elseif(in_array($valoare1,$materii_psihologie) && in_array($valoare_user,$materii_psihologie))
+  elseif((in_array($valoare1,$materii_psihologie) && in_array($valoare_user,$materii_psihologie)) || (in_array($valoare2,$materii_psihologie) && in_array($valoare_user,$materii_psihologie)) || (in_array($valoare3,$materii_psihologie) && in_array($valoare_user,$materii_psihologie)))
     return 3;
-  elseif(in_array($valoare1,$materii_geografie) && in_array($valoare_user,$materii_geografie))
+  elseif((in_array($valoare1,$materii_geografie) && in_array($valoare_user,$materii_geografie)) || (in_array($valoare2,$materii_geografie) && in_array($valoare_user,$materii_geografie)) || (in_array($valoare3,$materii_geografie) && in_array($valoare_user,$materii_geografie)))
     return 3;
   else
     return 0;

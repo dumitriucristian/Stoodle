@@ -38,11 +38,6 @@ CREATE TABLE `auth` (
 
 --
 -- Dumping data for table `auth`
---
-
-INSERT INTO `auth` (`id`, `validator`, `selector`, `userid`, `data`) VALUES
-(1, '$2y$10$rbcScoyEbNBEowPr28S3DuBYgdMrt/ClQheK0nVvWRLrvWgBFwb9m', '409cd1463c8cd52d35c8242742fd84b434bfd3762ed1371b', 0, 1590944748),
-(2, '$2y$10$NQxxNvU3ulkF7TT1XqdUr.931btky4ezf0vArnh.IGoposrajjwv2', '06c939c57218bf2aedf542c95a5ba3f4776b000c1922873d', 6, 1590968644);
 
 -- --------------------------------------------------------
 
@@ -103,10 +98,6 @@ CREATE TABLE `favorite` (
 -- Dumping data for table `favorite`
 --
 
-INSERT INTO `favorite` (`id`, `idUser`, `Indexf`, `tip`) VALUES
-(1, 1, 3, 'normal'),
-(22, 6, 2, 'normal');
-
 -- --------------------------------------------------------
 
 --
@@ -149,13 +140,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`idUser`, `Nume`, `Prenume`, `mailUser`, `pwdUsers`, `Profil`, `Domeniu`, `domeniu_intensitate`, `job`, `materie1`, `materie2`, `materie3`, `carti`, `sociabil`, `sport`, `stres`, `Judet`, `PozaUser`) VALUES
-(1, 'Grigorescu', 'Alexandru', 'grigorescu.aleex@gmail.com', '$2y$10$I6urXCEv4Klu7uMza1J9vejKMVVSJcoqZdFXTPRaFLfuTANTbZNZm', 'Mate-info', 'Programare/Calculatoare', 5, 0, 'Matematica', 'Fizica', 'TIC', 'Psihologie', 0, 'Da', 0, 'Prahova', 'UserDefault.jpg'),
-(6, 'Nume', 'Robert', 'robertplaiasu03@gmail.com', '$2y$10$uJ2AnpXLNXq3Uenquyf3DurigB7ISuaGjWsaxdIlGrvN3OIoXAKpG', 'Teologic', 'Religie', 5, 1, 'Religie', 'Muzica', 'Istorie', 'Religie', 1, '0', 0, 'Cluj', 'UserDefault.jpg');
-
 -- --------------------------------------------------------
 
 --
@@ -182,11 +166,7 @@ CREATE TABLE `users_gmail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users_gmail`
---
 
-INSERT INTO `users_gmail` (`idGmail`, `numeGmail`, `prenumeGmail`, `mailGmail`, `Profil`, `Domeniu`, `domeniu_intensitate`, `job`, `materie1`, `materie2`, `materie3`, `carti`, `sociabil`, `sport`, `stres`, `Judet`) VALUES
-(1, 'Grigorescu', 'Alexandru', 'grigorescu.aleex@gmail.com', 'Teologic', 'Medicina', 1, 0, 'Istorie', 'Geografie', 'Educatie civica', 'Culinare', 0, 0, 0, 'Alba');
 
 -- --------------------------------------------------------
 
@@ -209,10 +189,6 @@ CREATE TABLE `users_verificare` (
 --
 -- Dumping data for table `users_verificare`
 --
-
-INSERT INTO `users_verificare` (`idVerificare`, `numeVerificare`, `prenumeVerificare`, `mailVerificare`, `parolaVerificare`, `selectVerificare`, `tokenVerificare`, `expireVerificare`, `verificare`) VALUES
-(1, 'Nume', 'Robert', 'robertplaiasu03@gmail.com', '$2y$10$uJ2AnpXLNXq3Uenquyf3DurigB7ISuaGjWsaxdIlGrvN3OIoXAKpG', '3ff6a069d63330bfe06cacba', '$2y$10$tZs06egu/bbkBQ2dmFvhT.fSDA9RWBm6wcafRTxqPPhosZrYSI8PG', 1586774491, NULL);
-
 --
 -- Indexes for dumped tables
 --

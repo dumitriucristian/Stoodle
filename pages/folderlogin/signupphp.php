@@ -111,20 +111,14 @@
    validateVarNume($nume,$nume,$prenume,$email,$email_repeat,"nume");
    validateVarNume($prenume,$nume,$prenume,$email,$email_repeat,"prenume");
 
-   validateVarParola($password,$nume,$prenume,$email,$email_repeat,$password,$password_repeat,"pass");
-   validateVarParola($password_repeat,$nume,$prenume,$email,$email_repeat,$password,$password_repeat,"passrepeat");
+   validateVarParola($password,$nume,$prenume,$email,$email_repeat,$password,$password_repeat,"passw");
+   validateVarParola($password_repeat,$nume,$prenume,$email,$email_repeat,$password,$password_repeat,"passwrepeat");
 
    vulnerabilaParola($nume,$prenume,$email,$email_repeat,$password,$password_repeat);
 
    difVar($email,$email_repeat,$nume,$prenume,$email,$email_repeat,"mailother");
    difVar($password,$password_repeat,$nume,$prenume,$email,$email_repeat,"passwdother");
 
- if ($checkbox!=1) {
-   header("Location: ../register.php?error=check&nume=".$nume."&prenume=".$prenume."&email=".$email."&confirmail=".$email_repeat);
-   exit();
-}
-
-       else{
         $mysql="SELECT mailUser FROM users WHERE mailUser=?";
         $stmt=mysqli_stmt_init($connection);
         if (!mysqli_stmt_prepare($stmt,$mysql)) {
@@ -203,7 +197,7 @@
 
               header("Location: ../login.php?succes=register");
               exit();
-    }
+
     mysqli_stmt_close($stmt1);
     mysqli_stmt_close($stmt2);
     mysqli_stmt_close($stmt);

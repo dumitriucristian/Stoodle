@@ -30,7 +30,7 @@
       }
     }
 
-    if(empty($pasiune) || empty($intensitate_pasiune) || empty($job) || empty($carti) || empty($judet) || empty($sport) || empty($stres) || empty($social) || empty($materie1) || empty($materie2) || empty($materie3)){
+    if(empty($pasiune) || empty($intensitate_pasiune) || empty($carti) || empty($judet) ||  empty($materie1) || empty($materie2) || empty($materie3)){
       header("Location: ./formularTemplate.php");
       exit();
     }
@@ -52,6 +52,11 @@
     arrayVal($pasiune,$array_pasiune);
     arrayVal($profil,$array_profil);
 
+    if (($materie1 == $materie2 || $materie1 == $materie3) || ($materie2 == $materie3 && $materie2!="Niciuna din cele de mai jos")) {
+      header("Location: ./formularTemplate.php?error=materii");
+      exit();
+    }
+
     if (isset($_SESSION['mailUser']))
     {
       $session=$_SESSION['mailUser'];
@@ -64,7 +69,7 @@
     }
     $stmt=mysqli_stmt_init($connection);
     if(!mysqli_stmt_prepare($stmt,$mysql)){
-      header("Location: ./formularTemplate.php");
+      header("Location: ./formularTemplate.php?l");
       exit();
     }
     mysqli_stmt_bind_param($stmt,"sssssssssssss",$profil,$pasiune,$intensitate_pasiune,$job,$materie1,$materie2,$materie3,$carti,$social,$sport,$stres,$judet,$session);

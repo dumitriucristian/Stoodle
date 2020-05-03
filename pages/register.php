@@ -155,7 +155,7 @@ include 'functii/functii.php';
                                     erore1("marepassw","Parola este prea lunga poate sa aiba maxim 32 de caractere!");
                                     erore1("identicpasswnume","Parola este asemanatoare  cu numele!");
                                     erore1("identicpasswprenume","Parola este asemanatoare  cu prenumele!");
-                                    erore1("passwdother","Parola este diferita fata de cofiramre parola!");
+                                    erore1("passwdother","Parola este diferita fata de cofirmare parola!");
                                     ?>
                                 </small>
                             </div>

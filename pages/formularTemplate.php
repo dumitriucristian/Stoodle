@@ -1,6 +1,7 @@
 <?php
 
 include 'array.php';
+include 'functii/functii.php';
 session_start();
 require_once './folderlogin/datacon.php';
 
@@ -103,6 +104,9 @@ if(empty($_SESSION['mailUser'])&& empty($_SESSION['mailGmail'])){
                 padding: 1rem;
             }
         </style>
+      <?php
+      erore2('materii','Trebuie sa mai completezi inca o data formularul pentru ca ca 2 materii sunt asemanatoare!');
+       ?>
         <form action="./formular.php" method="post" id="formular">
 
             <div class="row" style="height:100vh">
@@ -147,7 +151,7 @@ if(empty($_SESSION['mailUser'])&& empty($_SESSION['mailGmail'])){
 
             <div class="row" style="height:100vh">
                 <div class="col flex-column d-flex justify-content-center align-items-center" style="height:100vh">
-                    <label>Care sunt materiile tale preferate</label>
+                    <label>Care sunt materiile tale preferate ?(Sa nu fie toate la fel)</label>
                     <select name="materie1">
                         <?php
                         foreach ($array_materie as $materie)
@@ -194,7 +198,7 @@ if(empty($_SESSION['mailUser'])&& empty($_SESSION['mailGmail'])){
                             echo "<option value='".$tip."'>".$tip."</option>";
                         ?>
                     </select>
-                    <input type="button" onclick="nextQuestion()" class="button" value="Urmatoare intrebare">\
+                    <input type="button" onclick="nextQuestion()" class="button" value="Urmatoare intrebare">
                 </div>
             </div>
 
@@ -211,7 +215,7 @@ if(empty($_SESSION['mailUser'])&& empty($_SESSION['mailGmail'])){
 
             <div class="row" style="height:100vh">
                 <div class="col flex-column d-flex justify-content-center align-items-center" style="height:100vh">
-                    <label>Practici vreun sport</label>
+                    <label>Practici vreun sport ?</label>
                     <select name="sport">
                         <option value="1">Da</option>
                         <option value="0">Nu</option>
@@ -257,8 +261,9 @@ if(empty($_SESSION['mailUser'])&& empty($_SESSION['mailGmail'])){
                 $(questions[index]).addClass("hidden");
                 index += 1;
             }
-        </script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+          </script>
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   </body>
     </body>
 
 </html>
