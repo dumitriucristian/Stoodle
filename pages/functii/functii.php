@@ -1,9 +1,24 @@
 <?php
+/*
+always in english
+proper naming for functions means a name that has clarity - what that function do?
+    erore1() should be getMainErrorMessage
+proper naming for parameters means names that say what it is that parameter
+    $value should be $errorType
+one space before and after ()
+one space before and after =,*,/,===,etc
+one space between functions
+allways indent parent - children elment with tab - not space
+o functie are o singura actiune si face un singur lucru
 
-function erore1($value,$msg)
+*/
+
+
+function erore1($value,$msg) : void
+
 {
-    if(isset($_GET['error'])){
-        if($_GET['error']==$value){
+    if (isset($_GET['error']) {
+        if ($_GET['error']==$value) {
             echo $msg;
         }
     }
@@ -14,27 +29,39 @@ function erore2($value,$msg)
     if(isset($_GET['error'])){
         if($_GET['error']==$value){
             echo '<div class="alert alert-danger" role="alert">
-                '.$msg.'
-            </div>';
-        }
-    }
-}
-function succes($value,$msg)
-{
-    if(isset($_GET['succes'])){
-        if($_GET['succes']==$value){
-            echo '<div class="alert alert-success" role="alert">
-                '.$msg.'
+              '.$msg.'
             </div>';
         }
     }
 }
 
+//afiseaza mesajele de succes - getSuccessMessage( $succesType, $successMessage)
+function succes(string $value, string $msg) : void
+{
+    if( isset ($_GET['succes'])) {
+        if ($_GET['succes'] == $value) {
+            echo
+                '<div class="alert alert-success" role="alert">
+                    '.$msg.'
+                </div>';
+        }
+    }
+}
+/*
+ * what this function do pick a proper name and what the heck are those var and nr
+ * check psr1 and psr2
+ */
+
 function binarySearch(Array $var, $nr)
 {
+    ///se intampla ceva important care opreste scriptul - e o fraza
 	if (count($var) === 0) return false;
+
+	//setezi ceva... ce setezi?
 	$nr_mic = 0;
 	$nr_mare = count($var) - 1;
+
+
 	while ($nr_mic <= $nr_mare) {
 		$nr_important = floor(($nr_mic + $nr_mare) / 2);
 		if($var[$nr_important] == $nr) {
@@ -50,8 +77,13 @@ function binarySearch(Array $var, $nr)
 	return false;
 }
 
+//ce inseamna valoare 1 2 3?
+//camelcase fara underscore
+//spatii dupa egal
+//aici e loc de refactorizare
 function comparare_materii($valoare1,$valoare_user,$valoare2,$valoare3)
 {
+    //seteaza niste variabile desi ar putea fi constante
   $materii_biologie=array("Chimie","Biologie","Fizica","Matematica");
   $materii_straine=array("Engleza","Franceza","Germana","Spaniola","Latina");
   $materii_matematica=array("Matematica","Fizica","Informatica");
@@ -60,27 +92,44 @@ function comparare_materii($valoare1,$valoare_user,$valoare2,$valoare3)
   $materii_psihologie=array("Psihologie","Sociologie");
   $materii_geografie=array("Geografie","Istorie");
 
-
-  if(($valoare_user == $valoare1) || ($valoare_user == $valoare2) || ($valoare_user == $valoare3))
+    ///verifici ceva si returnezi ceva in functie de asta
+    /// verifica conditiile de intendare la else if si if
+    /// nici o linie de cod nu trebuie sa fie mai lunga de 80char sau 120 char
+    /// dupa virgula spatiu liber intotdeauna
+  if(
+      ($valoare_user == $valoare1) ||
+      ($valoare_user == $valoare2) ||
+      ($valoare_user == $valoare3)
+  )
         return 5;
-  elseif((in_array($valoare1,$materii_straine) && in_array($valoare_user,$materii_straine)) || (in_array($valoare2,$materii_straine) && in_array($valoare_user,$materii_straine)) || (in_array($valoare3,$materii_straine) && in_array($valoare_user,$materii_straine)))
-    return 3;
-  elseif((in_array($valoare1,$materii_biologie) && in_array($valoare_user,$materii_biologie)) || (in_array($valoare2,$materii_biologie) && in_array($valoare_user,$materii_biologie)) || (in_array($valoare3,$materii_biologie) && in_array($valoare_user,$materii_biologie)))
-    return 3;
+  elseif(
+      //isClassType($valoare1, $materii_straine);
+            ( in_array($valoare1, $materii_straine) &&  in_array($valoare_user, $materii_straine )) ||
+            ( in_array($valoare2, $materii_straine) && in_array($valoare_user, $materii_straine)) ||
+            ( in_array($valoare3, $materii_straine) && in_array($valoare_user, $materii_straine)) ||
+            ( in_array($valoare1,$materii_biologie) && in_array($valoare_user,$materii_biologie)) ||
+            ( in_array($valoare2,$materii_biologie) && in_array($valoare_user,$materii_biologie) ) ||
+            ( in_array($valoare3,$materii_biologie) && in_array($valoare_user,$materii_biologie) ) ||
+
   elseif((in_array($valoare1,$materii_matematica) && in_array($valoare_user,$materii_matematica)) || (in_array($valoare2,$materii_matematica) && in_array($valoare_user,$materii_matematica)) || (in_array($valoare3,$materii_matematica) && in_array($valoare_user,$materii_matematica)))
-    return 3;
+
   elseif((in_array($valoare1,$materii_informatica) && in_array($valoare_user,$materii_informatica)) || (in_array($valoare2,$materii_informatica) && in_array($valoare_user,$materii_informatica)) || (in_array($valoare3,$materii_informatica) && in_array($valoare_user,$materii_informatica)))
-    return 3;
+
   elseif((in_array($valoare1,$materii_antreprenor) && in_array($valoare_user,$materii_antreprenor)) || (in_array($valoare2,$materii_antreprenor) && in_array($valoare_user,$materii_antreprenor)) || (in_array($valoare3,$materii_antreprenor) && in_array($valoare_user,$materii_antreprenor)))
-    return 3;
+
   elseif((in_array($valoare1,$materii_psihologie) && in_array($valoare_user,$materii_psihologie)) || (in_array($valoare2,$materii_psihologie) && in_array($valoare_user,$materii_psihologie)) || (in_array($valoare3,$materii_psihologie) && in_array($valoare_user,$materii_psihologie)))
-    return 3;
+
   elseif((in_array($valoare1,$materii_geografie) && in_array($valoare_user,$materii_geografie)) || (in_array($valoare2,$materii_geografie) && in_array($valoare_user,$materii_geografie)) || (in_array($valoare3,$materii_geografie) && in_array($valoare_user,$materii_geografie)))
     return 3;
   else
     return 0;
 }
+    function isClassType($class, $classType) : bool
+    {
+        return in_array($class,$classType);
+    }
 
+//ca mai sus in loc de else if replace with switch
 function comparare_profil($valoare,$valoare_user){
 
   $profile_filo=array("Filologie","Stiinte-sociale");
@@ -97,6 +146,10 @@ function comparare_profil($valoare,$valoare_user){
 }
 
 function comparare_pasiune($valoare,$valoare_user){
+//buba - solicita baza de date... aceste date sunt hardcodate si nu sunt administrabile
+    //sa existe  in baza de date
+    //selectate din baza de date
+
 
   $pasiune_programare=array("Matematica","Programare/Calculatoare","Electronica","Cibernetica");
   $pasiune_fizica=array("Matematica","Fizica","Astronomie","Arhitectura","Constructii","Inginerie electrica","Electronica","Inginerie Aerospatila");
